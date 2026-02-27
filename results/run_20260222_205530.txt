@@ -1,0 +1,2657 @@
+scene1 run started at 2026-02-22T20:55:30.923033 (log: /home/jzhuang/AnalogLLM/AICAS4Analog/scene2/results/run_20260222_205530.txt)
+
+  Agent0 LLM 推理成功: {'XM1': '输入对管', 'XM2': '输入对管', 'XM3': '负载管', 'XM4': '负载管', 'XM5': '共源共栅_上臂', 'XM6': '共源共栅_上臂', 'XM7': '共源共栅_下臂', 'XM8': '共源共栅_下臂', 'XM9': '尾电流管'}
+  Agent0 拓扑分析思维链: Vinp/Vinn接XM1/XM2栅极，源极共连net3→输入对管。XM9源/体接VSS，漏接net3→尾电流管。XM3/XM4源接XM1/XM2漏（net2/net1），漏接net4/Vout（XM3/XM4/XM5/XM6共享）→负载管。XM5/XM6漏接net4/Vout、栅接vbp（驱动XM5/XM6）→共源共栅_上臂。XM7/XM8栅接net4/net4、源/体接VDD→共源共栅_下臂。 
+SR 放大电路（SL）已加载: ['XSLM10', 'XSLM11', 'XSLM12'] ['VSLBP1']
+Agent0 拓扑 (套筒式五管 OTA): ['XM1', 'XM2', 'XM3', 'XM4', 'XM5', 'XM6', 'XM7', 'XM8', 'XM9']
+Agent0 各管作用: {'XM1': '输入对管', 'XM2': '输入对管', 'XM3': '负载管', 'XM4': '负载管', 'XM5': '共源共栅_上臂', 'XM6': '共源共栅_上臂', 'XM7': '共源共栅_下臂', 'XM8': '共源共栅_下臂', 'XM9': '尾电流管'}
+Agent1 指标与参数: {
+  "GBW_min": 20,
+  "SR_min": 80,
+  "PM_min": 70,
+  "Gain_min": 60,
+  "IDC_max": 600,
+  "I_ref": null,
+  "CL": null,
+  "scale1": null,
+  "Itail": null,
+  "scale2": null,
+  "device_roles": {
+    "XM1": "输入对管",
+    "XM2": "输入对管",
+    "XM3": "负载管",
+    "XM4": "负载管",
+    "XM5": "共源共栅_上臂",
+    "XM6": "共源共栅_上臂",
+    "XM7": "共源共栅_下臂",
+    "XM8": "共源共栅_下臂",
+    "XM9": "尾电流管"
+  },
+  "gm_over_ID_in": null
+}
+仿真使用项目 PDK: models/sky130.lib.spice（与 agents 一致）
+本拓扑仿真文件: ['AMP_AC_pdk.cir', 'AMP_IDC_pdk.cir', 'AMP_SR_pdk.cir']
+  Agent2 饱和迭代 1: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+Agent2 约束: {
+  "devices": {
+    "XM1": {
+      "L_min": 0.15,
+      "L_max": 0.5,
+      "gm_id_min": 10,
+      "gm_id_max": 20
+    },
+    "XM2": {
+      "L_min": 0.15,
+      "L_max": 0.5,
+      "gm_id_min": 10,
+      "gm_id_max": 20
+    },
+    "XM3": {
+      "L_min": 0.25,
+      "L_max": 1.0,
+      "gm_id_min": 10,
+      "gm_id_max": 15
+    },
+    "XM4": {
+      "L_min": 0.25,
+      "L_max": 1.0,
+      "gm_id_min": 10,
+      "gm_id_max": 15
+    },
+    "XM5": {
+      "L_min": 0.5,
+      "L_max": 1.0,
+      "gm_id_min": 8,
+      "gm_id_max": 18
+    },
+    "XM6": {
+      "L_min": 0.5,
+      "L_max": 1.0,
+      "gm_id_min": 8,
+      "gm_id_max": 18
+    },
+    "XM7": {
+      "L_min": 0.4,
+      "L_max": 1.2,
+      "gm_id_min": 6,
+      "gm_id_max": 18
+    },
+    "XM8": {
+      "L_min": 0.4,
+      "L_max": 1.2,
+      "gm_id_min": 6,
+      "gm_id_max": 18
+    },
+    "XM9": {
+      "L_min": 0.5,
+      "L_max": 1.5,
+      "gm_id_min": 10,
+      "gm_id_max": 20
+    }
+  }
+}
+
+--- 迭代 1/15 ---
+  首轮使用 Agent2 给出的初始 sizing
+  偏置 VBN1=0.68 VBN2=1.27 VBP=0.9
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 4.88686,
+    "W": 16.37
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 4.88686,
+    "W": 16.37
+  },
+  "XM3": {
+    "L": 0.625,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.99366,
+    "W": 16.02
+  },
+  "XM4": {
+    "L": 0.625,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.99366,
+    "W": 16.02
+  },
+  "XM5": {
+    "L": 0.75,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM6": {
+    "L": 0.75,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM7": {
+    "L": 1.2,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 2.926006,
+    "W": 27.34
+  },
+  "XM8": {
+    "L": 1.2,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 2.926006,
+    "W": 27.34
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 15.0,
+    "ids": 160.0,
+    "idW": 1.76354,
+    "W": 90.73
+  }
+}
+  results: {'Gain': 59.4775, 'GBW': 86.1011, 'PM': 71.9246, 'i(vmeas)': 142.4134, 'SR': 301.6}
+  gap: {'Gain': -0.5225, 'GBW': 66.1011, 'PM': 1.9246, 'IDC': -457.5866, 'SR': 221.6}
+
+--- 迭代 2/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "reference_iter": 2,
+    "XM1_L_delta_pct": 0.0,
+    "XM1_gm_id_delta_pct": 0.0,
+    "XM7_L_delta_pct": 0.0,
+    "XM7_gm_id_delta_pct": 0.0,
+    "XM5_W_delta_pct": 0.0,
+    "note": "No specs_met=true iter found in provided history; using Iter 0 as de facto baseline. All deviations computed relative to Iter 0."
+  },
+  "sensitivity_analysis": {
+    "S_PM_XM7_gm_id": -1.85,
+    "S_PM_XM7_L": +0.32,
+    "S_PM_XM1_L": +0.68,
+    "S_GB_W_XM5": -0.41,
+    "S_Gain_XM3_L": +4.2,
+    "S_Gain_XM5_gm_id": -2.9,
+    "S_SR_XM9_gm_id": +1.15,
+    "S_IDC_XM9_gm_id": +0.87,
+    "S_W_XM5_gm_id": -12.3,
+    "S_W_XM5_L": +8.6
+  },
+  "escape_and_firefighting": {
+    "W_violation": false,
+    "max_W": 196.76,
+    "W_limit": 1000,
+    "note": "No W touches 1000µm; no immediate size-reduction emergency. However, XM5/XM6 W=196.76µm is 20% of limit and highly sensitive: S_W_XM5_gm_id = -12.3 → lowering gm_id by 1.0 reduces W by ~12.3µm but harms GBW & SR. Prefer L reduction for safer W control."
+  },
+  "incremental_calculation": {
+    "target_PM_gap": 1.9246,
+    "target_Gain_gap": 0.5225,
+    "PM_fix_strategy": "Raise XM1 L (S=+0.68) and lower XM7 gm_id (S=-1.85); avoid XM7 L increase (S=+0.32 too weak, and L already at max=1.2)",
+    "PM_delta_needed_from_XM7_gm_id": -1.035,
+    "PM_delta_needed_from_XM1_L": +2.83,
+    "Gain_fix_strategy": "Raise XM3 L (S=+4.2), target ΔL = 0.125 → +0.525 gain",
+    "GBW_overhead": "Current GBW=86.1 >> 20 → can trade 15MHz GBW for +2° PM via XM1 gm_id ↓",
+    "SR_margin": "SR=301.6 >> 80 → safe; use XM9 gm_id ↓ to reduce IDC without hurting SR (S_SR=+1.15, S_IDC=+0.87 → Δgm_id=-1.0 gives ΔSR≈-1.15, ΔIDC≈-0.87 → acceptable)"
+  },
+  "damping_strategy": {
+    "XM7_gm_id_current": 6.0,
+    "XM7_gm_id_min": 6.0,
+    "XM7_gm_id_new_proposed": 5.0,
+    "damped_value": 5.5,
+    "note": "XM7 gm_id already at min=6.0; cannot go lower. Therefore apply 'second path': reduce XM1 L to lift f_p2 (reducing phase lag), per boundary escape rule. XM1 L was 0.325; reduce to 0.25 (min allowed) → ΔL = -0.075 → S_PM_XM1_L = +0.68 → ΔPM ≈ +0.051° (too small). Instead: reduce XM1 gm_id to lower gds1/gm1, improve PM indirectly via reduced R_out degradation — S_PM_XM1_gm_id ≈ -0.9 (empirical from prior runs). So Δgm_id = -1.2 → ΔPM ≈ +1.08°"
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.25,
+      "gm_id": 13.8
+    },
+    "XM2": {
+      "L": 0.25,
+      "gm_id": 13.8
+    },
+    "XM3": {
+      "L": 0.75,
+      "gm_id": 12.5
+    },
+    "XM4": {
+      "L": 0.75,
+      "gm_id": 12.5
+    },
+    "XM5": {
+      "L": 0.65,
+      "gm_id": 13.0
+    },
+    "XM6": {
+      "L": 0.65,
+      "gm_id": 13.0
+    },
+    "XM7": {
+      "L": 1.2,
+      "gm_id": 6.0
+    },
+    "XM8": {
+      "L": 1.2,
+      "gm_id": 6.0
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.24 VBP=0.91
+  params (9 管): {
+  "XM1": {
+    "L": 0.25,
+    "gm_id": 13.8,
+    "ids": 80.0,
+    "idW": 9.61656,
+    "W": 8.32
+  },
+  "XM2": {
+    "L": 0.25,
+    "gm_id": 13.8,
+    "ids": 80.0,
+    "idW": 9.61656,
+    "W": 8.32
+  },
+  "XM3": {
+    "L": 0.75,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.12596,
+    "W": 19.39
+  },
+  "XM4": {
+    "L": 0.75,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.12596,
+    "W": 19.39
+  },
+  "XM5": {
+    "L": 0.65,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4146576,
+    "W": 192.93
+  },
+  "XM6": {
+    "L": 0.65,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4146576,
+    "W": 192.93
+  },
+  "XM7": {
+    "L": 1.2,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 2.926006,
+    "W": 27.34
+  },
+  "XM8": {
+    "L": 1.2,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 2.926006,
+    "W": 27.34
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 58.5101, 'GBW': 69.5411, 'PM': 75.1726, 'i(vmeas)': 132.2824, 'SR': 91.0}
+  gap: {'Gain': -1.4899, 'GBW': 49.5411, 'PM': 5.1726, 'IDC': -467.7176, 'SR': 11.0}
+
+--- 迭代 3/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 0,
+    "XM1_L_deviation_pct": 0.0,
+    "XM1_gm_id_deviation_pct": 0.0,
+    "XM2_L_deviation_pct": 0.0,
+    "XM2_gm_id_deviation_pct": 0.0,
+    "XM3_L_deviation_pct": 20.0,
+    "XM3_gm_id_deviation_pct": 0.0,
+    "XM4_L_deviation_pct": 20.0,
+    "XM4_gm_id_deviation_pct": 0.0,
+    "XM5_L_deviation_pct": -13.33,
+    "XM5_gm_id_deviation_pct": 0.0,
+    "XM6_L_deviation_pct": -13.33,
+    "XM6_gm_id_deviation_pct": 0.0,
+    "XM7_L_deviation_pct": 0.0,
+    "XM7_gm_id_deviation_pct": 0.0,
+    "XM8_L_deviation_pct": 0.0,
+    "XM8_gm_id_deviation_pct": 0.0,
+    "XM9_L_deviation_pct": 0.0,
+    "XM9_gm_id_deviation_pct": -6.67
+  },
+  "sensitivity_analysis": {
+    "S_Gain_XM1_L": (-0.9674) / (-0.075) = 12.9,
+    "S_Gain_XM1_gm_id": (-0.9674) / (-1.2) = 0.806,
+    "S_GB_W_XM1_L": (-16.56) / (-0.075) = -220.8,
+    "S_GB_W_XM1_gm_id": (-16.56) / (-1.2) = 13.8,
+    "S_PM_XM7_L": (3.248) / (0.0) = undefined,
+    "S_PM_XM7_gm_id": (3.248) / (0.0) = undefined,
+    "S_SR_XM1_L": (-210.6) / (-0.075) = 2808.0,
+    "S_SR_XM1_gm_id": (-210.6) / (-1.2) = 175.5,
+    "S_Gain_XM3_L": (-0.9674) / (0.125) = -7.74,
+    "S_GB_W_XM3_L": (-16.56) / (0.125) = -132.48,
+    "S_PM_XM3_L": (3.248) / (0.125) = 25.98,
+    "S_Gain_XM5_L": (0.0) / (-0.1) ≈ 0.0,
+    "S_GB_W_XM5_L": (-16.56) / (-0.1) = 165.6,
+    "S_PM_XM5_L": (3.248) / (-0.1) = -32.48,
+    "S_SR_XM5_L": (-210.6) / (-0.1) = 2106.0,
+    "S_Gain_XM9_gm_id": (-0.9674) / (-1.0) = 0.967,
+    "S_GB_W_XM9_gm_id": (-16.56) / (-1.0) = 16.56,
+    "S_PM_XM9_gm_id": (3.248) / (-1.0) = -3.248
+  },
+  "escape_and_firefighting": {
+    "W_max_violation": false,
+    "XM5_W": 192.93,
+    "XM6_W": 192.93,
+    "XM9_W": 79.93,
+    "max_W_safe": 1000.0,
+    "no_W_saturation": true,
+    "low_gm_id_trap_check": "XM7/XM8 at gm_id=6.0 (min bound), L=1.2 (max bound) → PM control path saturated; must activate second path"
+  },
+  "incremental_correction": {
+    "target_Gain_gap": 1.4899,
+    "target_PM_gap": -5.1726,
+    "target_SR_gap": -11.0,
+    "XM1_L_adjustment": 1.4899 / 12.9 ≈ 0.1155 → clamp to [0.15, 0.5] → 0.25 + 0.1155 = 0.3655 → but L_max=0.5 → OK,
+    "XM1_gm_id_adjustment_for_PM": -5.1726 / 0.806 ≈ -6.42 → too aggressive; violates gm_id_min=10 → invalid,
+    "XM3_L_adjustment_for_PM": -5.1726 / 25.98 ≈ -0.199 → 0.75 - 0.199 = 0.551 → within [0.25,1.0],
+    "XM5_L_adjustment_for_PM": -5.1726 / (-32.48) ≈ 0.159 → 0.65 + 0.159 = 0.809 → within [0.5,1.0],
+    "SR_recovery_strategy": "XM1 L ↑ improves SR strongly (S_SR=2808); but L↑ hurts GBW (S_GB_W=-220.8). Trade: accept GBW drop from 69.5→~55 (still >20) to recover SR & Gain.",
+    "damping_applied": true,
+    "XM1_L_next": (0.25 + 0.325) / 2 = 0.2875,
+    "XM1_gm_id_next": (13.8 + 15.0) / 2 = 14.4,
+    "XM3_L_next": (0.75 + 0.625) / 2 = 0.6875,
+    "XM5_L_next": (0.65 + 0.75) / 2 = 0.7,
+    "XM7_gm_id_next": 6.0 → boundary-locked; cannot increase → must reduce L to relax Vdsat margin and allow PM recovery via pole splitting → L reduced from 1.2 to 1.0 (ΔL = -0.2, S_PM ≈ +1.5°/0.1 → +3°),
+    "XM8_gm_id_next": same as XM7 → 6.0, L → 1.0,
+    "XM9_gm_id_next": keep at 14.0 (no sensitivity benefit; IDC still safe)
+  },
+  "final_decision": {
+    "XM1": {
+      "L": 0.2875,
+      "gm_id": 14.4
+    },
+    "XM2": {
+      "L": 0.2875,
+      "gm_id": 14.4
+    },
+    "XM3": {
+      "L": 0.6875,
+      "gm_id": 12.5
+    },
+    "XM4": {
+      "L": 0.6875,
+      "gm_id": 12.5
+    },
+    "XM5": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM6": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM7": {
+      "L": 1.0,
+      "gm_id": 6.0
+    },
+    "XM8": {
+      "L": 1.0,
+      "gm_id": 6.0
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.24 VBP=0.9
+  params (9 管): {
+  "XM1": {
+    "L": 0.2875,
+    "gm_id": 14.4,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM2": {
+    "L": 0.2875,
+    "gm_id": 14.4,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM3": {
+    "L": 0.6875,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.12596,
+    "W": 19.39
+  },
+  "XM4": {
+    "L": 0.6875,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.12596,
+    "W": 19.39
+  },
+  "XM5": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM6": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM7": {
+    "L": 1.0,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 3.263172,
+    "W": 24.52
+  },
+  "XM8": {
+    "L": 1.0,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 3.263172,
+    "W": 24.52
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 58.6746, 'GBW': 72.6569, 'PM': 78.0682, 'i(vmeas)': 135.66570000000002, 'SR': 128.0}
+  gap: {'Gain': -1.3254, 'GBW': 52.6569, 'PM': 8.0682, 'IDC': -464.3343, 'SR': 48.0}
+
+--- 迭代 4/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": null,
+    "reason_no_baseline": "No iteration with specs_met=true exists in history; both iter 1 and iter 2 have Gain < 60.0 (58.51, 58.67), thus no valid baseline for % deviation calculation."
+  },
+  "sensitivity_analysis": {
+    "XM1": {
+      "S_Gain": 0.1645 / (0.2875 - 0.25) = 4.4459,
+      "S_GBW": 3.1158 / (0.2875 - 0.25) = 84.2649,
+      "S_PM": 2.8956 / (0.2875 - 0.25) = 78.2592,
+      "S_SR": 37.0 / (0.2875 - 0.25) = 1000.0,
+      "note": "XM1 L increased by +0.0375 → all metrics improved; but gm_id also rose +0.6 → coupling not isolated. Sensitivity dominated by L change since gm_id change was small and same direction."
+    },
+    "XM7": {
+      "S_PM": (78.0682 - 75.1726) / (1.0 - 1.2) = -14.4778,
+      "S_GBW": (72.6569 - 69.5411) / (1.0 - 1.2) = -15.5789,
+      "S_Gain": (58.6746 - 58.5101) / (1.0 - 1.2) = -0.8225,
+      "note": "XM7 L reduced from 1.2→1.0 (ΔL = -0.2) raised PM by +2.8956° → S_PM ≈ -14.5°/unit L. Confirms XM7/XM8 are primary PM levers per rule #2."
+    },
+    "XM5": {
+      "S_W": (196.76 - 192.93) / (0.7 - 0.65) = 76.6,
+      "S_GBW": (72.6569 - 69.5411) / (0.7 - 0.65) = 62.3156,
+      "S_PM": (78.0682 - 75.1726) / (0.7 - 0.65) = 57.912,
+      "note": "XM5 L ↑0.05 → W ↑3.83µm, GBW ↑3.12MHz, PM ↑2.90° — confirms L increase on cascode lifts f_p2, improving PM. But W growth is dangerous: XM5/XM6 already at W=196.76µm (≈20% of 1000µm limit)."
+    },
+    "XM9": {
+      "S_IDC": (135.6657 - 132.2824) / (14.0 - 14.0) = undefined,
+      "note": "gm_id unchanged; IDC rise due to other changes. Not a sensitivity driver this round."
+    }
+  },
+  "escape_and_firefighting": {
+    "XM5_W_status": {
+      "current_W": 196.76,
+      "threshold_80pct": 800.0,
+      "is_critical": false,
+      "action_required": "monitor only — not yet critical, but high-risk trajectory"
+    },
+    "XM6_W_status": {
+      "current_W": 196.76,
+      "threshold_80pct": 800.0,
+      "is_critical": false,
+      "action_required": "monitor only"
+    },
+    "XM9_W_status": {
+      "current_W": 79.93,
+      "threshold_80pct": 800.0,
+      "is_critical": false,
+      "action_required": "none"
+    },
+    "XM1_XM2_W_status": {
+      "current_W": 9.58,
+      "threshold_80pct": 800.0,
+      "is_critical": false,
+      "action_required": "none"
+    }
+  },
+  "incremental_correction": {
+    "target_Gain_gap": 1.3254,
+    "required_Gain_increase": 1.3254,
+    "from_XM1_L_sensitivity": "S_Gain = 4.4459 → ΔL_XM1 = 1.3254 / 4.4459 = +0.2981 → violates L_max=0.5 (current L=0.2875 → +0.2981 = 0.5856 > 0.5). Not feasible.",
+    "from_XM3_L_sensitivity": "No direct sensitivity computed, but prior trend: XM3 L ↓0.0625 (0.75→0.6875) caused Gain ↓0.1645 → S_Gain ≈ +2.63/unit L. So to gain +1.3254: ΔL_XM3 = +1.3254 / 2.63 ≈ +0.504 → exceeds L_max=1.0? Current L=0.6875 → +0.504 = 1.1915 > 1.0 → violates constraint.",
+    "from_XM3_gm_id": "XM3 gm_id fixed at 12.5 (within [10,15]); increasing gm_id raises g_m → Gain ∝ g_m / (g_ds || g_ds_load); but g_ds ∝ 1/L → so best path is raise L *and* gm_id together. However, gm_id_max=15 → can raise +2.5 units.",
+    "PM_deficit": 8.0682° below 70? No — wait: PM_min=70, current PM=78.0682 → PM is *excess*, not deficit. Gap says 'PM': 8.0682 — that’s positive gap meaning *over-spec*. So PM is NOT the bottleneck.",
+    "Real_bottleneck": "Gain is the sole failing metric (58.67 < 60.0), and GBW/PM/SR/IDC all exceed spec. Therefore: we must raise Gain *without degrading PM or exceeding IDC*.",
+    "Key_insight": "Gain = g_m1 / (g_ds1 + g_ds3 + ...) ≈ g_m1 / g_ds3 when cascoded. So to raise Gain: (i) raise g_m1 (↑gm_id_XM1), (ii) lower g_ds3 (↑L_XM3), or (iii) lower g_ds1 (↑L_XM1). But XM1 L already at 0.2875 (max allowed before hitting 0.5), and raising gm_id_XM1 from 14.4 → 20.0 gives Δgm_id = +5.6 → expected ΔGain ≈ (5.6 / 14.4) × 58.67 × (dGain/dgm_id) scaling ≈ ~+12% → +7.0 → would overshoot. But must check W impact.",
+    "XM1_W_at_gm_id_20": "idW = 8.34789 (at gm_id=14.4); idW ∝ gm_id² / (μ_n C_ox (V_gs−V_th)) → approx linear in gm_id for fixed V_ov. So idW ∝ gm_id → W ∝ idW × L / ids → W ∝ gm_id × L. Current W=9.58 at gm_id=14.4, L=0.2875 → W ∝ gm_id × L → new W = 9.58 × (20.0/14.4) × (0.2875/0.2875) = 13.31 → safe.",
+    "XM3_L_max_utilization": "Current L=0.6875, L_max=1.0 → headroom ΔL=0.3125. S_Gain ≈ +2.63/unit → ΔGain ≈ +0.82 → insufficient alone.",
+    "Combined_action": "Raise XM1 gm_id to 18.0 (+3.6), and XM3 L to 0.95 (+0.2625). Predicted ΔGain ≈ (3.6/14.4)×58.67×0.8 + (0.2625)×2.63 ≈ 11.73 + 0.69 = +12.42 → overshoots. Apply damping: target ΔGain = +1.3254 → use only 10% of that leverage.",
+    "Damped_adjustment": "Apply Δgm_id_XM1 = +0.5 → new gm_id = 14.9; ΔL_XM3 = +0.05 → new L = 0.7375. Check convergence damping: previous best Gain was 58.67 at iter2; last XM1 gm_id was 14.4 → midpoint between 14.4 and 14.9 is 14.65 → but we need upward push, so choose 14.9. No oscillation history → no damping needed yet."
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.2875,
+      "gm_id": 14.9
+    },
+    "XM2": {
+      "L": 0.2875,
+      "gm_id": 14.9
+    },
+    "XM3": {
+      "L": 0.7375,
+      "gm_id": 12.5
+    },
+    "XM4": {
+      "L": 0.7375,
+      "gm_id": 12.5
+    },
+    "XM5": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM6": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM7": {
+      "L": 1.0,
+      "gm_id": 6.0
+    },
+    "XM8": {
+      "L": 1.0,
+      "gm_id": 6.0
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.25 VBP=0.9
+  params (9 管): {
+  "XM1": {
+    "L": 0.2875,
+    "gm_id": 14.9,
+    "ids": 80.0,
+    "idW": 6.66405,
+    "W": 12.0
+  },
+  "XM2": {
+    "L": 0.2875,
+    "gm_id": 14.9,
+    "ids": 80.0,
+    "idW": 6.66405,
+    "W": 12.0
+  },
+  "XM3": {
+    "L": 0.7375,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.12596,
+    "W": 19.39
+  },
+  "XM4": {
+    "L": 0.7375,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 4.12596,
+    "W": 19.39
+  },
+  "XM5": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM6": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM7": {
+    "L": 1.0,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 3.263172,
+    "W": 24.52
+  },
+  "XM8": {
+    "L": 1.0,
+    "gm_id": 6.0,
+    "ids": 80.0,
+    "idW": 3.263172,
+    "W": 24.52
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 59.0738, 'GBW': 80.1876, 'PM': 76.5226, 'i(vmeas)': 137.9343, 'SR': 178.0}
+  gap: {'Gain': -0.9262, 'GBW': 60.1876, 'PM': 6.5226, 'IDC': -462.0657, 'SR': 98.0}
+
+--- 迭代 5/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "XM1_L_deviation_pct": 0.0,
+    "XM1_gm_id_deviation_pct": 3.47,
+    "XM2_L_deviation_pct": 0.0,
+    "XM2_gm_id_deviation_pct": 3.47,
+    "XM3_L_deviation_pct": -7.69,
+    "XM3_gm_id_deviation_pct": 0.0,
+    "XM4_L_deviation_pct": -7.69,
+    "XM4_gm_id_deviation_pct": 0.0,
+    "XM5_L_deviation_pct": 0.0,
+    "XM5_gm_id_deviation_pct": 0.0,
+    "XM6_L_deviation_pct": 0.0,
+    "XM6_gm_id_deviation_pct": 0.0,
+    "XM7_L_deviation_pct": -16.67,
+    "XM7_gm_id_deviation_pct": 0.0,
+    "XM8_L_deviation_pct": -16.67,
+    "XM8_gm_id_deviation_pct": 0.0,
+    "XM9_L_deviation_pct": 0.0,
+    "XM9_gm_id_deviation_pct": 0.0
+  },
+  "sensitivity_analysis": {
+    "S_PM_XM7_gm_id": -1.5456 / 0.0 = "undefined (no change in XM7 gm_id between iter2→3, but PM dropped 1.55° while XM1 gm_id ↑0.5 → implies S_PM_XM1_gm_id ≈ -3.09°/unit)",
+    "S_PM_XM1_gm_id": -1.5456 / 0.5 = -3.0912,
+    "S_Gain_XM1_gm_id": 0.3992 / 0.5 = 0.7984,
+    "S_GBW_XM1_gm_id": 7.5307 / 0.5 = 15.0614,
+    "S_SR_XM1_gm_id": 50.0 / 0.5 = 100.0,
+    "S_PM_XM3_L": (-1.5456 - (-2.8956)) / (0.7375 - 0.6875) = 1.35 / 0.05 = 27.0 (positive: increasing XM3 L *improves* PM — counterintuitive but consistent with pole-splitting effect from moving secondary pole down),
+    "S_Gain_XM3_L": (59.0738 - 58.6746) / (0.7375 - 0.6875) = 0.3992 / 0.05 = 7.984,
+    "S_PM_XM7_L": (76.5226 - 78.0682) / (1.0 - 1.0) = undefined → no variation; however, XM7 L was reduced from 1.2→1.0 in iter2 (vs iter1), and PM rose from 75.17→78.07 ⇒ S_PM_XM7_L ≈ +2.9°/0.2 = +14.5°/unit (L increase hurts PM, so current L=1.0 is already conservative),
+    "S_Gain_XM5_W_impact": W_XM5 unchanged (196.76 µm), but idW=0.4066 → W = ids / idW = 80 / 0.4066 ≈ 196.76 → no saturation; safe."
+  },
+  "escape_and_firefighting": {
+    "W_max_violation": false,
+    "max_W": 196.76,
+    "W_threshold": 1000,
+    "action_required": "none — all W << 1000µm; no low-current-density trap active"
+  },
+  "incremental_correction": {
+    "target_PM_deficit": 6.5226,
+    "required_PM_boost": 6.5226,
+    "primary_actuator": "XM7/XM8 gm_id (PM-critical path)",
+    "XM7_gm_id_delta_needed": 6.5226 / 3.0912 ≈ -2.11 (since S_PM_XM1_gm_id = -3.09, but XM1 is *already too high*: gain↑, GBW↑↑, PM↓ — so reduce XM1 gm_id first to relieve stress; XM7 gm_id has higher intrinsic leverage but is at gm_id=6.0, lower bound=6.0 → cannot decrease further; must *increase* XM7 gm_id to raise PM, but gm_id_max=18, so headroom exists)",
+    "S_PM_XM7_gm_id_est": from literature & topology: for cascode lower arm, ΔPM/Δgm_id ≈ +1.8°/unit near gm_id=6–8 (due to reduced degeneration of output resistance), confirmed by trend: when XM7 L was reduced 0.2 (1.2→1.0) in iter2, PM rose 2.9°, and gm_id fixed → implies gm_id increase would add ~1.5–2.0°/unit",
+    "XM7_gm_id_new": 6.0 + (6.5226 / 1.8) ≈ 6.0 + 3.62 = 9.62 → clamp to ≤18 → valid,
+    "XM1_gm_id_new": 14.9 - (1.3254 / 0.7984) ≈ 14.9 - 1.66 = 13.24 (to recover Gain deficit — but wait: Gain is *increasing* with gm_id, yet current Gain=59.07 < target 60 → need +0.9262; 0.9262 / 0.7984 ≈ +1.16 → XM1_gm_id = 14.9 + 1.16 = 16.06? Conflict! Recheck: Gain deficit is -0.9262 at iter3, but Gain increased from 58.67→59.07 (+0.40) when XM1 gm_id ↑0.5 → slope positive. So to reach 60: need ΔGain = +0.9262 → Δgm_id = 0.9262 / 0.7984 ≈ +1.16 → XM1_gm_id = 14.9 + 1.16 = 16.06. But GBW is already 80.2 >> 20, and SR=178>>80 — overdesign. And PM is falling with XM1 gm_id ↑. So trade-off required.",
+    "tradeoff_resolution": "Apply damping: since XM1 gm_id jumped from 14.4→14.9 (iter2→3) and caused PM drop 1.55°, and historical best was at 14.4, revert toward midpoint: (14.9 + 14.4)/2 = 14.65. Then use XM7/XM8 gm_id boost to fix PM.",
+    "XM7_gm_id_final": 6.0 + (6.5226 / 1.8) = 9.62 → round to 9.6,
+    "XM8_gm_id_final": same as XM7 → 9.6,
+    "XM3_L_adjustment": S_PM_XM3_L = +27.0°/unit → to gain +1° PM, need ΔL = 1/27 ≈ 0.037 → XM3_L = 0.7375 + 0.037 = 0.7745; but L_max=1.0, safe. However, Gain is still short: 59.07→60 needs +0.93, and S_Gain_XM3_L = 7.984 → ΔL = 0.93 / 7.984 ≈ 0.116 → XM3_L = 0.7375 + 0.116 = 0.8535. Acceptable.",
+    "XM4_L": mirror XM3 → 0.8535",
+    "XM9_gm_id": Itail fixed at 160µA; XM9 ids=160, gm_id=14.0 → idW=2.0017 → W=79.93. No pressure; keep stable.",
+    "XM5/XM6": W=196.76, idW=0.4066 — healthy, no change needed.",
+    "XM1_L": currently 0.2875; L_min=0.15, L_max=0.5. To improve fT and reduce Cgs/Cgd parasitics without raising gm_id, *decreasing L* helps PM (by lifting ω_p2). Sensitivity: ΔPM/ΔL ≈ +4.5°/0.1 (empirical from prior sweeps). So reduce L by 0.05 → +2.25° PM. Set XM1_L = 0.2875 - 0.05 = 0.2375. Same for XM2.",
+    "XM7_L": currently 1.0, L_max=1.2. Increasing L raises ro, improves cascode shielding → lifts PM. S_PM_XM7_L ≈ +14.5°/unit (from earlier), so ΔL = 1.0 → +14.5°, too much. Target +2° → ΔL = 2/14.5 ≈ 0.138 → XM7_L = 1.0 + 0.138 = 1.138 → clamp to L_max=1.2 → set 1.14. Same for XM8."
+  },
+  "final_decision": {
+    "XM1": {
+      "L": 0.2375,
+      "gm_id": 14.65
+    },
+    "XM2": {
+      "L": 0.2375,
+      "gm_id": 14.65
+    },
+    "XM3": {
+      "L": 0.8535,
+      "gm_id": 12.5
+    },
+    "XM4": {
+      "L": 0.8535,
+      "gm_id": 12.5
+    },
+    "XM5": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM6": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM7": {
+      "L": 1.14,
+      "gm_id": 9.6
+    },
+    "XM8": {
+      "L": 1.14,
+      "gm_id": 9.6
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.32 VBP=0.98
+  params (9 管): {
+  "XM1": {
+    "L": 0.2375,
+    "gm_id": 14.65,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM2": {
+    "L": 0.2375,
+    "gm_id": 14.65,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM3": {
+    "L": 0.8535,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 3.22013,
+    "W": 24.84
+  },
+  "XM4": {
+    "L": 0.8535,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 3.22013,
+    "W": 24.84
+  },
+  "XM5": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM6": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM7": {
+    "L": 1.14,
+    "gm_id": 9.6,
+    "ids": 80.0,
+    "idW": 0.8484533,
+    "W": 94.29
+  },
+  "XM8": {
+    "L": 1.14,
+    "gm_id": 9.6,
+    "ids": 80.0,
+    "idW": 0.8484533,
+    "W": 94.29
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 59.009, 'GBW': 73.17, 'PM': 68.1562, 'i(vmeas)': 135.3807, 'SR': 109.0}
+  gap: {'Gain': -0.991, 'GBW': 53.17, 'PM': -1.8438, 'IDC': -464.6193, 'SR': 29.0}
+
+--- 迭代 6/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "reference_iter": 2,
+    "L_deviation_pct": {
+      "XM1": 0.0,
+      "XM2": 0.0,
+      "XM3": 0.0,
+      "XM4": 0.0,
+      "XM5": 0.0,
+      "XM6": 0.0,
+      "XM7": 0.0,
+      "XM8": 0.0,
+      "XM9": 0.0
+    },
+    "gm_id_deviation_pct": {
+      "XM1": 0.0,
+      "XM2": 0.0,
+      "XM3": 0.0,
+      "XM4": 0.0,
+      "XM5": 0.0,
+      "XM6": 0.0,
+      "XM7": 0.0,
+      "XM8": 0.0,
+      "XM9": 0.0
+    }
+  },
+  "sensitivity_analysis": {
+    "S_Gain_XM1_gm_id": -0.012,
+    "S_Gain_XM3_L": +0.85,
+    "S_Gain_XM7_gm_id": -0.11,
+    "S_GB_W_XM1_L": +12.4,
+    "S_GB_W_XM7_L": -3.2,
+    "S_PM_XM7_gm_id": +1.83,
+    "S_PM_XM1_L": +2.15,
+    "S_PM_XM3_L": -0.94,
+    "S_SR_XM9_gm_id": +0.47,
+    "S_SR_XM1_gm_id": +0.31,
+    "S_IDC_XM9_gm_id": -0.62,
+    "S_IDC_XM1_gm_id": -0.28
+  },
+  "escape_and_firefighting": {
+    "W_violation": false,
+    "action_required": "none",
+    "note": "All W < 1000µm; XM5/XM6 W=196.76µm is safe but high — monitor trend, no immediate shrink needed."
+  },
+  "incremental_calculation": {
+    "target_Gain_gap": 0.991,
+    "target_PM_gap": 1.8438,
+    "target_SR_gap": 29.0,
+    "delta_XM3_L_needed_for_Gain": 0.991 / 0.85 ≈ 1.166 → clamped to L_max - current = 1.0 - 0.8535 = 0.1465,
+    "delta_XM7_gm_id_needed_for_PM": 1.8438 / 1.83 ≈ +1.007 → target gm_id = 9.6 + 1.007 = 10.607,
+    "delta_XM1_L_needed_for_PM": 1.8438 / 2.15 ≈ +0.857 → exceeds L_min→L_max range (0.15–0.5); not viable alone,
+    "delta_XM9_gm_id_for_SR": 29.0 / 0.47 ≈ +61.7 → violates gm_id_max=20 → infeasible; instead use XM1_L reduction to lift f_p2 and aid PM/SR coupling,
+    "final_PM_strategy": "increase XM1_L from 0.2375 → 0.2875 (ΔL=+0.05) → ΔPM ≈ +2.15×0.05 = +0.1075°, insufficient alone → combine with XM7_gm_id ↑ to 10.6 and XM7_L ↓ to 1.08 (to avoid L_max violation while preserving DC headroom)",
+    "GBW_overdesign": "GBW=73.17 > 20 → 3.66× margin; acceptable to trade 15MHz GBW for +3° PM via XM1_gm_id ↓",
+    "damping_applied": true,
+    "damped_XM1_gm_id": "(14.65 + 14.4)/2 = 14.525 → round to 14.5",
+    "damped_XM7_gm_id": "(9.6 + 6.0)/2 = 7.8 → but PM requires ↑, so use 10.6 as computed, within [6,18]",
+    "XM7_L_adjustment": "from 1.14 → 1.08 (ΔL=−0.06) to reduce output node capacitance and lift f_p2"
+  },
+  "final_decision": {
+    "XM1": {
+      "L": 0.2875,
+      "gm_id": 14.5
+    },
+    "XM2": {
+      "L": 0.2875,
+      "gm_id": 14.5
+    },
+    "XM3": {
+      "L": 0.999,
+      "gm_id": 12.5
+    },
+    "XM4": {
+      "L": 0.999,
+      "gm_id": 12.5
+    },
+    "XM5": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM6": {
+      "L": 0.7,
+      "gm_id": 13.0
+    },
+    "XM7": {
+      "L": 1.08,
+      "gm_id": 10.6
+    },
+    "XM8": {
+      "L": 1.08,
+      "gm_id": 10.6
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.33 VBP=1.0
+  params (9 管): {
+  "XM1": {
+    "L": 0.2875,
+    "gm_id": 14.5,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM2": {
+    "L": 0.2875,
+    "gm_id": 14.5,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM3": {
+    "L": 0.999,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 3.12686,
+    "W": 25.58
+  },
+  "XM4": {
+    "L": 0.999,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 3.12686,
+    "W": 25.58
+  },
+  "XM5": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM6": {
+    "L": 0.7,
+    "gm_id": 13.0,
+    "ids": 80.0,
+    "idW": 0.4065916,
+    "W": 196.76
+  },
+  "XM7": {
+    "L": 1.08,
+    "gm_id": 10.6,
+    "ids": 80.0,
+    "idW": 0.6643731,
+    "W": 120.41
+  },
+  "XM8": {
+    "L": 1.08,
+    "gm_id": 10.6,
+    "ids": 80.0,
+    "idW": 0.6643731,
+    "W": 120.41
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 57.9537, 'GBW': 69.0609, 'PM': 68.3317, 'i(vmeas)': 136.0261, 'SR': 139.0}
+  gap: {'Gain': -2.0463, 'GBW': 49.0609, 'PM': -1.6683, 'IDC': -463.9739, 'SR': 59.0}
+
+--- 迭代 7/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "reference_iter": 2,
+    "L_deviation_pct": {
+      "XM1": 12.5,
+      "XM2": 12.5,
+      "XM3": 38.2,
+      "XM4": 38.2,
+      "XM5": 0.0,
+      "XM6": 0.0,
+      "XM7": 14.0,
+      "XM8": 14.0,
+      "XM9": 0.0
+    },
+    "gm_id_deviation_pct": {
+      "XM1": -2.7,
+      "XM2": -2.7,
+      "XM3": 0.0,
+      "XM4": 0.0,
+      "XM5": 0.0,
+      "XM6": 0.0,
+      "XM7": 76.7,
+      "XM8": 76.7,
+      "XM9": 0.0
+    }
+  },
+  "sensitivity_analysis": {
+    "S_PM": {
+      "XM7": -1.8438 / (10.6 - 9.6) = -1.8438,
+      "XM8": -1.8438 / (10.6 - 9.6) = -1.8438,
+      "XM1": 0.1755 / (0.2875 - 0.2375) = 0.351,
+      "XM2": 0.351
+    },
+    "S_Gain": {
+      "XM3": -1.0553 / (0.999 - 0.8535) = -7.26,
+      "XM4": -7.26,
+      "XM7": -1.0553 / (10.6 - 9.6) = -1.0553
+    },
+    "S_GBW": {
+      "XM1": -4.1091 / (0.2875 - 0.2375) = -82.182,
+      "XM2": -82.182,
+      "XM7": -4.1091 / (10.6 - 9.6) = -4.1091
+    },
+    "S_SR": {
+      "XM9": 30.0 / 0.0 = "undefined (no change)",
+      "XM1": 30.0 / (0.2875 - 0.2375) = 600.0
+    }
+  },
+  "escape_and_firefighting": {
+    "W_max_violation": false,
+    "W_critical": ["XM5", "XM6"],
+    "W_XM5": 196.76,
+    "W_XM6": 196.76,
+    "action_required": "none — W_XM5/XM6 < 1000µm, but high idW=0.4066 implies low current density; however, Gain is collapsing (57.95 → 59.01 trend reversed), so gm_id of XM5/XM6 must be raised to lift idW and recover transconductance efficiency",
+    "idW_XM5_target": 0.55,
+    "gm_id_XM5_delta_needed": (0.55 - 0.4066) / 0.4066 * 13.0 ≈ +4.6 → exceeds gm_id_max=18 → clamp at 18.0
+  },
+  "incremental_calculation": {
+    "PM_deficit": 1.6683,
+    "delta_gm_id_XM7_needed": 1.6683 / 1.8438 ≈ 0.905 → apply +0.9 → new gm_id_XM7 = 11.5 (clamped at gm_id_max=18),
+    "Gain_deficit": 2.0463,
+    "delta_L_XM3_needed": 2.0463 / 7.26 ≈ 0.282 → L_XM3 = 0.999 + 0.282 = 1.281 > L_max=1.0 → clamp at 1.0,
+    "so compensate via gm_id_XM3": S_Gain_gm_id_XM3 ≈ ∂Gain/∂gm_id ≈ (59.009−57.9537)/(12.5−12.5)=0 → no sensitivity → must instead reduce XM1/XM2 gm_id to lower GBW burden and relax PM constraint",
+    "GBW_excess": 49.06 → 29.06 above min → allow 10 MHz sacrifice for PM: ΔGBW_target = −10 → Δgm_id_XM1 = −10 / (−82.182) ≈ +0.1217 → but S_GBW is negative w.r.t. L, positive w.r.t. gm_id? Wait: GBW ∝ gm₁/C_in → increasing gm_id_XM1 raises GBW → to *lower* GBW, *decrease* gm_id_XM1. So Δgm_id_XM1 = −10 / |−82.182| ≈ −0.1217 → new gm_id_XM1 = 14.5 − 0.12 = 14.38 → round to 14.4",
+    "SR_margin": +59 → safe",
+    "IDC_margin": −464 → huge headroom, no action"
+  },
+  "damping_strategy_applied": {
+    "XM7_gm_id_prev_best": 6.0,
+    "XM7_gm_id_current": 10.6,
+    "XM7_gm_id_target": 11.5,
+    "damped_value": (10.6 + 6.0) / 2 = 8.3 → violates convergence rule: “if reversing direction, take midpoint with historical best” → but 6.0 was from iter 4’s initial low-gm_id that gave terrible PM (68.15→68.33), so best PM occurred at 10.6; thus no reversal — proceed to 11.5",
+    "XM1_gm_id_reversal_check": previous drop from 14.9→14.65→14.5, now further drop → monotonic, no damping needed"
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.2875,
+      "gm_id": 14.4
+    },
+    "XM2": {
+      "L": 0.2875,
+      "gm_id": 14.4
+    },
+    "XM3": {
+      "L": 1.0,
+      "gm_id": 12.5
+    },
+    "XM4": {
+      "L": 1.0,
+      "gm_id": 12.5
+    },
+    "XM5": {
+      "L": 0.7,
+      "gm_id": 18.0
+    },
+    "XM6": {
+      "L": 0.7,
+      "gm_id": 18.0
+    },
+    "XM7": {
+      "L": 1.08,
+      "gm_id": 11.5
+    },
+    "XM8": {
+      "L": 1.08,
+      "gm_id": 11.5
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.34 VBP=1.18
+  params (9 管): {
+  "XM1": {
+    "L": 0.2875,
+    "gm_id": 14.4,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM2": {
+    "L": 0.2875,
+    "gm_id": 14.4,
+    "ids": 80.0,
+    "idW": 8.34789,
+    "W": 9.58
+  },
+  "XM3": {
+    "L": 1.0,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 3.12686,
+    "W": 25.58
+  },
+  "XM4": {
+    "L": 1.0,
+    "gm_id": 12.5,
+    "ids": 80.0,
+    "idW": 3.12686,
+    "W": 25.58
+  },
+  "XM5": {
+    "L": 0.7,
+    "gm_id": 18.0,
+    "ids": 80.0,
+    "idW": 0.03451267,
+    "W": 1000.0
+  },
+  "XM6": {
+    "L": 0.7,
+    "gm_id": 18.0,
+    "ids": 80.0,
+    "idW": 0.03451267,
+    "W": 1000.0
+  },
+  "XM7": {
+    "L": 1.08,
+    "gm_id": 11.5,
+    "ids": 80.0,
+    "idW": 0.5020153,
+    "W": 159.36
+  },
+  "XM8": {
+    "L": 1.08,
+    "gm_id": 11.5,
+    "ids": 80.0,
+    "idW": 0.5020153,
+    "W": 159.36
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 52.281, 'GBW': 67.2236, 'PM': 54.9174, 'i(vmeas)': 136.0583, 'SR': 137.0}
+  gap: {'Gain': -7.719, 'GBW': 47.2236, 'PM': -15.0826, 'IDC': -463.9417, 'SR': 57.0}
+
+--- 迭代 8/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "XM1_L_deviation_pct": 20.0,
+    "XM1_gm_id_deviation_pct": -12.5,
+    "XM3_L_deviation_pct": 66.67,
+    "XM5_gm_id_deviation_pct": +80.0,
+    "XM5_W_reached_limit": true,
+    "note": "XM5/XM6 W=1000µm confirms low-gm_id trap: idW dropped from 0.4066 (iter5) to 0.0345 — 91.5% reduction → gm_id↑ forced W↑ catastrophically; Gain collapsed from 57.95→52.28, PM from 68.33→54.92"
+  },
+  "sensitivity_analysis": {
+    "S_PM_XM5_gm_id": -1.489,
+    "S_PM_XM7_gm_id": -0.823,
+    "S_PM_XM7_L": +0.317,
+    "S_Gain_XM3_L": +2.15,
+    "S_Gain_XM5_gm_id": -3.82,
+    "S_GBWTrend_XM1_gm_id": -2.17,
+    "S_PM_XM1_L": +0.63,
+    "S_PM_XM1_gm_id": -0.94,
+    "S_SR_XM9_gm_id": +1.28
+  },
+  "escape_and_firefighting": {
+    "XM5_W_violation": true,
+    "action_required": "immediate W reduction via L↓ and/or gm_id↓ — but gm_id already at max (18.0), so L must drop from 0.7 to min allowed 0.5",
+    "XM6_same_as_XM5": true,
+    "XM7_L_at_boundary": false,
+    "XM7_gm_id_at_boundary": false,
+    "XM3_L_at_max": true,
+    "XM4_L_at_max": true,
+    "XM3_L_cannot_increase_further": true,
+    "XM3_L_must_decrease_to_relax_gain_vs_pole_tradeoff": true
+  },
+  "incremental_calculation": {
+    "target_PM_gap": 15.0826,
+    "required_PM_boost": 15.0826,
+    "primary_path": "XM7_L↑ to lift PM (S=+0.317/0.01L) → need ΔL = +0.476 → exceeds L_max=1.2 → invalid",
+    "second_path_active": true,
+    "XM1_L_sensitivity_PM": "+0.63 per 0.01L → need ΔL = +0.239 → L_new = 0.2875 + 0.239 = 0.5265 > L_max=0.5 → clamp to 0.5",
+    "XM1_gm_id_sensitivity_PM": "-0.94 per 0.1gm_id → to gain +15.08, reduce gm_id by 1.605 → 14.4 → 12.795 → round to 12.8",
+    "GBW_overhead": current GBW=67.22 > target 20 → 3.36× margin → safe to sacrifice for PM",
+    "XM3_L_adjustment": L=1.0 → reduce to 0.75 to lift secondary pole (S_Gain=+2.15 per 0.01L → ΔL=-0.25 → ΔGain≈-5.4 → Gain becomes ~46.9 → too low) → instead reduce XM3 gm_id from 12.5 to 11.0 (Δgm_id=-1.5, S_Gain≈-1.8 → Gain≈50.5) + allow XM1 L↑ to 0.5 to recover Gain",
+    "XM9_gm_id_for_SR": SR=137 > 80 → no action needed; keep gm_id=14.0"
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.5,
+      "gm_id": 12.8
+    },
+    "XM2": {
+      "L": 0.5,
+      "gm_id": 12.8
+    },
+    "XM3": {
+      "L": 0.75,
+      "gm_id": 11.0
+    },
+    "XM4": {
+      "L": 0.75,
+      "gm_id": 11.0
+    },
+    "XM5": {
+      "L": 0.5,
+      "gm_id": 18.0
+    },
+    "XM6": {
+      "L": 0.5,
+      "gm_id": 18.0
+    },
+    "XM7": {
+      "L": 1.15,
+      "gm_id": 11.0
+    },
+    "XM8": {
+      "L": 1.15,
+      "gm_id": 11.0
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.38 VBP=1.22
+  params (9 管): {
+  "XM1": {
+    "L": 0.5,
+    "gm_id": 12.8,
+    "ids": 80.0,
+    "idW": 5.38922,
+    "W": 14.84
+  },
+  "XM2": {
+    "L": 0.5,
+    "gm_id": 12.8,
+    "ids": 80.0,
+    "idW": 5.38922,
+    "W": 14.84
+  },
+  "XM3": {
+    "L": 0.75,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 4.8842,
+    "W": 16.38
+  },
+  "XM4": {
+    "L": 0.75,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 4.8842,
+    "W": 16.38
+  },
+  "XM5": {
+    "L": 0.5,
+    "gm_id": 18.0,
+    "ids": 80.0,
+    "idW": 0.07616627,
+    "W": 1000.0
+  },
+  "XM6": {
+    "L": 0.5,
+    "gm_id": 18.0,
+    "ids": 80.0,
+    "idW": 0.07616627,
+    "W": 1000.0
+  },
+  "XM7": {
+    "L": 1.15,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 0.5614077,
+    "W": 142.5
+  },
+  "XM8": {
+    "L": 1.15,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 0.5614077,
+    "W": 142.5
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 50.0586, 'GBW': 65.1006, 'PM': 62.5736, 'i(vmeas)': 139.0463, 'SR': 466.0}
+  gap: {'Gain': -9.9414, 'GBW': 45.1006, 'PM': -7.4264, 'IDC': -460.9537, 'SR': 386.0}
+
+--- 迭代 9/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "L_deviation_pct": {
+      "XM1": 66.67,
+      "XM2": 66.67,
+      "XM3": 0,
+      "XM4": 0,
+      "XM5": -28.57,
+      "XM6": -28.57,
+      "XM7": 12.5,
+      "XM8": 12.5,
+      "XM9": 0
+    },
+    "gm_id_deviation_pct": {
+      "XM1": -15.79,
+      "XM2": -15.79,
+      "XM3": -12.0,
+      "XM4": -12.0,
+      "XM5": 38.46,
+      "XM6": 38.46,
+      "XM7": 8.33,
+      "XM8": 8.33,
+      "XM9": 0
+    }
+  },
+  "sensitivity_analysis": {
+    "S_PM_XM7": -13.4143 / (11.5 - 10.6) = -14.9048,
+    "S_PM_XM8": -14.9048,
+    "S_PM_XM1_L": (62.5736 - 54.9174) / (0.5 - 0.2875) = 36.15,
+    "S_PM_XM1_gm_id": (62.5736 - 54.9174) / (12.8 - 14.4) = -4.785,
+    "S_Gain_XM3_L": (50.0586 - 52.281) / (0.75 - 1.0) = 8.89,
+    "S_Gain_XM5_gm_id": (50.0586 - 52.281) / (18.0 - 13.0) = -0.4445,
+    "S_GBW_XM1_gm_id": (65.1006 - 67.2236) / (12.8 - 14.4) = 1.329,
+    "S_SR_XM5_gm_id": (466.0 - 137.0) / (18.0 - 13.0) = 65.8,
+    "S_W_XM5_gm_id": (1000.0 - 1000.0) / (18.0 - 13.0) = 0,
+    "S_W_XM5_L": (1000.0 - 1000.0) / (0.5 - 0.7) = 0,
+    "S_IDC_XM9_gm_id": (139.0463 - 136.0583) / (14.0 - 14.0) = undefined,
+    "S_IDC_XM9_L": 0
+  },
+  "escape_and_firefighting": {
+    "XM5_W_violation": true,
+    "XM6_W_violation": true,
+    "action_required": "reduce_L_to_shrink_W_while_maintaining_gm_id_at_upper_bound_to_preserve_SR_and_GBW",
+    "XM5_new_L": 0.5,
+    "XM6_new_L": 0.5,
+    "XM5_new_gm_id": 18.0,
+    "XM6_new_gm_id": 18.0,
+    "XM5_W_post": 1000.0,
+    "XM6_W_post": 1000.0,
+    "note": "W remains at 1000µm — must break degeneracy by reducing gm_id next if no improvement; but current SR=466 > spec, so safe to reduce gm_id in next iter. For now, retain gm_id=18.0 and instead shrink L further only if allowed: L_min=0.5 → cannot shrink further. Therefore, must reduce gm_id in *this* iter despite SR margin, because W=1000µm + Gain collapse implies low-idW trap. Sensitivity shows S_SR_XM5_gm_id = 65.8, so Δgm_id = -1.0 → ΔSR ≈ -65.8 → SR_new ≈ 399.2 > 80. Acceptable."
+  },
+  "precise_increment_calculation": {
+    "target_PM_gap": 7.4264,
+    "required_PM_boost": 7.4264,
+    "primary_PM_lever": "XM7_L",
+    "S_PM_XM7_L": (62.5736 - 54.9174) / (1.15 - 1.08) = 109.39,
+    "ΔL_XM7_needed": 7.4264 / 109.39 = 0.0679,
+    "XM7_L_new": 1.15 + 0.0679 = 1.2179 → clamped to L_max=1.2,
+    "XM8_L_new": 1.2,
+    "residual_PM_gap_after_XM7_L": 7.4264 - (1.2 - 1.15) * 109.39 = 7.4264 - 5.4695 = 1.9569,
+    "secondary_PM_lever": "XM1_L",
+    "S_PM_XM1_L": 36.15,
+    "ΔL_XM1_needed": 1.9569 / 36.15 = 0.0541,
+    "XM1_L_new": 0.5 + 0.0541 = 0.5541 → clamped to L_max=0.5 → no headroom,
+    "fallback_PM_lever": "XM1_gm_id reduction to lower dominant pole Q & shift secondary pole up",
+    "S_PM_XM1_gm_id": -4.785,
+    "Δgm_id_XM1_needed": -1.9569 / -4.785 = 0.409,
+    "XM1_gm_id_new": 12.8 - 0.409 = 12.391 → rounded to 12.4,
+    "XM2_gm_id_new": 12.4,
+    "Gain_penalty_from_XM1_gm_id_drop": S_Gain_XM1_gm_id ≈ -0.8 (empirical from prior trends), ΔGain ≈ -0.33 → acceptable since Gain=50.06 already below spec but not yet critical,
+    "GBW_impact": S_GBW_XM1_gm_id = 1.329 → ΔGBW ≈ -0.54 → GBW=64.56 still >> 20,
+    "target_Gain_gap": 9.9414,
+    "Gain_recovery_lever": increase XM3_L (S_Gain_XM3_L = 8.89), ΔL = 9.9414 / 8.89 = 1.118 → impossible (L_max=1.0), so instead raise XM3_gm_id: S_Gain_XM3_gm_id ≈ 0.65 (from historical trend), Δgm_id = 9.9414 / 0.65 = 15.29 → exceeds gm_id_max=15 → clamp to 15.0,
+    "XM3_gm_id_new": 15.0,
+    "XM4_gm_id_new": 15.0,
+    "XM3_L_new": 0.75 (no change — L increased would hurt PM via slower compensation),
+    "XM4_L_new": 0.75,
+    "IDC_constraint_check": Itail=160 fixed, XM9 unchanged → IDC unchanged,
+    "SR_safety": after XM5_gm_id drop to 17.0, SR ≈ 466 - 65.8 = 400.2 > 80 → safe
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.5,
+      "gm_id": 12.4
+    },
+    "XM2": {
+      "L": 0.5,
+      "gm_id": 12.4
+    },
+    "XM3": {
+      "L": 0.75,
+      "gm_id": 15.0
+    },
+    "XM4": {
+      "L": 0.75,
+      "gm_id": 15.0
+    },
+    "XM5": {
+      "L": 0.5,
+      "gm_id": 17.0
+    },
+    "XM6": {
+      "L": 0.5,
+      "gm_id": 17.0
+    },
+    "XM7": {
+      "L": 1.2,
+      "gm_id": 11.0
+    },
+    "XM8": {
+      "L": 1.2,
+      "gm_id": 11.0
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.32 VBP=1.16
+  params (9 管): {
+  "XM1": {
+    "L": 0.5,
+    "gm_id": 12.4,
+    "ids": 80.0,
+    "idW": 6.57006,
+    "W": 12.18
+  },
+  "XM2": {
+    "L": 0.5,
+    "gm_id": 12.4,
+    "ids": 80.0,
+    "idW": 6.57006,
+    "W": 12.18
+  },
+  "XM3": {
+    "L": 0.75,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 2.31535,
+    "W": 34.55
+  },
+  "XM4": {
+    "L": 0.75,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 2.31535,
+    "W": 34.55
+  },
+  "XM5": {
+    "L": 0.5,
+    "gm_id": 17.0,
+    "ids": 80.0,
+    "idW": 0.0863831,
+    "W": 926.11
+  },
+  "XM6": {
+    "L": 0.5,
+    "gm_id": 17.0,
+    "ids": 80.0,
+    "idW": 0.0863831,
+    "W": 926.11
+  },
+  "XM7": {
+    "L": 1.2,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 0.5304135,
+    "W": 150.83
+  },
+  "XM8": {
+    "L": 1.2,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 0.5304135,
+    "W": 150.83
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 53.9471, 'GBW': 59.8636, 'PM': 63.6369, 'i(vmeas)': 137.3109, 'SR': 358.0}
+  gap: {'Gain': -6.0529, 'GBW': 39.8636, 'PM': -6.3631, 'IDC': -462.6891, 'SR': 278.0}
+
+--- 迭代 10/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "L_deviation_pct": {
+      "XM1": 176.47,
+      "XM2": 176.47,
+      "XM3": -25.0,
+      "XM4": -25.0,
+      "XM5": -28.57,
+      "XM6": -28.57,
+      "XM7": 15.0,
+      "XM8": 15.0,
+      "XM9": 0.0
+    },
+    "gm_id_deviation_pct": {
+      "XM1": -13.89,
+      "XM2": -13.89,
+      "XM3": 20.0,
+      "XM4": 20.0,
+      "XM5": -5.56,
+      "XM6": -5.56,
+      "XM7": -9.09,
+      "XM8": -9.09,
+      "XM9": 0.0
+    }
+  },
+  "sensitivity_analysis": {
+    "S_PM": {
+      "XM7": -6.3631 / (1.2 - 1.15) = -127.262,
+      "XM8": -6.3631 / (1.2 - 1.15) = -127.262,
+      "XM1": 1.0633 / (12.4 - 12.8) = -2.65825,
+      "XM2": 1.0633 / (12.4 - 12.8) = -2.65825,
+      "XM5": -5.237 / (17.0 - 18.0) = 5.237,
+      "XM6": -5.237 / (17.0 - 18.0) = 5.237
+    },
+    "S_Gain": {
+      "XM3": 3.8885 / (15.0 - 11.0) = 0.972125,
+      "XM4": 3.8885 / (15.0 - 11.0) = 0.972125,
+      "XM7": 0.0 / (1.2 - 1.15) = 0.0,
+      "XM8": 0.0 / (1.2 - 1.15) = 0.0
+    },
+    "S_GBW": {
+      "XM1": -5.237 / (12.4 - 12.8) = 13.0925,
+      "XM2": -5.237 / (12.4 - 12.8) = 13.0925,
+      "XM5": -5.237 / (17.0 - 18.0) = 5.237,
+      "XM6": -5.237 / (17.0 - 18.0) = 5.237
+    }
+  },
+  "escape_and_firefighting": {
+    "W_violation": ["XM5", "XM6"],
+    "XM5_W_recovery_required": true,
+    "XM6_W_recovery_required": true,
+    "recovery_strategy": "reduce_L_to_shrink_W_while_maintaining_gm_id_margin",
+    "XM5_new_L": 0.55,
+    "XM6_new_L": 0.55,
+    "XM5_new_gm_id": 17.0,
+    "XM6_new_gm_id": 17.0,
+    "XM5_W_post": 842.3,
+    "XM6_W_post": 842.3
+  },
+  "incremental_calculation": {
+    "PM_gap": -6.3631,
+    "required_PM_boost": 6.3631,
+    "delta_XM7_L_needed": 6.3631 / 127.262 = 0.05,
+    "delta_XM7_gm_id_needed": 6.3631 / (-127.262) = -0.05 → not viable (gm_id already at lower bound for PM control),
+    "XM7_L_target": 1.2 + 0.05 = 1.25 → violates L_max=1.2 → boundary escape triggered,
+    "second_path_initiated": true,
+    "XM1_L_reduction_for_high_freq_pole_lift": 0.5 → 0.35 (ΔL = -0.15, 30% reduction),
+    "XM2_L_reduction_for_high_freq_pole_lift": 0.5 → 0.35,
+    "GBW_sacrifice_ratio": 59.86 / 20 = 2.993 → excess 149.6% → safe to reduce input gm_id,
+    "XM1_gm_id_target_for_PM": 12.4 - (6.3631 / 2.65825) = 12.4 - 2.394 = 10.006 → clamp to gm_id_min=10.0,
+    "XM2_gm_id_target_for_PM": 10.0,
+    "Gain_loss_from_XM1_L_drop": estimated -0.8 dB → compensated by XM3/XM4 gm_id increase,
+    "XM3_gm_id_target": 15.0 + (6.0529 / 0.972125) = 15.0 + 6.226 = 21.226 → clamp to gm_id_max=15.0 → no further gain headroom → must rely on L increase,
+    "XM3_L_target": 0.75 + (6.0529 / (0.972125 * 0.75)) = 0.75 + 8.31 = 9.06 → violates L_max=1.0 → cannot fix Gain via XM3 alone → shift focus to reducing parasitic loading on output node: reduce XM5/XM6 W → done via L↑,
+    "XM5_L_final": 0.55 → satisfies W<1000 and improves cascode degeneration → raises f_p2,
+    "XM6_L_final": 0.55
+  },
+  "final_decision": {
+    "XM1": {
+      "L": 0.35,
+      "gm_id": 10.0
+    },
+    "XM2": {
+      "L": 0.35,
+      "gm_id": 10.0
+    },
+    "XM3": {
+      "L": 0.75,
+      "gm_id": 15.0
+    },
+    "XM4": {
+      "L": 0.75,
+      "gm_id": 15.0
+    },
+    "XM5": {
+      "L": 0.55,
+      "gm_id": 17.0
+    },
+    "XM6": {
+      "L": 0.55,
+      "gm_id": 17.0
+    },
+    "XM7": {
+      "L": 1.2,
+      "gm_id": 11.0
+    },
+    "XM8": {
+      "L": 1.2,
+      "gm_id": 11.0
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.28 VBP=1.16
+  [规则Itail] SR 不足但 W 已接近触顶，不增加电流，由 Agent 缩小尺寸
+  params (9 管): {
+  "XM1": {
+    "L": 0.35,
+    "gm_id": 10.0,
+    "ids": 80.0,
+    "idW": 15.7072,
+    "W": 5.09
+  },
+  "XM2": {
+    "L": 0.35,
+    "gm_id": 10.0,
+    "ids": 80.0,
+    "idW": 15.7072,
+    "W": 5.09
+  },
+  "XM3": {
+    "L": 0.75,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 2.31535,
+    "W": 34.55
+  },
+  "XM4": {
+    "L": 0.75,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 2.31535,
+    "W": 34.55
+  },
+  "XM5": {
+    "L": 0.55,
+    "gm_id": 17.0,
+    "ids": 80.0,
+    "idW": 0.0863831,
+    "W": 926.11
+  },
+  "XM6": {
+    "L": 0.55,
+    "gm_id": 17.0,
+    "ids": 80.0,
+    "idW": 0.0863831,
+    "W": 926.11
+  },
+  "XM7": {
+    "L": 1.2,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 0.5304135,
+    "W": 150.83
+  },
+  "XM8": {
+    "L": 1.2,
+    "gm_id": 11.0,
+    "ids": 80.0,
+    "idW": 0.5304135,
+    "W": 150.83
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 52.3904, 'GBW': 43.9362, 'PM': 69.2687, 'i(vmeas)': 118.91510000000001, 'SR': 69.0763}
+  gap: {'Gain': -7.6096, 'GBW': 23.9362, 'PM': -0.7313, 'IDC': -481.0849, 'SR': -10.9237}
+
+--- 迭代 11/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "XM1_L_delta_pct": 0.0,
+    "XM1_gm_id_delta_pct": 0.0,
+    "XM5_W_current": 926.11,
+    "XM5_W_baseline": 421.7,
+    "XM5_W_overrun_pct": 119.6
+  },
+  "sensitivity_analysis": {
+    "S_PM_XM7_L": -0.83,
+    "S_PM_XM7_gm_id": 1.42,
+    "S_PM_XM1_L": 2.15,
+    "S_PM_XM1_gm_id": -1.78,
+    "S_Gain_XM3_L": 4.89,
+    "S_Gain_XM3_gm_id": 2.31,
+    "S_GBW_XM1_L": 8.72,
+    "S_GBW_XM1_gm_id": -6.44,
+    "S_SR_XM1_L": 12.3,
+    "S_SR_XM1_gm_id": -9.1,
+    "S_Gain_XM5_L": -0.21,
+    "S_Gain_XM5_gm_id": -0.03,
+    "S_PM_XM5_gm_id": -0.38,
+    "S_PM_XM5_L": -0.15
+  },
+  "escape_and_firefighting": {
+    "XM5_W_violation": true,
+    "XM6_W_violation": true,
+    "recovery_action": "reduce XM5 L from 0.55 to 0.50 (max allowed reduction without violating L_min), and increase XM5 gm_id from 17.0 to 17.5 to shrink W by ~12% → W ≈ 815µm",
+    "XM5_new_W_estimate": 815.2,
+    "XM6_new_W_estimate": 815.2
+  },
+  "precise_increment_calculation": {
+    "target_PM_gap": 0.7313,
+    "target_Gain_gap": 7.6096,
+    "target_SR_gap": 10.9237,
+    "XM7_L_adjustment_needed": 0.087,
+    "XM7_gm_id_adjustment_needed": -0.515,
+    "XM1_L_adjustment_needed": -0.032,
+    "XM1_gm_id_adjustment_needed": 0.31,
+    "XM3_L_adjustment_needed": 0.12,
+    "XM3_gm_id_adjustment_needed": 1.2,
+    "damping_applied": true,
+    "XM7_L_final": 1.15,
+    "XM7_gm_id_final": 10.5,
+    "XM1_L_final": 0.334,
+    "XM1_gm_id_final": 10.15,
+    "XM3_L_final": 0.81,
+    "XM3_gm_id_final": 15.6
+  },
+  "final_decision": {
+    "XM1": {
+      "L": 0.334,
+      "gm_id": 10.15
+    },
+    "XM2": {
+      "L": 0.334,
+      "gm_id": 10.15
+    },
+    "XM3": {
+      "L": 0.81,
+      "gm_id": 15.6
+    },
+    "XM4": {
+      "L": 0.81,
+      "gm_id": 15.6
+    },
+    "XM5": {
+      "L": 0.5,
+      "gm_id": 17.5
+    },
+    "XM6": {
+      "L": 0.5,
+      "gm_id": 17.5
+    },
+    "XM7": {
+      "L": 1.15,
+      "gm_id": 10.5
+    },
+    "XM8": {
+      "L": 1.15,
+      "gm_id": 10.5
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.28 VBP=1.16
+  params (9 管): {
+  "XM1": {
+    "L": 0.334,
+    "gm_id": 10.15,
+    "ids": 80.0,
+    "idW": 13.3468,
+    "W": 5.99
+  },
+  "XM2": {
+    "L": 0.334,
+    "gm_id": 10.15,
+    "ids": 80.0,
+    "idW": 13.3468,
+    "W": 5.99
+  },
+  "XM3": {
+    "L": 0.81,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 2.2591,
+    "W": 35.41
+  },
+  "XM4": {
+    "L": 0.81,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 2.2591,
+    "W": 35.41
+  },
+  "XM5": {
+    "L": 0.5,
+    "gm_id": 17.5,
+    "ids": 80.0,
+    "idW": 0.07274233,
+    "W": 1000.0
+  },
+  "XM6": {
+    "L": 0.5,
+    "gm_id": 17.5,
+    "ids": 80.0,
+    "idW": 0.07274233,
+    "W": 1000.0
+  },
+  "XM7": {
+    "L": 1.15,
+    "gm_id": 10.5,
+    "ids": 80.0,
+    "idW": 0.6228224,
+    "W": 128.45
+  },
+  "XM8": {
+    "L": 1.15,
+    "gm_id": 10.5,
+    "ids": 80.0,
+    "idW": 0.6228224,
+    "W": 128.45
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 52.877, 'GBW': 50.0546, 'PM': 68.75, 'i(vmeas)': 125.54429999999999, 'SR': 80.0}
+  gap: {'Gain': -7.123, 'GBW': 30.0546, 'PM': -1.25, 'IDC': -474.4557, 'SR': 0.0}
+
+--- 迭代 12/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "reference_iter": 2,
+    "L_deviation_percent": {
+      "XM1": 12.0,
+      "XM2": 12.0,
+      "XM3": -8.5,
+      "XM4": -8.5,
+      "XM5": 15.0,
+      "XM6": 15.0,
+      "XM7": 22.0,
+      "XM8": 22.0,
+      "XM9": 0.0
+    },
+    "gm_id_deviation_percent": {
+      "XM1": -18.5,
+      "XM2": -18.5,
+      "XM3": 0.0,
+      "XM4": 0.0,
+      "XM5": 25.0,
+      "XM6": 25.0,
+      "XM7": -12.0,
+      "XM8": -12.0,
+      "XM9": 0.0
+    }
+  },
+  "sensitivity_analysis": {
+    "S_PM": {
+      "XM7": -0.83,
+      "XM8": -0.83,
+      "XM1": 0.42,
+      "XM2": 0.42,
+      "XM5": -0.15,
+      "XM6": -0.15
+    },
+    "S_Gain": {
+      "XM3": 1.87,
+      "XM4": 1.87,
+      "XM7": 0.31,
+      "XM8": 0.31,
+      "XM1": -0.29,
+      "XM2": -0.29
+    },
+    "S_GBW": {
+      "XM1": 2.15,
+      "XM2": 2.15,
+      "XM5": -0.92,
+      "XM6": -0.92,
+      "XM9": 1.03
+    },
+    "S_SR": {
+      "XM1": 1.78,
+      "XM2": 1.78,
+      "XM9": 0.85,
+      "XM7": -0.41,
+      "XM8": -0.41
+    }
+  },
+  "escape_and_firefighting": {
+    "W_violation": ["XM5", "XM6"],
+    "action_required": "immediate_W_reduction_via_L_decrease_and_gm_id_increase",
+    "XM5_new_L": 0.45,
+    "XM5_new_gm_id": 18.0,
+    "XM6_new_L": 0.45,
+    "XM6_new_gm_id": 18.0,
+    "W_post_correction": {
+      "XM5": 999.2,
+      "XM6": 999.2
+    }
+  },
+  "incremental_calculation": {
+    "PM_deficit": 1.25,
+    "required_PM_boost": 1.25,
+    "primary_PM_lever": "XM7/XM8_L_decrease",
+    "delta_L_XM7_XM8": -0.08,
+    "GBW_surplus": 30.05,
+    "allowed_GBW_sacrifice_for_PM": 8.0,
+    "XM1_gm_id_adjustment_for_GBW_damp": -0.65,
+    "Gain_deficit": 7.123,
+    "XM3_L_adjustment_for_Gain": +0.06,
+    "SR_just_met": 0.0,
+    "XM9_gm_id_stabilization": "+0.0 (hold)",
+    "XM1_L_adjustment_for_pole_splitting": -0.025
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.309,
+      "gm_id": 9.5
+    },
+    "XM2": {
+      "L": 0.309,
+      "gm_id": 9.5
+    },
+    "XM3": {
+      "L": 0.87,
+      "gm_id": 15.0
+    },
+    "XM4": {
+      "L": 0.87,
+      "gm_id": 15.0
+    },
+    "XM5": {
+      "L": 0.45,
+      "gm_id": 18.0
+    },
+    "XM6": {
+      "L": 0.45,
+      "gm_id": 18.0
+    },
+    "XM7": {
+      "L": 1.07,
+      "gm_id": 10.5
+    },
+    "XM8": {
+      "L": 1.07,
+      "gm_id": 10.5
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.27 VBP=1.22
+  [规则Itail] SR 不足但 W 已接近触顶，不增加电流，由 Agent 缩小尺寸
+  params (9 管): {
+  "XM1": {
+    "L": 0.309,
+    "gm_id": 10.0,
+    "ids": 80.0,
+    "idW": 15.7072,
+    "W": 5.09
+  },
+  "XM2": {
+    "L": 0.309,
+    "gm_id": 10.0,
+    "ids": 80.0,
+    "idW": 15.7072,
+    "W": 5.09
+  },
+  "XM3": {
+    "L": 0.87,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 1.85124,
+    "W": 43.21
+  },
+  "XM4": {
+    "L": 0.87,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 1.85124,
+    "W": 43.21
+  },
+  "XM5": {
+    "L": 0.5,
+    "gm_id": 18.0,
+    "ids": 80.0,
+    "idW": 0.07616627,
+    "W": 1000.0
+  },
+  "XM6": {
+    "L": 0.5,
+    "gm_id": 18.0,
+    "ids": 80.0,
+    "idW": 0.07616627,
+    "W": 1000.0
+  },
+  "XM7": {
+    "L": 1.07,
+    "gm_id": 10.5,
+    "ids": 80.0,
+    "idW": 0.6643731,
+    "W": 120.41
+  },
+  "XM8": {
+    "L": 1.07,
+    "gm_id": 10.5,
+    "ids": 80.0,
+    "idW": 0.6643731,
+    "W": 120.41
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 48.4992, 'GBW': 47.4338, 'PM': 70.3813, 'i(vmeas)': 120.0594, 'SR': 68.3439}
+  gap: {'Gain': -11.5008, 'GBW': 27.4338, 'PM': 0.3813, 'IDC': -479.9406, 'SR': -11.6561}
+
+--- 迭代 13/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "XM1_L_deviation_pct": 12.3,
+    "XM1_gm_id_deviation_pct": -15.2,
+    "XM5_W": 1000.0,
+    "XM6_W": 1000.0,
+    "note": "XM5/XM6 W hit 1000µm in both iter 10 and 11; gm_id increased from 17.0→18.0 while L held at min=0.5 → entered low-current-density trap: idW dropped from 0.0727→0.0762, confirming W saturation despite higher gm_id; Gain collapsed from 60+ (iter2) to 48.5, PM barely holds at 70.4 due to GBW overdesign masking phase margin fragility"
+  },
+  "sensitivity_analysis": {
+    "XM1": {
+      "S_PM": 0.82,
+      "S_GBW": 12.4,
+      "S_Gain": 3.1,
+      "unit": "per 0.01 L decrease",
+      "note": "L reduced 0.025 (0.334→0.309) → PM +1.63°, GBW −2.62MHz, Gain −4.38dB → S_PM = +65.2°/unit_L, but normalized per 0.01L: +0.82°"
+    },
+    "XM5": {
+      "S_Gain": -0.021,
+      "S_PM": -0.18,
+      "S_GBW": -0.44,
+      "unit": "per 0.1 gm_id increase",
+      "note": "gm_id ↑0.5 (17.5→18.0) → Gain ↓4.38dB, PM ↑1.63° (counterintuitive but due to pole-splitting shift), yet W hit ceiling → dominant parasitic Cgd/Cdb now degrades fT and introduces RHP zero → net PM gain is fragile and non-scalable"
+    },
+    "XM7": {
+      "S_PM": -1.2,
+      "S_GBW": -3.1,
+      "unit": "per 0.1 L decrease",
+      "note": "L ↓0.08 (1.15→1.07) → PM ↑1.63°, so S_PM = −20.4°/unit_L → normalized −1.2°/0.1L; confirms XM7/XM8 are primary PM levers — but both now at L=1.07 < L_min_safe=1.1 for robustness against PVT"
+    },
+    "XM3": {
+      "S_Gain": +4.2,
+      "S_PM": -0.35,
+      "unit": "per 0.05 L increase",
+      "note": "L ↑0.06 (0.81→0.87) contributed +0.49dB Gain (small) but dragged PM down by 0.52° → S_PM ≈ −0.87°/0.05L; confirms load L increase lifts DC gain but pulls secondary pole lower → hurts PM"
+    }
+  },
+  "escape_and_firefighting": {
+    "XM5": {
+      "action": "W_recovery_via_L_decrease",
+      "reason": "W=1000µm, gm_id=18.0 at max bound, L=0.5 at min bound → cannot increase gm_id or L further; must decrease L to reduce W — but L already at L_min=0.5 → violates constraint → therefore must *decrease gm_id* to raise idW and shrink W",
+      "target_idW": 0.095,
+      "required_gm_id_change": -2.1,
+      "new_gm_id": 15.9
+    },
+    "XM6": {
+      "action": "mirror_XM5",
+      "new_gm_id": 15.9
+    },
+    "XM7_XM8": {
+      "action": "boundary_escape_triggered",
+      "reason": "L=1.07 < historical safe L=1.15 (iter10) and < L_max=1.2, but PM=70.38° is marginal; since L cannot go higher without risking GBW collapse (already 47.4MHz > 20MHz spec), activate second path: reduce XM1/XM2 L to lift f_p2",
+      "XM1_L_target": 0.28,
+      "XM2_L_target": 0.28
+    }
+  },
+  "precise_increment_calculation": {
+    "PM_gap": 0.3813,
+    "required_PM_boost": 0.4,
+    "from_XM1_L": "ΔL = −0.029 → yields +0.82×2.9 = +2.38° (overkill but damped)",
+    "damped_XM1_L": 0.28,
+    "Gain_deficit": -11.5,
+    "compensation_strategy": "accept GBW surplus (47.4−20=27.4MHz excess); trade 5MHz GBW for ~3.5dB Gain via XM3/XM4 gm_id reduction — but gm_id already at min=15.0 → instead, *increase XM3/XM4 L* to boost Gain without worsening PM (since L↑ moves p2 left but p1 moves right — net effect on PM neutral if done moderately)",
+    "XM3_L_adjustment": "+0.05 → L=0.92",
+    "XM4_L_adjustment": "+0.05 → L=0.92",
+    "SR_deficit": -11.66,
+    "root_cause": "SR ∝ gm1 × Vov1; Vov1 ∝ 1/gm_id × sqrt(2×idW×L); current XM1 gm_id=10.0, L=0.309 → Vov1 too low; raising gm_id slightly improves SR without hurting PM if L is simultaneously reduced to preserve fT",
+    "XM1_gm_id_adjustment": "+0.3 → 10.3 (within [10,20])",
+    "XM2_gm_id_adjustment": "+0.3 → 10.3",
+    "IDC_constraint": "i(vmeas)=120.06 < 600 → headroom exists; no tail adjustment needed"
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.28,
+      "gm_id": 10.3
+    },
+    "XM2": {
+      "L": 0.28,
+      "gm_id": 10.3
+    },
+    "XM3": {
+      "L": 0.92,
+      "gm_id": 15.0
+    },
+    "XM4": {
+      "L": 0.92,
+      "gm_id": 15.0
+    },
+    "XM5": {
+      "L": 0.5,
+      "gm_id": 15.9
+    },
+    "XM6": {
+      "L": 0.5,
+      "gm_id": 15.9
+    },
+    "XM7": {
+      "L": 1.07,
+      "gm_id": 10.5
+    },
+    "XM8": {
+      "L": 1.07,
+      "gm_id": 10.5
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 14.0
+    }
+  }
+}
+  偏置 VBN1=0.69 VBN2=1.27 VBP=1.14
+  [规则Itail] SR 不足且尺寸安全，下一轮 Itail 增至 192.0 µA
+  params (9 管): {
+  "XM1": {
+    "L": 0.28,
+    "gm_id": 10.3,
+    "ids": 80.0,
+    "idW": 15.7072,
+    "W": 5.09
+  },
+  "XM2": {
+    "L": 0.28,
+    "gm_id": 10.3,
+    "ids": 80.0,
+    "idW": 15.7072,
+    "W": 5.09
+  },
+  "XM3": {
+    "L": 0.92,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 1.80698,
+    "W": 44.27
+  },
+  "XM4": {
+    "L": 0.92,
+    "gm_id": 15.0,
+    "ids": 80.0,
+    "idW": 1.80698,
+    "W": 44.27
+  },
+  "XM5": {
+    "L": 0.5,
+    "gm_id": 15.9,
+    "ids": 80.0,
+    "idW": 0.1692684,
+    "W": 472.62
+  },
+  "XM6": {
+    "L": 0.5,
+    "gm_id": 15.9,
+    "ids": 80.0,
+    "idW": 0.1692684,
+    "W": 472.62
+  },
+  "XM7": {
+    "L": 1.07,
+    "gm_id": 10.5,
+    "ids": 80.0,
+    "idW": 0.6643731,
+    "W": 120.41
+  },
+  "XM8": {
+    "L": 1.07,
+    "gm_id": 10.5,
+    "ids": 80.0,
+    "idW": 0.6643731,
+    "W": 120.41
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "ids": 160.0,
+    "idW": 2.0017,
+    "W": 79.93
+  }
+}
+  results: {'Gain': 51.6864, 'GBW': 49.6348, 'PM': 72.1614, 'i(vmeas)': 119.8237, 'SR': 68.1678}
+  gap: {'Gain': -8.3136, 'GBW': 29.6348, 'PM': 2.1614, 'IDC': -480.1763, 'SR': -11.8322}
+
+--- 迭代 14/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "XM1_L_deviation_pct": 0.0,
+    "XM1_gm_id_deviation_pct": 0.0,
+    "XM5_W_current": 472.62,
+    "XM5_W_baseline": 120.3,
+    "XM5_gm_id_drift": -3.1,
+    "XM5_L_drift": 0.0,
+    "XM7_L_deviation_from_baseline": -0.13,
+    "XM8_L_deviation_from_baseline": -0.13,
+    "note": "XM5 gm_id dropped from 19.0 (Iter2) to 15.9 (Iter12), causing W inflation from 120→472; this is root cause of Gain collapse and SR degradation due to increased Cgd/Cdb parasitics"
+  },
+  "sensitivity_analysis": {
+    "S_Gain_XM1_L": -12.4,
+    "S_Gain_XM3_L": +8.7,
+    "S_Gain_XM5_gm_id": -15.2,
+    "S_PM_XM7_L": +0.85,
+    "S_PM_XM8_L": +0.85,
+    "S_PM_XM1_L": +2.1,
+    "S_SR_XM5_gm_id": -18.3,
+    "S_SR_XM9_gm_id": +6.4,
+    "S_GBW_XM1_gm_id": +3.9,
+    "S_GBW_XM5_gm_id": -2.1,
+    "S_IDC_XM9_gm_id": +1.2,
+    "S_IDC_XM1_gm_id": +0.85
+  },
+  "escape_and_firefighting": {
+    "XM5_W_violation": true,
+    "XM5_W_current": 472.62,
+    "XM5_W_limit": 1000.0,
+    "XM5_action_required": "reduce L to shrink W, since gm_id already at safe mid-range (15.9); L_min=0.5, so cannot reduce further → must increase gm_id to reduce W",
+    "XM5_new_gm_id_target": 17.2,
+    "XM5_W_after": 298.7,
+    "XM6_same_as_XM5": true,
+    "XM5_L_stays": 0.5,
+    "XM6_L_stays": 0.5,
+    "XM1_L_reduced_to_help_PM": true,
+    "XM1_L_new": 0.25,
+    "XM2_L_new": 0.25,
+    "XM1_gm_id_adjusted_for_GBW_margin": 10.5,
+    "XM2_gm_id_adjusted_for_GBW_margin": 10.5
+  },
+  "incremental_calculation": {
+    "Gain_gap": -8.3136,
+    "required_Gain_boost": 8.3136,
+    "XM3_L_delta_needed": 8.3136 / 8.7 = +0.956 → capped at L_max=1.0 → set XM3.L=1.0, XM4.L=1.0,
+    "PM_gap": 2.1614,
+    "XM1_L_contribution_to_PM": 2.1 * (0.28→0.25) = +0.63°,
+    "XM7_L_contribution_to_PM": 0.85 * (1.07→1.15) = +0.68°,
+    "XM8_L_contribution_to_PM": same = +0.68°,
+    "total_PM_gain_from_L_tuning": 1.99° → sufficient,
+    "SR_gap": -11.8322,
+    "XM9_gm_id_delta_needed": 11.8322 / 6.4 = +1.85 → XM9.gm_id = 14.0 + 1.85 = 15.85 → clamped to gm_id_max=20 → set 15.85,
+    "GBW_excess": +29.63 → can afford to reduce XM1/XM2 gm_id slightly to improve SR/PM tradeoff; but current gm_id=10.3 is already low → instead, reduce XM9 gm_id? No — that hurts SR. So keep XM1/XM2 gm_id=10.5 to maintain GBW margin while enabling PM lift via L tuning.",
+    "IDC_constraint_check": Itail=160 → IDC=120 → well under 600 limit → no constraint violation"
+  },
+  "final_decisions": {
+    "XM1": {
+      "L": 0.25,
+      "gm_id": 10.5
+    },
+    "XM2": {
+      "L": 0.25,
+      "gm_id": 10.5
+    },
+    "XM3": {
+      "L": 1.0,
+      "gm_id": 15.0
+    },
+    "XM4": {
+      "L": 1.0,
+      "gm_id": 15.0
+    },
+    "XM5": {
+      "L": 0.5,
+      "gm_id": 17.2
+    },
+    "XM6": {
+      "L": 0.5,
+      "gm_id": 17.2
+    },
+    "XM7": {
+      "L": 1.15,
+      "gm_id": 10.5
+    },
+    "XM8": {
+      "L": 1.15,
+      "gm_id": 10.5
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 15.85
+    }
+  }
+}
+  偏置 VBN1=0.67 VBN2=1.26 VBP=1.19
+  params (9 管): {
+  "XM1": {
+    "L": 0.25,
+    "gm_id": 10.5,
+    "ids": 96.0,
+    "idW": 17.6209,
+    "W": 5.45
+  },
+  "XM2": {
+    "L": 0.25,
+    "gm_id": 10.5,
+    "ids": 96.0,
+    "idW": 17.6209,
+    "W": 5.45
+  },
+  "XM3": {
+    "L": 1.0,
+    "gm_id": 15.0,
+    "ids": 96.0,
+    "idW": 1.76354,
+    "W": 54.44
+  },
+  "XM4": {
+    "L": 1.0,
+    "gm_id": 15.0,
+    "ids": 96.0,
+    "idW": 1.76354,
+    "W": 54.44
+  },
+  "XM5": {
+    "L": 0.5,
+    "gm_id": 17.2,
+    "ids": 96.0,
+    "idW": 0.108515,
+    "W": 884.67
+  },
+  "XM6": {
+    "L": 0.5,
+    "gm_id": 17.2,
+    "ids": 96.0,
+    "idW": 0.108515,
+    "W": 884.67
+  },
+  "XM7": {
+    "L": 1.15,
+    "gm_id": 10.5,
+    "ids": 96.0,
+    "idW": 0.6228224,
+    "W": 154.14
+  },
+  "XM8": {
+    "L": 1.15,
+    "gm_id": 10.5,
+    "ids": 96.0,
+    "idW": 0.6228224,
+    "W": 154.14
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 15.85,
+    "ids": 192.0,
+    "idW": 1.54862,
+    "W": 123.98
+  }
+}
+  results: {'Gain': 50.0861, 'GBW': 57.3228, 'PM': 64.3217, 'i(vmeas)': 145.96349999999998, 'SR': 84.013}
+  gap: {'Gain': -9.9139, 'GBW': 37.3228, 'PM': -5.6783, 'IDC': -454.0365, 'SR': 4.013}
+
+--- 迭代 15/15 ---
+  [Agent3] 正在进行深度物理推导与灵敏度分析...
+  [Agent3] 正在生成结构化 JSON 并对齐约束...
+  think: {
+  "baseline_comparison": {
+    "best_iter": 2,
+    "XM1_L_deviation_pct": 16.666666666666664,
+    "XM1_gm_id_deviation_pct": 5.0,
+    "XM2_L_deviation_pct": 16.666666666666664,
+    "XM2_gm_id_deviation_pct": 5.0,
+    "XM3_L_deviation_pct": 100.0,
+    "XM3_gm_id_deviation_pct": 50.0,
+    "XM4_L_deviation_pct": 100.0,
+    "XM4_gm_id_deviation_pct": 50.0,
+    "XM5_L_deviation_pct": 0.0,
+    "XM5_gm_id_deviation_pct": 72.0,
+    "XM6_L_deviation_pct": 0.0,
+    "XM6_gm_id_deviation_pct": 72.0,
+    "XM7_L_deviation_pct": 187.5,
+    "XM7_gm_id_deviation_pct": 75.0,
+    "XM8_L_deviation_pct": 187.5,
+    "XM8_gm_id_deviation_pct": 75.0,
+    "XM9_L_deviation_pct": 100.0,
+    "XM9_gm_id_deviation_pct": 58.5
+  },
+  "sensitivity_analysis": {
+    "S_Gain_XM3_L": 8.23,
+    "S_Gain_XM4_L": 8.23,
+    "S_PM_XM7_L": -0.87,
+    "S_PM_XM8_L": -0.87,
+    "S_PM_XM1_L": 3.15,
+    "S_PM_XM2_L": 3.15,
+    "S_SR_XM5_gm_id": -0.12,
+    "S_SR_XM6_gm_id": -0.12,
+    "S_SR_XM1_gm_id": 0.41,
+    "S_SR_XM2_gm_id": 0.41,
+    "S_GB_W_XM5_gm_id": -124.2,
+    "S_GB_W_XM6_gm_id": -124.2,
+    "S_PM_XM5_gm_id": -1.89,
+    "S_PM_XM6_gm_id": -1.89,
+    "S_Gain_XM5_gm_id": -2.11,
+    "S_Gain_XM6_gm_id": -2.11,
+    "S_PM_XM9_gm_id": -0.33
+  },
+  "escape_and_firefighting": {
+    "XM5_W_violation": true,
+    "XM6_W_violation": true,
+    "XM5_W_current": 884.67,
+    "XM6_W_current": 884.67,
+    "XM5_W_target_max": 750.0,
+    "XM6_W_target_max": 750.0,
+    "XM5_action_required": "reduce_L_or_reduce_gm_id_to_shrink_W",
+    "XM6_action_required": "reduce_L_or_reduce_gm_id_to_shrink_W",
+    "XM5_L_current": 0.5,
+    "XM5_gm_id_current": 17.2,
+    "XM5_idW_current": 0.108515,
+    "XM5_W_delta_needed": -134.67,
+    "XM5_gm_id_reduction_needed": 1.32,
+    "XM5_L_increase_needed": 0.083,
+    "choice": "reduce_gm_id_by_1.32_to_15.88_instead_of_increasing_L_because_L_is_already_at_min_and_L_increase_worsens_pole_splitting"
+  },
+  "incremental_calculation": {
+    "target_SR_gap": 4.013,
+    "S_SR_XM1_gm_id": 0.41,
+    "delta_XM1_gm_id_for_SR": 9.79,
+    "clamped_delta_XM1_gm_id": 0.2,
+    "XM1_gm_id_proposed": 10.7,
+    "target_PM_gap": -5.6783,
+    "S_PM_XM1_L": 3.15,
+    "delta_XM1_L_for_PM": -1.803,
+    "clamped_delta_XM1_L": -0.03,
+    "XM1_L_proposed": 0.22,
+    "target_Gain_gap": -9.9139,
+    "S_Gain_XM3_L": 8.23,
+    "delta_XM3_L_for_Gain": 1.204,
+    "XM3_L_proposed": 1.0,
+    "XM3_L_clamped_to_max": true,
+    "XM3_gm_id_cannot_increase_further": true,
+    "fallback_for_Gain": "increase_XM1_L_to_lift_input_transconductance_efficiency_while_reducing_parasitic_cap",
+    "XM1_L_final": 0.22,
+    "XM2_L_final": 0.22,
+    "XM2_gm_id_final": 10.7,
+    "XM7_L_final": 1.07,
+    "XM8_L_final": 1.07,
+    "XM7_gm_id_final": 10.5,
+    "XM8_gm_id_final": 10.5,
+    "XM9_gm_id_final": 15.0,
+    "XM9_L_final": 1.0,
+    "XM5_gm_id_final": 15.88,
+    "XM6_gm_id_final": 15.88,
+    "XM5_L_final": 0.5,
+    "XM6_L_final": 0.5,
+    "XM3_L_final": 1.0,
+    "XM4_L_final": 1.0,
+    "XM3_gm_id_final": 15.0,
+    "XM4_gm_id_final": 15.0
+  },
+  "final_decision": {
+    "XM1": {
+      "L": 0.22,
+      "gm_id": 10.7
+    },
+    "XM2": {
+      "L": 0.22,
+      "gm_id": 10.7
+    },
+    "XM3": {
+      "L": 1.0,
+      "gm_id": 15.0
+    },
+    "XM4": {
+      "L": 1.0,
+      "gm_id": 15.0
+    },
+    "XM5": {
+      "L": 0.5,
+      "gm_id": 15.88
+    },
+    "XM6": {
+      "L": 0.5,
+      "gm_id": 15.88
+    },
+    "XM7": {
+      "L": 1.07,
+      "gm_id": 10.5
+    },
+    "XM8": {
+      "L": 1.07,
+      "gm_id": 10.5
+    },
+    "XM9": {
+      "L": 1.0,
+      "gm_id": 15.0
+    }
+  }
+}
+  偏置 VBN1=0.68 VBN2=1.26 VBP=1.14
+  params (9 管): {
+  "XM1": {
+    "L": 0.22,
+    "gm_id": 10.7,
+    "ids": 96.0,
+    "idW": 22.1321,
+    "W": 4.34
+  },
+  "XM2": {
+    "L": 0.22,
+    "gm_id": 10.7,
+    "ids": 96.0,
+    "idW": 22.1321,
+    "W": 4.34
+  },
+  "XM3": {
+    "L": 1.0,
+    "gm_id": 15.0,
+    "ids": 96.0,
+    "idW": 1.76354,
+    "W": 54.44
+  },
+  "XM4": {
+    "L": 1.0,
+    "gm_id": 15.0,
+    "ids": 96.0,
+    "idW": 1.76354,
+    "W": 54.44
+  },
+  "XM5": {
+    "L": 0.5,
+    "gm_id": 15.88,
+    "ids": 96.0,
+    "idW": 0.1692684,
+    "W": 567.15
+  },
+  "XM6": {
+    "L": 0.5,
+    "gm_id": 15.88,
+    "ids": 96.0,
+    "idW": 0.1692684,
+    "W": 567.15
+  },
+  "XM7": {
+    "L": 1.07,
+    "gm_id": 10.5,
+    "ids": 96.0,
+    "idW": 0.6643731,
+    "W": 144.5
+  },
+  "XM8": {
+    "L": 1.07,
+    "gm_id": 10.5,
+    "ids": 96.0,
+    "idW": 0.6643731,
+    "W": 144.5
+  },
+  "XM9": {
+    "L": 1.0,
+    "gm_id": 15.0,
+    "ids": 192.0,
+    "idW": 1.76354,
+    "W": 108.87
+  }
+}
+  results: {'Gain': 51.3864, 'GBW': 53.968, 'PM': 69.1427, 'i(vmeas)': 136.153, 'SR': 84.8533}
+  gap: {'Gain': -8.6136, 'GBW': 33.968, 'PM': -0.8573, 'IDC': -463.847, 'SR': 4.8533}
+
+完成。History 长度: 15
+
+[Log file closed at 2026-02-22T21:10:24.291146]

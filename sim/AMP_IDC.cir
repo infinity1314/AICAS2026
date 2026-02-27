@@ -1,0 +1,31 @@
+* Five-transistor OTA IDC; run from scene2/sim
+.include 'sky130_compact.lib'
+.include 'AMP.cir'
+
+V1 VSS 0 dc=0
+V0 VDD_SOURCE 0 dc=1.8
+VMEAS VDD_SOURCE VDD 0
+
+VIN Vinn 0 dc=0.9
+VIP Vinp 0 dc=0.9
+
+XI1 Vinp Vinn VDD VSS Vout AMP
+C1 Vout 0 2e-12
+
+.op
+.CONTROL
+run
+op
+print i(vmeas) > Idc_1.txt
+* 工作点：XM1-XM9 每行 vds vgs vth（便于判断饱和区）
+print @m.XI1.XM1.msky130_fd_pr__nfet_01v8[vds] @m.XI1.XM1.msky130_fd_pr__nfet_01v8[vgs] @m.XI1.XM1.msky130_fd_pr__nfet_01v8[vth] > Op_1.txt
+print @m.XI1.XM2.msky130_fd_pr__nfet_01v8[vds] @m.XI1.XM2.msky130_fd_pr__nfet_01v8[vgs] @m.XI1.XM2.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.XI1.XM3.msky130_fd_pr__nfet_01v8[vds] @m.XI1.XM3.msky130_fd_pr__nfet_01v8[vgs] @m.XI1.XM3.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.XI1.XM4.msky130_fd_pr__nfet_01v8[vds] @m.XI1.XM4.msky130_fd_pr__nfet_01v8[vgs] @m.XI1.XM4.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.XI1.XM5.msky130_fd_pr__pfet_01v8_lvt[vds] @m.XI1.XM5.msky130_fd_pr__pfet_01v8_lvt[vgs] @m.XI1.XM5.msky130_fd_pr__pfet_01v8_lvt[vth] >> Op_1.txt
+print @m.XI1.XM6.msky130_fd_pr__pfet_01v8_lvt[vds] @m.XI1.XM6.msky130_fd_pr__pfet_01v8_lvt[vgs] @m.XI1.XM6.msky130_fd_pr__pfet_01v8_lvt[vth] >> Op_1.txt
+print @m.XI1.XM7.msky130_fd_pr__pfet_01v8_lvt[vds] @m.XI1.XM7.msky130_fd_pr__pfet_01v8_lvt[vgs] @m.XI1.XM7.msky130_fd_pr__pfet_01v8_lvt[vth] >> Op_1.txt
+print @m.XI1.XM8.msky130_fd_pr__pfet_01v8_lvt[vds] @m.XI1.XM8.msky130_fd_pr__pfet_01v8_lvt[vgs] @m.XI1.XM8.msky130_fd_pr__pfet_01v8_lvt[vth] >> Op_1.txt
+print @m.XI1.XM9.msky130_fd_pr__nfet_01v8[vds] @m.XI1.XM9.msky130_fd_pr__nfet_01v8[vgs] @m.XI1.XM9.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+.ENDC
+.END

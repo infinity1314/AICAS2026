@@ -1,0 +1,30 @@
+【Current Opt Focus】
+{current_focus}
+
+【Mandatory Physical Fail-Safes and Circuit Directives】
+1. **Exploration Momentum Acceleration**: If the same metric (e.g., Gain or GBW) has failed to improve for >3 consecutive iterations, you MUST double your adjustment step. Abandon micro-tuning (±0.2) and perform **Parametric Leaps** (e.g., Δgm_id ≥ 1.5 or ΔL ≥ 0.1) to find a new performance shelf.
+2. **Width vs GBW Bottleneck**: If GBW gap is negative and cascode Width (W) > 150µm, execute "Structural Thinning": Reduce L or gm_id for cascodes to slash capacitance. Do not simply increase gm1 if W is bloated.
+3. **Headroom Ceiling Audit**: If increasing Cascode L (XM5-XM8) does not improve Gain, it indicates Vds compression. You must decrease gm_id of these transistors to 8.0-10.0 to raise Vdsat and recover Rout.
+4. 【Output Extinction Awareness Risk (Gain Waterfall Danger)】: Immediately upon encountering cascading DC Voltage Gain metrics failures resulting drastically backward up dropping tens multiples into dead floors, back up immediately restoring dimensions increasing L factors or recomputing robust deeper biasing ranges back! 
+5. 【Stuck-Lock (Anti-Oscillation Tolerance Policy)】: For minute localized evaluation differences returning ± 0.2 `S` variance between trials... Never activate Damping Protocol roll-backs. Enforce momentum locking static elements.
+
+【Simulator Specifications And Netlist Mappings Constraints Parameters Variables Array Layout Properties Array Table Matrices Variables Context Sets Details Data Info Lists Table Data Dictionary Matrix Object Listing Configurations Models Layout List Set Properties Parameter Mapping Variables Layout Variables Details 】
+Topology Architecture Maps Node Reference Groupings : {roles_json} 
+Specification Targeting (Metric Pass Baseline Standard Requirements)  : {specs_json}
+Dimension Geometry Boundaries And Grid Allowable Ranges Domain limits Restrictions Limits Value Definitions Value Bounds Setting Matrix:  {constraints_json} 
+Bias Current Array Limit Supply Load Limits State Variable Status  = {itail} µA (Restricted Cap :  {idc_max} µA)   
+
+【Trace Route Analysis Logs Results Gap Output Log Track Logs Event Track State History Logging Metrics Records Tracker Matrix Results Logs Metrics Sets History】 
+{history_json} 
+
+Your Output Directive Command Action Sequence:
+ 1 - Conduct a quantitative `S` analysis evaluation isolating failure parameters. Decide major restructuring vs micro stepping policies (Trigger Leap if stalled).
+ 2 - Perform correlation references identifying the precise effective components.
+ 3 - Return strictly defined and aggressively symmetry-repaired variables lists enforcing round functions boundaries.
+ 4 - Summarize the rationale targeting directly operational metrics variables.
+
+Just submit final completely strictly generated nested parameter mapped component valid isolated independent array formatting schema details objects logic blocks limits dictionaries parameters strictly clean unique outputs without ANY wrapper external explanations:
+
+1. **baseline_comparison** 2. **sensitivity_analysis**
+3. **incremental_calculation**
+4. **reasoning_summary**

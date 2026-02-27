@@ -1,0 +1,15 @@
+.lib 'scene2/models/sky130.lib.spice' tt
+.include 'scene2/sim/folded_nfet_subckt_use0.spice'
+.include 'scene2/sim/folded_pfet_subckt_use0.spice'
+.subckt AMP_FOLDED Vinp Vinn VDD VSS Vout
+XM_tail net_tail vb_tail VSS VSS sky130_fd_pr__nfet_01v8 L=1.0 W=10.0
+V_tail vb_tail VSS dc=0.85
+.ends AMP_FOLDED
+XI1 Vinp Vinn VDD VSS Vout AMP_FOLDED
+VDD VDD 0 dc=1.8
+VSS VSS 0 dc=0
+Vinp Vinp 0 dc=0.9
+Vinn Vinn 0 dc=0.9
+Vout Vout 0 dc=0.9
+.op
+.end

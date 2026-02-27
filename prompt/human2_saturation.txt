@@ -1,0 +1,14 @@
+Current sizing and DC operating point:
+{current_sizing_json}
+{device_op_json}
+
+Devices in linear region: {linear_devices}
+
+Constraints and Roles:
+Constraints: {constraints_json}
+Roles: {device_roles_json}
+
+Task:
+Propose a new sizing to fix saturation. For the 3rd stage (if any), prioritize decreasing gm_id over increasing L. For cascode devices, consider increasing L to improve headroom.
+
+Output the JSON with "sizing" and "reason".

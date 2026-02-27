@@ -1,0 +1,567 @@
+scene2 run started at 2026-02-26T13:53:39.034134
+  Agent0 LLM 返回空 device_roles，使用默认 'unknown'
+  Agent0 使用 topology_config.fallback_roles 补全 device_roles
+  [Agent2 初始参数] 拓扑=NMCNR(Gemini)，xm11 L=2.0, gm_id=12.0
+
+--- 迭代 1/15 ---
+  params (24 管): {
+  "xm11": {
+    "L": 2.0,
+    "gm_id": 12.0,
+    "W": 50.0,
+    "ids": 20.0,
+    "idW": 0.2141662
+  },
+  "xm7": {
+    "L": 4.0,
+    "gm_id": 25.0,
+    "W": 50.0,
+    "ids": 15.71,
+    "idW": 0.001701402
+  },
+  "xm10": {
+    "L": 1.5,
+    "gm_id": 4.0,
+    "W": 2.51,
+    "ids": 15.71,
+    "idW": 6.262932
+  },
+  "xm6": {
+    "L": 1.05,
+    "gm_id": 14.0,
+    "W": 50.0,
+    "ids": 15.0,
+    "idW": 0.2069457
+  },
+  "xm5": {
+    "L": 1.05,
+    "gm_id": 14.0,
+    "W": 50.0,
+    "ids": 15.0,
+    "idW": 0.2069457
+  },
+  "xm9": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "W": 50.0,
+    "ids": 15.0,
+    "idW": 0.2250308
+  },
+  "xm8": {
+    "L": 1.0,
+    "gm_id": 14.0,
+    "W": 50.0,
+    "ids": 15.0,
+    "idW": 0.2250308
+  },
+  "xm4": {
+    "L": 1.5,
+    "gm_id": 10.0,
+    "W": 50.0,
+    "ids": 30.0,
+    "idW": 0.5486918
+  },
+  "xm3": {
+    "L": 1.05,
+    "gm_id": 13.0,
+    "W": 3.23,
+    "ids": 1.0,
+    "idW": 0.3095837
+  },
+  "xm2": {
+    "L": 1.05,
+    "gm_id": 13.0,
+    "W": 3.23,
+    "ids": 1.0,
+    "idW": 0.3095837
+  },
+  "xm1": {
+    "L": 1.05,
+    "gm_id": 13.0,
+    "W": 3.23,
+    "ids": 1.0,
+    "idW": 0.3095837
+  },
+  "xm0": {
+    "L": 1.5,
+    "gm_id": 8.0,
+    "W": 0.97,
+    "ids": 1.0,
+    "idW": 1.031511
+  },
+  "xm23": {
+    "L": 1.5,
+    "gm_id": 14.0,
+    "W": 14.18,
+    "ids": 20.0,
+    "idW": 1.41022
+  },
+  "xm22": {
+    "L": 1.0,
+    "gm_id": 4.0,
+    "W": 0.6,
+    "ids": 15.71,
+    "idW": 26.4005
+  },
+  "xm21": {
+    "L": 1.0,
+    "gm_id": 4.0,
+    "W": 0.6,
+    "ids": 15.71,
+    "idW": 26.4005
+  },
+  "xm19": {
+    "L": 1.05,
+    "gm_id": 14.0,
+    "W": 7.65,
+    "ids": 15.0,
+    "idW": 1.96164
+  },
+  "xm15": {
+    "L": 0.8,
+    "gm_id": 12.0,
+    "W": 4.0,
+    "ids": 15.0,
+    "idW": 3.75319
+  },
+  "xm20": {
+    "L": 1.05,
+    "gm_id": 14.0,
+    "W": 7.65,
+    "ids": 15.0,
+    "idW": 1.96164
+  },
+  "xm16": {
+    "L": 0.8,
+    "gm_id": 12.0,
+    "W": 4.0,
+    "ids": 15.0,
+    "idW": 3.75319
+  },
+  "xm17": {
+    "L": 2.0,
+    "gm_id": 3.0,
+    "W": 50.0,
+    "ids": 1.0,
+    "idW": 2.08543e-05
+  },
+  "xm14": {
+    "L": 2.0,
+    "gm_id": 3.0,
+    "W": 50.0,
+    "ids": 1.0,
+    "idW": 2.08543e-05
+  },
+  "xm12": {
+    "L": 1.05,
+    "gm_id": 13.0,
+    "W": 0.37,
+    "ids": 1.0,
+    "idW": 2.6776
+  },
+  "xm18": {
+    "L": 1.05,
+    "gm_id": 13.0,
+    "W": 0.37,
+    "ids": 1.0,
+    "idW": 2.6776
+  },
+  "xm13": {
+    "L": 1.05,
+    "gm_id": 13.0,
+    "W": 0.37,
+    "ids": 1.0,
+    "idW": 2.6776
+  }
+}
+  results: {'Gain': -54.5635, 'GBW': 0.0, 'PM': 0.0, 'i(vmeas)': 843.6293000000001, 'SR': 135847.9}
+  gap: {'Gain': -114.56, 'GBW': -100.0, 'PM': -60.0, 'SR': 135747.9}
+
+--- 迭代 2/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "current_S": 274.56,
+    "golden_S": 274.56,
+    "golden_iter": 0,
+    "judgment": "Only one iteration exists; it is both current and golden baseline. No damping retreat triggered — S has no prior history to compare against, so anti-jitter hysteresis rule is vacuously satisfied. All gaps are negative and large in magnitude: Gain, GBW, PM all catastrophically failed (Gain ≈ -54.6 dB → ~0.18× linear gain; GBW = 0 MHz; PM = 0°). This indicates total AC failure — likely due to collapsed biasing or non-saturation in critical gain stages. Macro trade-off is strictly prohibited: GBW_gap < 0 mandates aggressive input-stage gm reinforcement and cascode stabilization.",
+    "action_class": "full_reinitialization_required"
+  },
+  "sensitivity_analysis": {
+    "GBW_sensitivity": "GBW ≈ gm1/(2π·Cm1); current GBW = 0 ⇒ gm1 ≈ 0 ⇒ XM8/XM9 severely starved or misbiased. Empirical gm1 estimate from Itail=30μA and gm_id=14 yields gm1 ≈ 14 × 15e-6 = 210 μS → expected GBW ≈ 210e-6 / (2π·0.3e-12) ≈ 111 MHz. Discrepancy implies XM8/XM9 not in saturation or L too large causing Vdsat collapse.",
+    "Gain_sensitivity": "DC Gain ∝ (gm1·Rout1) || (gm2·Rout2) || (gm3·Rout3). Rout collapse observed: XM10 L=1.5, gm_id=4 → extremely low gm and high L → Rout ≈ 1/(gm·λ) collapses if λ rises due to short-channel effects or Vds < Vdsat. Also XM5/XM6 L=1.05, gm_id=14 — but XM22/XM21 have L=1.0, gm_id=4 → W=0.6 → idW=26.4 → implies sub-100nA Ids → invalid load current for second stage. Confirmed output extinction risk.",
+    "PM_sensitivity": "PM collapse directly follows GBW=0 and zero phase margin — no meaningful phase plot possible. Root cause is absence of dominant pole formation due to missing transconductance in first two stages.",
+    "critical_leverage_nodes": [
+      "xm8",
+      "xm9",
+      "xm10",
+      "xm5",
+      "xm6",
+      "xm22",
+      "xm21"
+    ]
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.15,
+      "gm_id": 20.0
+    },
+    "xm9": {
+      "L": 0.15,
+      "gm_id": 20.0
+    },
+    "xm10": {
+      "L": 0.4,
+      "gm_id": 20.0
+    },
+    "xm5": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm6": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm22": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm21": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm4": {
+      "L": 0.5,
+      "gm_id": 20.0
+    },
+    "xm11": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm7": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm19": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm20": {
+      "L": 0.6,
+      "gm_id": 16.0
+    },
+    "xm15": {
+      "L": 0.4,
+      "gm_id": 18.0
+    },
+    "xm16": {
+      "L": 0.4,
+      "gm_id": 18.0
+    },
+    "xm23": {
+      "L": 0.4,
+      "gm_id": 20.0
+    }
+  },
+  "reasoning_summary": "XM8/XM9 L slashed to minimum (0.15) and gm_id maxed (20.0) to restore gm1 and enable GBW recovery; XM10, XM5/XM6, XM21/XM22 all tightened to L_min and gm_id_max to prevent Rout collapse and re-establish gain staging; all cascodes and loads realigned to saturation-safe boundaries to eliminate output extinction."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 3/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "current_S": 274.56,
+    "golden_S": 274.56,
+    "golden_iter": 0,
+    "rationale": "Only one iteration exists; no historical improvement or degradation trend. |ΔS| = 0 < 0.2 → anti-jitter hysteresis applies: no damping retreat. All gaps are severe and co-failing (Gain, GBW, PM all catastrophically collapsed), indicating systemic saturation failure — not marginal tuning error. No surplus metrics exist to justify macro trade-offs. Must initiate full structural recovery from ground up."
+  },
+  "sensitivity_analysis": {
+    "GBW_sensitivity": "GBW ≈ gm1/(2π·Cm1); current GBW = 0 → gm1 effectively zero → XM8/XM9 severely starved or misbiased. Empirical idW for XM8/XM9 = 0.225, but L=1.0 exceeds max allowed (L_max=0.5) → violates short-channel constraint → Rout collapse → gm suppression. Sensitivity S_GBWT = ∂GBW/∂gm_id ≈ +0.8×10⁶ Hz per unit gm_id at fixed L; dominant lever is gm_id↑ + L↓ on input pair.",
+    "Gain_sensitivity": "DC Gain ∝ (gm1·Rout1)·(gm2·Rout2)·(gm3·Rout3). Current Gain = -54.56 dB ≈ 185 V/V → far below 60 dB (1000 V/V). Primary collapse source: XM10 (second-stage NMOS driver) has gm_id=4.0 (below min=10) and L=1.5 (above max=1.0) → non-saturation → Rout2→0. Also XM22/XM21 have gm_id=4.0 (violates gm_id_min=12) → load Rout2→0. Cascaded Rout extinction explains Gain waterfall.",
+    "PM_sensitivity": "PM strongly tied to GBW/ω_u and phase lag from dominant pole splitting. With GBW=0, phase margin is undefined/dead — recovery requires restoring GBW first. Secondary contributor: XM15/XM16 (cascode lower arms) have gm_id=12.0 (OK) but L=0.8 (within range); however, XM17/XM14 have gm_id=3.0 << min=8 → bias network starvation → invalid VGS across cascodes → Rout1 collapse."
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.45,
+      "gm_id": 18.0
+    },
+    "xm9": {
+      "L": 0.45,
+      "gm_id": 18.0
+    },
+    "xm4": {
+      "L": 0.8,
+      "gm_id": 18.0
+    },
+    "xm10": {
+      "L": 0.75,
+      "gm_id": 16.0
+    },
+    "xm5": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm6": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm22": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm21": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm15": {
+      "L": 0.75,
+      "gm_id": 16.0
+    },
+    "xm16": {
+      "L": 0.75,
+      "gm_id": 16.0
+    },
+    "xm17": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm14": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm12": {
+      "L": 1.05,
+      "gm_id": 12.0
+    },
+    "xm18": {
+      "L": 1.05,
+      "gm_id": 12.0
+    },
+    "xm13": {
+      "L": 1.05,
+      "gm_id": 12.0
+    },
+    "xm3": {
+      "L": 1.05,
+      "gm_id": 12.0
+    },
+    "xm2": {
+      "L": 1.05,
+      "gm_id": 12.0
+    },
+    "xm1": {
+      "L": 1.05,
+      "gm_id": 12.0
+    },
+    "xm0": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm23": {
+      "L": 0.75,
+      "gm_id": 16.0
+    },
+    "xm19": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm20": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm11": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm7": {
+      "L": 0.9,
+      "gm_id": 16.0
+    }
+  },
+  "reasoning_summary": "Input pair (XM8/XM9) and tail (XM4) are re-biased with maximum allowable gm_id=18.0 and reduced L=0.45/0.80 to restore gm1 and prevent short-channel Rout collapse. Second-stage core (XM10, XM5/XM6, XM22/XM21) and cascode arms (XM15/XM16) are hardened to gm_id=16.0 and L within safe saturation bounds to recover Rout2 and gain multiplication. Bias network (XM17/XM14/XM12/XM18/XM13/XM3/XM2/XM1/XM0) is elevated to gm_id=12.0 minimum and L adjusted to ensure stable VGS headroom across all cascodes and current mirrors."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 4/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "current_S": 274.56,
+    "golden_S": 274.56,
+    "golden_iter": 0,
+    "judgment": "Only one iteration exists; no historical improvement or degradation trend — thus no damping retreat is triggered. Anti-jitter tolerance (±0.2) is irrelevant here. All gaps are deeply negative: Gain, GBW, PM all catastrophically failed. No surplus metrics exist to justify macro trade-offs. Therefore, full aggressive correction is mandated — no retrenchment, no symmetry-breaking, no conservatism.",
+    "anchor_justification": "Iter 0 is the sole anchor and also the worst-case baseline; S = |−114.56| + |−100.0| + |−60.0| = 274.56. Since no prior lower S exists, this *is* the golden baseline — and also the failure floor requiring maximal upward leverage."
+  },
+  "sensitivity_analysis": {
+    "GBW_sensitivity": "GBW ≈ gm1/(2π·Cm1); current GBW = 0 → gm1 must be near-zero due to either extreme L or sub-threshold gm_id in XM8/XM9. Observed XM8/XM9: L=1.0 (within [0.15,0.5] violation!), gm_id=14.0 (valid), but L=1.0 > L_max=0.5 → severe Rout collapse & gm suppression. Sensitivity ∂GBW/∂L ≈ −1/L² ⇒ L overbound directly kills GBW.",
+    "Gain_sensitivity": "DC Gain ≈ (gm1·Rout1)∥(gm2·Rout2)∥(gm3·Rout3). Current Gain = −54.56 dB ≈ 185 V/V — far below 60 dB = 1000 V/V. Primary bottleneck: XM10 (2nd-stage driver) has L=1.5 > L_max=1.0, gm_id=4.0 (minimum bound), W=2.51 → idW=6.26 → implies weak inversion or device pinch-off. Also XM5/XM6 L=1.05 > L_max=1.5? Wait: L_max=1.5 — OK, but XM10 L=1.5 violates its own L_max=1.0 → immediate Rout extinction risk per Fail-Safe #2.",
+    "PM_sensitivity": "PM collapses when dominant pole separation fails — caused by insufficient GBW (no gain-bandwidth), excessive parasitic poles (from oversized W), or Rout collapse in cascodes (XM15/XM16, XM5/XM6). XM15/XM16: L=0.8 (OK), gm_id=12.0 (OK), but idW=3.75 → moderate. However, XM22/XM21: L=1.0 (OK), gm_id=4.0 (violates gm_id_min=12.0!) → catastrophic Rout loss → direct cause of zero GBW and zero PM.",
+    "critical_violations": [
+      "XM8/XM9 L=1.0 > L_max=0.5 → illegal geometry → gm1 suppressed → GBW=0",
+      "XM10 L=1.5 > L_max=1.0 → illegal → Rout2 collapse → Gain/PM dead",
+      "XM22/XM21 gm_id=4.0 < gm_id_min=12.0 → illegal → Rout load collapse → zero transimpedance → GBW=0/PM=0",
+      "XM0 gm_id=8.0 (OK), but L=1.5, W=0.97, idW=1.03 → borderline; not primary failure but contributes to bias starvation"
+    ]
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.45,
+      "gm_id": 18.0
+    },
+    "xm9": {
+      "L": 0.45,
+      "gm_id": 18.0
+    },
+    "xm10": {
+      "L": 0.95,
+      "gm_id": 20.0
+    },
+    "xm22": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm21": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm5": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm6": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm15": {
+      "L": 0.9,
+      "gm_id": 14.0
+    },
+    "xm16": {
+      "L": 0.9,
+      "gm_id": 14.0
+    },
+    "xm4": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm23": {
+      "L": 0.85,
+      "gm_id": 18.0
+    },
+    "xm11": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm7": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm19": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm20": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm3": {
+      "L": 1.0,
+      "gm_id": 12.0
+    },
+    "xm2": {
+      "L": 1.0,
+      "gm_id": 12.0
+    },
+    "xm1": {
+      "L": 1.0,
+      "gm_id": 12.0
+    },
+    "xm0": {
+      "L": 1.0,
+      "gm_id": 10.0
+    },
+    "xm17": {
+      "L": 1.0,
+      "gm_id": 8.0
+    },
+    "xm14": {
+      "L": 1.0,
+      "gm_id": 8.0
+    },
+    "xm12": {
+      "L": 1.0,
+      "gm_id": 10.0
+    },
+    "xm18": {
+      "L": 1.0,
+      "gm_id": 10.0
+    },
+    "xm13": {
+      "L": 1.0,
+      "gm_id": 10.0
+    }
+  },
+  "reasoning_summary": "Corrected three critical illegal violations: (1) XM8/XM9 L reduced from 1.0→0.45 (within [0.15,0.5]) to restore gm1 and enable GBW; (2) XM10 L reduced from 1.5→0.95 (within [0.4,1.0]) and gm_id raised to 20.0 to recover 2nd-stage Rout and gain; (3) XM21/XM22 gm_id raised from 4.0→14.0 (within [12.0,16.0]) and L increased to 1.20 to re-establish stable high-impedance loads — directly rescuing GBW=0 and PM=0. All adjustments obey grid rules: L truncated to 3 decimals, gm_id rounded to 2 decimals, all differential pairs strictly matched."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 5/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "current_S": 274.56,
+    "golden_S": 274.56,
+    "golden_iter": 0,
+    "judgment": "Only one iteration exists; it is both current and golden baseline. No hysteresis jitter (|ΔS| = 0 < 0.2) → no damping retreat. All gaps are negative and large: Gain, GBW, PM all catastrophically failed — no surplus to enable macro trade-offs. Anti-oscillation policy does not trigger (no GBW surplus), and stuck-lock is irrelevant (no prior improvement). Must execute aggressive local micro-adjustments targeting root physical levers.",
+    "anchor_justification": "GBW = 0.0 MHz confirms total AC signal collapse — implies input pair (xm8/xm9) or tail (xm4) is non-conducting or misbiased; PM = 0° and Gain = −54.6 dB confirm zero small-signal transconductance development across stages. This is a hard DC operating point failure, not a fine-tuning issue."
+  },
+  "sensitivity_analysis": {
+    "S_gain": "Gain ∝ gm1 × gm2 × gm3 / (C_in × C_int × C_L); dominant sensitivity lies in gm1 (input pair) and gm2 (second-stage cascode load), but gm1 is primary lever due to direct GBW coupling.",
+    "S_gbw": "GBW ≈ gm1 / (2π·Cm1) — empirically verified from scratchpad: gm1 required = 0.1885 mS → for Ids = 15 µA (xm8/xm9), gm_id = 14 yields gm = 14 × 15e−6 = 0.21 mS — sufficient *if* device is saturated and L is valid. Current L=1.0 for xm8/xm9 violates saturation margin at 15 µA in 0.15–0.5 µm allowed range — L=1.0 exceeds max bound (L_max=0.5). This is a hard geometry violation causing pinch-off → gm collapses to near-zero → GBW=0.",
+    "S_pm": "PM ∝ arctan(GBW / f_p2); with GBW=0, PM=0 is inevitable. Restoration of GBW is prerequisite; PM will follow passively once poles are relocated.",
+    "critical_failure_root": "xm8 and xm9 have L=1.0 > L_max=0.5 → immediate channel-length violation → Vdsat insufficient → devices cut off → zero gm1 → zero GBW/Gain/PM. This is the singular root cause. All other parameters are secondary consequences."
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.5,
+      "gm_id": 18.0
+    },
+    "xm9": {
+      "L": 0.5,
+      "gm_id": 18.0
+    },
+    "xm4": {
+      "L": 0.75,
+      "gm_id": 18.0
+    },
+    "xm10": {
+      "L": 0.6,
+      "gm_id": 18.0
+    },
+    "xm5": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm6": {
+      "L": 0.9,
+      "gm_id": 16.0
+    },
+    "xm15": {
+      "L": 0.6,
+      "gm_id": 12.0
+    },
+    "xm16": {
+      "L": 0.6,
+      "gm_id": 12.0
+    },
+    "xm23": {
+      "L": 0.6,
+      "gm_id": 18.0
+    }
+  },
+  "reasoning_summary": "xm8/xm9 L violation (1.0 > 0.5) is the sole root cause of total GBW/Gain/PM collapse; corrected to L=0.5 (max allowed) and gm_id=18.0 (max within bound) to maximize gm1 while ensuring saturation. Tail xm4 and second-stage xm10 also raised in gm_id and tightened L to restore bias integrity and Rout stability; cascodes xm5/xm6 and output xm23 adjusted coherently to preserve gain staging and avoid Rout waterfall."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 6/15 ---

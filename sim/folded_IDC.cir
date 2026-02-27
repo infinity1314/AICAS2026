@@ -1,0 +1,21 @@
+* Folded cascode OTA IDC (compact model); subckt AMP Vinp Vinn VDD VSS Vout
+.include 'sky130_compact.lib'
+.include 'AMP.cir'
+
+V1 VSS 0 dc=0
+V0 VDD_SOURCE 0 dc=1.8
+VMEAS VDD_SOURCE VDD 0
+
+VIN Vinn 0 dc=0.9
+VIP Vinp 0 dc=0.9
+
+XI1 Vinp Vinn VDD VSS Vout AMP
+C1 Vout 0 2.1e-12
+
+.op
+.CONTROL
+run
+op
+print i(vmeas) > Idc_1.txt
+.ENDC
+.END

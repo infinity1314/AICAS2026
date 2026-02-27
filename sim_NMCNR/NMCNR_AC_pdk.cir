@@ -1,0 +1,57 @@
+* Leung NMCNR OTA AC（从项目根运行，与 folded_AC 同序：.lib 再 .include alias 再 .include 电路）
+.option ngbehavior=ltpsa
+.param sky130_fd_pr__nfet_01v8__toxe_slope=0
+.param sky130_fd_pr__nfet_01v8__vth0_slope=0
+.param sky130_fd_pr__nfet_01v8__voff_slope=0
+.param sky130_fd_pr__nfet_01v8__toxe_slope_spectre=1
+.param sky130_fd_pr__nfet_01v8__vth0_slope_spectre=1
+.param sky130_fd_pr__nfet_01v8__voff_slope_spectre=1
+.param sky130_fd_pr__pfet_01v8_lvt__toxe_slope=0
+.param sky130_fd_pr__pfet_01v8_lvt__vth0_slope=0
+.param sky130_fd_pr__pfet_01v8_lvt__voff_slope=0
+.param sky130_fd_pr__pfet_01v8_lvt__vth0_slope_spectre=1
+.param sky130_fd_pr__pfet_01v8_lvt__voff_slope_spectre=1
+.param mult=1
+
+.include 'src/sim/sky130_ngspice.lib'
+.include 'scene2/sim_NMCNR/pfet_01v8_alias_subckt.spice'
+.include 'scene2/sim_NMCNR/NMCNR.cir'
+.TEMP 25
+
+VSS gnda 0 dc=0
+VDD vdda 0 dc=1.8
+* 直流共模 0.6V，差分 AC 激励 1V（VINP = +0.5, VINN = -0.5）
+VINN vinn 0 dc=0.6  ac=-0.5
+VINP vinp 0 dc=0.6  ac=+0.5
+
+XI1 gnda vdda vinn vinp vout Leung_NMCNR_Pin_3
+CLOAD vout 0 2e-12
+
+* Bias references for NMCNR (diode-connected NMOS)
+* 参考 1：生成 VB3_ref（用于 VB3 偏置）
+IREF3 vb3_ref gnda dc 1u
+XREF3 vb3_ref vb3_ref gnda gnda sky130_fd_pr__nfet_01v8 L=0.95 W=1.08
+
+* 参考 2：生成 VB4_ref（用于 VB4 偏置）
+IREF4 vb4_ref gnda dc 1u
+XREF4 vb4_ref vb4_ref gnda gnda sky130_fd_pr__nfet_01v8 L=0.95 W=1.08
+
+* 将参考节点挂到子电路的 VB3/VB4 上
+VVB3 VB3 vb3_ref dc 0
+VVB4 VB4 vb4_ref dc 0
+
+.ac dec 100 1 1000Meg
+.print ac vdb(vout) vp(vout)
+
+.CONTROL
+set units=degrees
+run
+meas ac gain_max find vdb(vout) at=1
+meas ac gbw when vdb(vout)=0
+meas ac phase_margin find vp(vout) when vdb(vout)=0
+echo "Gain= $&gain_max" >  AC_results_1.txt
+echo "GBW= $&gbw"       >> AC_results_1.txt
+echo "PM= $&phase_margin" >> AC_results_1.txt
+.ENDC
+.END
+

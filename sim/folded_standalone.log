@@ -1,0 +1,37 @@
+======== ngspice -b scene1/sim/folded_AC_pdk.cir ========
+Warning: can't find the initialization file spinit.
+warning, can't find model 'sky130_fd_pr__nfet_01v8' from line
+    m_tail net_tail vb_tail vss vss sky130_fd_pr__nfet_01v8 l=1.25 w=6.38 m=10
+warning, can't find model 'sky130_fd_pr__nfet_01v8' from line
+    m_in_p net_fold_n vinp net_tail vss sky130_fd_pr__nfet_01v8 l=0.325 w=17.1
+warning, can't find model 'sky130_fd_pr__nfet_01v8' from line
+    m_in_n net_fold_p vinn net_tail vss sky130_fd_pr__nfet_01v8 l=0.325 w=17.1
+warning, can't find model 'sky130_fd_pr__pfet_01v8_lvt' from line
+    m_load_p net_fold_p vb_pload vdd vdd sky130_fd_pr__pfet_01v8_lvt l=1.125 w=100.0 m=10
+warning, can't find model 'sky130_fd_pr__pfet_01v8_lvt' from line
+    m_load_n net_fold_n vb_pload vdd vdd sky130_fd_pr__pfet_01v8_lvt l=1.125 w=100.0 m=10
+warning, can't find model 'sky130_fd_pr__pfet_01v8_lvt' from line
+    m_casc_p_p vout vb_pcasc net_fold_p vdd sky130_fd_pr__pfet_01v8_lvt l=1.0 w=10.89 m=10
+warning, can't find model 'sky130_fd_pr__pfet_01v8_lvt' from line
+    m_casc_p_n vout vb_pcasc net_fold_n vdd sky130_fd_pr__pfet_01v8_lvt l=1.0 w=10.89 m=10
+warning, can't find model 'sky130_fd_pr__nfet_01v8' from line
+    m_casc_n_p vout vb_ncasc net_low_p vss sky130_fd_pr__nfet_01v8 l=1.0 w=17.95
+warning, can't find model 'sky130_fd_pr__nfet_01v8' from line
+    m_casc_n_n vout vb_ncasc net_low_n vss sky130_fd_pr__nfet_01v8 l=1.0 w=17.95
+warning, can't find model 'sky130_fd_pr__nfet_01v8' from line
+    m_cmfb_p net_low_p vctrl_cmfb vss vss sky130_fd_pr__nfet_01v8 l=0.625 w=13.64
+warning, can't find model 'sky130_fd_pr__nfet_01v8' from line
+    m_cmfb_n net_low_n vctrl_cmfb vss vss sky130_fd_pr__nfet_01v8 l=0.625 w=13.64
+
+Note: No compatibility mode selected!
+
+
+Circuit: * folded cascode ota ac with project pdk (run from project root: ngspice -b scene1/sim/folded_ac_pdk.cir)
+
+Error on line 2 or its substitute:
+  m.xi1.m_tail xi1.net_tail xi1.vb_tail vss vss sky130_fd_pr__nfet_01v8 l=1.25 w=6.38 m=10
+could not find a valid modelname
+    Simulation interrupted due to error!
+
+Note: No ".plot", ".print", or ".fourier" lines; no simulations run
+(exit code 256)
