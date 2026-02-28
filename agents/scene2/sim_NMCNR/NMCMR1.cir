@@ -1,0 +1,369 @@
+* Leung NMCNR 三级放大器 - 性能指标自动输出版
+.lib "/home/jzhuang/AnalogLLM/AICAS4Analog/scene2/models/sky130.lib.spice" tt
+
+.PARAM
++ CURRENT_0_BIAS=5.0u
++ VDD_VAL=1.8
++ VCM_VAL=0.9
++ CLOAD=10p
+
+* --- 第一级 ---
++ MOSFET_8_2_L_gm1_PMOS=1.93
++ MOSFET_8_2_W_gm1_PMOS=4.0
++ MOSFET_8_2_M_gm1_PMOS=4
+
+* --- 第二级 ---
++ MOSFET_10_1_L_gm2_PMOS=1.44
++ MOSFET_10_1_W_gm2_PMOS=3.2
++ MOSFET_10_1_M_gm2_PMOS=4
+
+* --- 第三级 (微调W到1.7，扶正输出电平以提升带宽) ---
++ MOSFET_23_1_L_gm3_NMOS=1.9
++ MOSFET_23_1_W_gm3_NMOS=0.75 
++ MOSFET_23_1_M_gm3_NMOS=4
+
+* --- 偏置网络 ---
++ MOSFET_0_8_L_BIASCM_PMOS=2.0
++ MOSFET_0_8_W_BIASCM_PMOS=2.3
++ MOSFET_0_8_M_BIASCM_PMOS=4
++ MOSFET_17_7_L_BIASCM_NMOS=0.9
++ MOSFET_17_7_W_BIASCM_NMOS=0.47
++ MOSFET_17_7_M_BIASCM_NMOS=4
++ MOSFET_21_2_L_LOAD2_NMOS=1.5
++ MOSFET_21_2_W_LOAD2_NMOS=2.0
++ MOSFET_21_2_M_LOAD2_NMOS=4
+
+* --- 补偿元件 ---
++ RESISTOR_0=15k
++ CAPACITOR_0=0.4p
++ CAPACITOR_1=0.2p
+
+XX1 0 vdd vinn vinp vout Leung_NMCNR_Pin_3
+
+.subckt Leung_NMCNR_Pin_3 gnda vdda vinn vinp vout
+xm11 VOUT net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS*10'
+xm7 net049 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS'
+xm10 net043 net050 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_10_1_L_gm2_PMOS' w='MOSFET_10_1_W_gm2_PMOS' m='MOSFET_10_1_M_gm2_PMOS'
+xm6 net050 VOUTN vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS'
+xm5 VOUTN VOUTN vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS'
+xm9 net063 vinp net31 net31 sky130_fd_pr__pfet_01v8_lvt l='MOSFET_8_2_L_gm1_PMOS' w='MOSFET_8_2_W_gm1_PMOS' m='MOSFET_8_2_M_gm1_PMOS'
+xm8 DM_2 vinn net31 net31 sky130_fd_pr__pfet_01v8_lvt l='MOSFET_8_2_L_gm1_PMOS' w='MOSFET_8_2_W_gm1_PMOS' m='MOSFET_8_2_M_gm1_PMOS'
+xm4 net31 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='4*MOSFET_0_8_M_BIASCM_PMOS'
+xm3 VB3 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS'
+xm2 DM_1 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS'
+xm1 VB4 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS'
+xm0 net013 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS' m='MOSFET_0_8_M_BIASCM_PMOS'
+
+xm23 VOUT net049 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_23_1_L_gm3_NMOS' w='MOSFET_23_1_W_gm3_NMOS' m='MOSFET_23_1_M_gm3_NMOS'
+xm22 net049 net043 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_21_2_L_LOAD2_NMOS' w='MOSFET_21_2_W_LOAD2_NMOS' m='MOSFET_21_2_M_LOAD2_NMOS'
+xm21 net043 net043 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_21_2_L_LOAD2_NMOS' w='MOSFET_21_2_W_LOAD2_NMOS' m='MOSFET_21_2_M_LOAD2_NMOS'
+xm19 DM_2 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*8'
+xm15 VOUTN VB3 DM_2 gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm20 net063 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*8'
+xm16 net050 VB3 net063 gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm17 net54 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm14 VB3 VB3 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS'
+xm12 VB4 VB3 net54 gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm18 net56 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm13 DM_1 VB3 net56 gnda sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+
+I0 net013 gnda 'CURRENT_0_BIAS'
+C1 net044 net049 'CAPACITOR_1'
+C0 net050 net044 'CAPACITOR_0'
+R0 net044 vout 'RESISTOR_0'
+.ends
+
+VVDD vdd 0 'VDD_VAL'
+VCM_IN vinp 0 'VCM_VAL'
+VAC vinn vinp DC 0 AC 1
+CL vout 0 'CLOAD'
+
+.control
+  set filetype=ascii
+  op
+
+  echo " "
+  echo "===================================================================================================="
+  echo "            LEUNG NMCNR FULL 24-DEVICE OPERATING STATUS REPORT (gm/Id, L & Id)             "
+  echo "===================================================================================================="
+  echo " DEVICE    | Vgs(V) | Vds(V) | Vmargin(V) | gm/Id (1/V) |  L (um) | Id (uA)"
+  echo "----------------------------------------------------------------------------------------------------"
+
+  * --- PMOS 组 (xm0 - xm11) ---
+  let vgs0 = abs(@m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth0 = abs(@m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds0 = abs(@m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm0  = abs(@m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id0  = abs(@m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id0_ua = id0 * 1e6
+  let l0   = @m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm0  = vds0 - (vgs0 - vth0)
+  let gmid0 = gm0 / (id0 + 1e-15)
+  echo " PMOS xm0  | $&vgs0 | $&vds0 | $&vm0 | $&gmid0 | $&l0 | $&id0_ua"
+
+  let vgs1 = abs(@m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth1 = abs(@m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds1 = abs(@m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm1  = abs(@m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id1  = abs(@m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id1_ua = id1 * 1e6
+  let l1   = @m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm1  = vds1 - (vgs1 - vth1)
+  let gmid1 = gm1 / (id1 + 1e-15)
+  echo " PMOS xm1  | $&vgs1 | $&vds1 | $&vm1 | $&gmid1 | $&l1 | $&id1_ua"
+
+  let vgs2 = abs(@m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth2 = abs(@m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds2 = abs(@m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm2  = abs(@m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id2  = abs(@m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id2_ua = id2 * 1e6
+  let l2   = @m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm2  = vds2 - (vgs2 - vth2)
+  let gmid2 = gm2 / (id2 + 1e-15)
+  echo " PMOS xm2  | $&vgs2 | $&vds2 | $&vm2 | $&gmid2 | $&l2 | $&id2_ua"
+
+  let vgs3 = abs(@m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth3 = abs(@m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds3 = abs(@m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm3  = abs(@m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id3  = abs(@m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id3_ua = id3 * 1e6
+  let l3   = @m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm3  = vds3 - (vgs3 - vth3)
+  let gmid3 = gm3 / (id3 + 1e-15)
+  echo " PMOS xm3  | $&vgs3 | $&vds3 | $&vm3 | $&gmid3 | $&l3 | $&id3_ua"
+
+  let vgs4 = abs(@m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth4 = abs(@m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds4 = abs(@m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm4  = abs(@m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id4  = abs(@m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id4_ua = id4 * 1e6
+  let l4   = @m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm4  = vds4 - (vgs4 - vth4)
+  let gmid4 = gm4 / (id4 + 1e-15)
+  echo " PMOS xm4  | $&vgs4 | $&vds4 | $&vm4 | $&gmid4 | $&l4 | $&id4_ua"
+
+  let vgs5 = abs(@m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth5 = abs(@m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds5 = abs(@m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm5  = abs(@m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id5  = abs(@m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id5_ua = id5 * 1e6
+  let l5   = @m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm5  = vds5 - (vgs5 - vth5)
+  let gmid5 = gm5 / (id5 + 1e-15)
+  echo " PMOS xm5  | $&vgs5 | $&vds5 | $&vm5 | $&gmid5 | $&l5 | $&id5_ua"
+
+  let vgs6 = abs(@m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth6 = abs(@m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds6 = abs(@m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm6  = abs(@m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id6  = abs(@m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id6_ua = id6 * 1e6
+  let l6   = @m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm6  = vds6 - (vgs6 - vth6)
+  let gmid6 = gm6 / (id6 + 1e-15)
+  echo " PMOS xm6  | $&vgs6 | $&vds6 | $&vm6 | $&gmid6 | $&l6 | $&id6_ua"
+
+  let vgs7 = abs(@m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth7 = abs(@m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds7 = abs(@m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm7  = abs(@m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id7  = abs(@m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id7_ua = id7 * 1e6
+  let l7   = @m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm7  = vds7 - (vgs7 - vth7)
+  let gmid7 = gm7 / (id7 + 1e-15)
+  echo " PMOS xm7  | $&vgs7 | $&vds7 | $&vm7 | $&gmid7 | $&l7 | $&id7_ua"
+
+  let vgs8 = abs(@m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth8 = abs(@m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds8 = abs(@m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm8  = abs(@m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id8  = abs(@m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id8_ua = id8 * 1e6
+  let l8   = @m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm8  = vds8 - (vgs8 - vth8)
+  let gmid8 = gm8 / (id8 + 1e-15)
+  echo " PMOS xm8  | $&vgs8 | $&vds8 | $&vm8 | $&gmid8 | $&l8 | $&id8_ua"
+
+  let vgs9 = abs(@m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth9 = abs(@m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds9 = abs(@m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm9  = abs(@m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id9  = abs(@m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id9_ua = id9 * 1e6
+  let l9   = @m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm9  = vds9 - (vgs9 - vth9)
+  let gmid9 = gm9 / (id9 + 1e-15)
+  echo " PMOS xm9  | $&vgs9 | $&vds9 | $&vm9 | $&gmid9 | $&l9 | $&id9_ua"
+
+  let vgs10 = abs(@m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth10 = abs(@m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds10 = abs(@m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm10  = abs(@m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id10  = abs(@m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id10_ua = id10 * 1e6
+  let l10   = @m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm10  = vds10 - (vgs10 - vth10)
+  let gmid10 = gm10 / (id10 + 1e-15)
+  echo " PMOS xm10 | $&vgs10 | $&vds10 | $&vm10 | $&gmid10 | $&l10 | $&id10_ua"
+
+  let vgs11 = abs(@m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  let vth11 = abs(@m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[vth])
+  let vds11 = abs(@m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[vds])
+  let gm11  = abs(@m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[gm])
+  let id11  = abs(@m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[id])
+  let id11_ua = id11 * 1e6
+  let l11   = @m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[l]
+  let vm11  = vds11 - (vgs11 - vth11)
+  let gmid11 = gm11 / (id11 + 1e-15)
+  echo " PMOS xm11 | $&vgs11 | $&vds11 | $&vm11 | $&gmid11 | $&l11 | $&id11_ua"
+
+  * --- NMOS 组 (xm12 - xm23) ---
+  let vg12 = @m.xx1.xm12.msky130_fd_pr__nfet_01v8[vgs]
+  let vt12 = @m.xx1.xm12.msky130_fd_pr__nfet_01v8[vth]
+  let vd12 = @m.xx1.xm12.msky130_fd_pr__nfet_01v8[vds]
+  let gm12 = abs(@m.xx1.xm12.msky130_fd_pr__nfet_01v8[gm])
+  let id12 = abs(@m.xx1.xm12.msky130_fd_pr__nfet_01v8[id])
+  let id12_ua = id12 * 1e6
+  let l12  = @m.xx1.xm12.msky130_fd_pr__nfet_01v8[l]
+  let vm12 = vd12 - (vg12 - vt12)
+  let gmid12 = gm12 / (id12 + 1e-15)
+  echo " NMOS xm12 | $&vg12 | $&vd12 | $&vm12 | $&gmid12 | $&l12 | $&id12_ua"
+
+  let vg13 = @m.xx1.xm13.msky130_fd_pr__nfet_01v8[vgs]
+  let vt13 = @m.xx1.xm13.msky130_fd_pr__nfet_01v8[vth]
+  let vd13 = @m.xx1.xm13.msky130_fd_pr__nfet_01v8[vds]
+  let gm13 = abs(@m.xx1.xm13.msky130_fd_pr__nfet_01v8[gm])
+  let id13 = abs(@m.xx1.xm13.msky130_fd_pr__nfet_01v8[id])
+  let id13_ua = id13 * 1e6
+  let l13  = @m.xx1.xm13.msky130_fd_pr__nfet_01v8[l]
+  let vm13 = vd13 - (vg13 - vt13)
+  let gmid13 = gm13 / (id13 + 1e-15)
+  echo " NMOS xm13 | $&vg13 | $&vd13 | $&vm13 | $&gmid13 | $&l13 | $&id13_ua"
+
+  let vg14 = @m.xx1.xm14.msky130_fd_pr__nfet_01v8[vgs]
+  let vt14 = @m.xx1.xm14.msky130_fd_pr__nfet_01v8[vth]
+  let vd14 = @m.xx1.xm14.msky130_fd_pr__nfet_01v8[vds]
+  let gm14 = abs(@m.xx1.xm14.msky130_fd_pr__nfet_01v8[gm])
+  let id14 = abs(@m.xx1.xm14.msky130_fd_pr__nfet_01v8[id])
+  let id14_ua = id14 * 1e6
+  let l14  = @m.xx1.xm14.msky130_fd_pr__nfet_01v8[l]
+  let vm14 = vd14 - (vg14 - vt14)
+  let gmid14 = gm14 / (id14 + 1e-15)
+  echo " NMOS xm14 | $&vg14 | $&vd14 | $&vm14 | $&gmid14 | $&l14 | $&id14_ua"
+
+  let vg15 = @m.xx1.xm15.msky130_fd_pr__nfet_01v8[vgs]
+  let vt15 = @m.xx1.xm15.msky130_fd_pr__nfet_01v8[vth]
+  let vd15 = @m.xx1.xm15.msky130_fd_pr__nfet_01v8[vds]
+  let gm15 = abs(@m.xx1.xm15.msky130_fd_pr__nfet_01v8[gm])
+  let id15 = abs(@m.xx1.xm15.msky130_fd_pr__nfet_01v8[id])
+  let id15_ua = id15 * 1e6
+  let l15  = @m.xx1.xm15.msky130_fd_pr__nfet_01v8[l]
+  let vm15 = vd15 - (vg15 - vt15)
+  let gmid15 = gm15 / (id15 + 1e-15)
+  echo " NMOS xm15 | $&vg15 | $&vd15 | $&vm15 | $&gmid15 | $&l15 | $&id15_ua"
+
+  let vg16 = @m.xx1.xm16.msky130_fd_pr__nfet_01v8[vgs]
+  let vt16 = @m.xx1.xm16.msky130_fd_pr__nfet_01v8[vth]
+  let vd16 = @m.xx1.xm16.msky130_fd_pr__nfet_01v8[vds]
+  let gm16 = abs(@m.xx1.xm16.msky130_fd_pr__nfet_01v8[gm])
+  let id16 = abs(@m.xx1.xm16.msky130_fd_pr__nfet_01v8[id])
+  let id16_ua = id16 * 1e6
+  let l16  = @m.xx1.xm16.msky130_fd_pr__nfet_01v8[l]
+  let vm16 = vd16 - (vg16 - vt16)
+  let gmid16 = gm16 / (id16 + 1e-15)
+  echo " NMOS xm16 | $&vg16 | $&vd16 | $&vm16 | $&gmid16 | $&l16 | $&id16_ua"
+
+  let vg17 = @m.xx1.xm17.msky130_fd_pr__nfet_01v8[vgs]
+  let vt17 = @m.xx1.xm17.msky130_fd_pr__nfet_01v8[vth]
+  let vd17 = @m.xx1.xm17.msky130_fd_pr__nfet_01v8[vds]
+  let gm17 = abs(@m.xx1.xm17.msky130_fd_pr__nfet_01v8[gm])
+  let id17 = abs(@m.xx1.xm17.msky130_fd_pr__nfet_01v8[id])
+  let id17_ua = id17 * 1e6
+  let l17  = @m.xx1.xm17.msky130_fd_pr__nfet_01v8[l]
+  let vm17 = vd17 - (vg17 - vt17)
+  let gmid17 = gm17 / (id17 + 1e-15)
+  echo " NMOS xm17 | $&vg17 | $&vd17 | $&vm17 | $&gmid17 | $&l17 | $&id17_ua"
+
+  let vg18 = @m.xx1.xm18.msky130_fd_pr__nfet_01v8[vgs]
+  let vt18 = @m.xx1.xm18.msky130_fd_pr__nfet_01v8[vth]
+  let vd18 = @m.xx1.xm18.msky130_fd_pr__nfet_01v8[vds]
+  let gm18 = abs(@m.xx1.xm18.msky130_fd_pr__nfet_01v8[gm])
+  let id18 = abs(@m.xx1.xm18.msky130_fd_pr__nfet_01v8[id])
+  let id18_ua = id18 * 1e6
+  let l18  = @m.xx1.xm18.msky130_fd_pr__nfet_01v8[l]
+  let vm18 = vd18 - (vg18 - vt18)
+  let gmid18 = gm18 / (id18 + 1e-15)
+  echo " NMOS xm18 | $&vg18 | $&vd18 | $&vm18 | $&gmid18 | $&l18 | $&id18_ua"
+
+  let vg19 = @m.xx1.xm19.msky130_fd_pr__nfet_01v8[vgs]
+  let vt19 = @m.xx1.xm19.msky130_fd_pr__nfet_01v8[vth]
+  let vd19 = @m.xx1.xm19.msky130_fd_pr__nfet_01v8[vds]
+  let gm19 = abs(@m.xx1.xm19.msky130_fd_pr__nfet_01v8[gm])
+  let id19 = abs(@m.xx1.xm19.msky130_fd_pr__nfet_01v8[id])
+  let id19_ua = id19 * 1e6
+  let l19  = @m.xx1.xm19.msky130_fd_pr__nfet_01v8[l]
+  let vm19 = vd19 - (vg19 - vt19)
+  let gmid19 = gm19 / (id19 + 1e-15)
+  echo " NMOS xm19 | $&vg19 | $&vd19 | $&vm19 | $&gmid19 | $&l19 | $&id19_ua"
+
+  let vg20 = @m.xx1.xm20.msky130_fd_pr__nfet_01v8[vgs]
+  let vt20 = @m.xx1.xm20.msky130_fd_pr__nfet_01v8[vth]
+  let vd20 = @m.xx1.xm20.msky130_fd_pr__nfet_01v8[vds]
+  let gm20 = abs(@m.xx1.xm20.msky130_fd_pr__nfet_01v8[gm])
+  let id20 = abs(@m.xx1.xm20.msky130_fd_pr__nfet_01v8[id])
+  let id20_ua = id20 * 1e6
+  let l20  = @m.xx1.xm20.msky130_fd_pr__nfet_01v8[l]
+  let vm20 = vd20 - (vg20 - vt20)
+  let gmid20 = gm20 / (id20 + 1e-15)
+  echo " NMOS xm20 | $&vg20 | $&vd20 | $&vm20 | $&gmid20 | $&l20 | $&id20_ua"
+
+  let vg21 = @m.xx1.xm21.msky130_fd_pr__nfet_01v8[vgs]
+  let vt21 = @m.xx1.xm21.msky130_fd_pr__nfet_01v8[vth]
+  let vd21 = @m.xx1.xm21.msky130_fd_pr__nfet_01v8[vds]
+  let gm21 = abs(@m.xx1.xm21.msky130_fd_pr__nfet_01v8[gm])
+  let id21 = abs(@m.xx1.xm21.msky130_fd_pr__nfet_01v8[id])
+  let id21_ua = id21 * 1e6
+  let l21  = @m.xx1.xm21.msky130_fd_pr__nfet_01v8[l]
+  let vm21 = vd21 - (vg21 - vt21)
+  let gmid21 = gm21 / (id21 + 1e-15)
+  echo " NMOS xm21 | $&vg21 | $&vd21 | $&vm21 | $&gmid21 | $&l21 | $&id21_ua"
+
+  let vg22 = @m.xx1.xm22.msky130_fd_pr__nfet_01v8[vgs]
+  let vt22 = @m.xx1.xm22.msky130_fd_pr__nfet_01v8[vth]
+  let vd22 = @m.xx1.xm22.msky130_fd_pr__nfet_01v8[vds]
+  let gm22 = abs(@m.xx1.xm22.msky130_fd_pr__nfet_01v8[gm])
+  let id22 = abs(@m.xx1.xm22.msky130_fd_pr__nfet_01v8[id])
+  let id22_ua = id22 * 1e6
+  let l22  = @m.xx1.xm22.msky130_fd_pr__nfet_01v8[l]
+  let vm22 = vd22 - (vg22 - vt22)
+  let gmid22 = gm22 / (id22 + 1e-15)
+  echo " NMOS xm22 | $&vg22 | $&vd22 | $&vm22 | $&gmid22 | $&l22 | $&id22_ua"
+
+  let vg23 = @m.xx1.xm23.msky130_fd_pr__nfet_01v8[vgs]
+  let vt23 = @m.xx1.xm23.msky130_fd_pr__nfet_01v8[vth]
+  let vd23 = @m.xx1.xm23.msky130_fd_pr__nfet_01v8[vds]
+  let gm23 = abs(@m.xx1.xm23.msky130_fd_pr__nfet_01v8[gm])
+  let id23 = abs(@m.xx1.xm23.msky130_fd_pr__nfet_01v8[id])
+  let id23_ua = id23 * 1e6
+  let l23  = @m.xx1.xm23.msky130_fd_pr__nfet_01v8[l]
+  let vm23 = vd23 - (vg23 - vt23)
+  let gmid23 = gm23 / (id23 + 1e-15)
+  echo " NMOS xm23 | $&vg23 | $&vd23 | $&vm23 | $&gmid23 | $&l23 | $&id23_ua"
+
+  echo "----------------------------------------------------------------------------------------------------"
+  ac dec 20 1 10G
+  
+  let gain_db = vdb(vout)[0]
+  meas ac gbw_f when vdb(vout)=0
+  let vp = phase(v(vout))*180/pi + 180
+  meas ac pm_f find vp when vdb(vout)=0
+  
+  echo " PERFORMANCE: Gain=$&gain_db dB | GBW=$&gbw_f Hz | PM=$&pm_f deg"
+  echo "===================================================================================================="
+.endc
+.end

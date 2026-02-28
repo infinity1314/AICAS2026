@@ -1,0 +1,11 @@
+Design specs and scaling factors (computed by Agent1):
+{specs_json}
+
+Circuit topology and inferred roles:
+{topology_json}
+
+Task:
+Provide parameter ranges for each device. 
+Note: For multi-stage amplifiers (like NMCNR), the output stage (第三级_放大管) often has a very large current (see scale3). To prevent the transistor width (W) from becoming physically impossible (e.g., > 2000um), you MUST constrain its L to be small (near minimum) and its gm_id to be low (strong inversion, 4-10).
+
+Output the JSON object for "devices" as requested.

@@ -1,0 +1,19 @@
+* Single NMOS .op for fixed-Ids table gen
+.option ngbehavior=ltpsa
+.lib 'scene2/models/sky130.lib.spice' tt
+.TEMP 25
+
+* NMOS: drain @ Vdd, source @ 0, gate @ Vgs
+M1 d g 0 0 sky130_fd_pr__nfet_01v8 L=1.95 W=1.0
+Vdd d 0 dc 1.8
+Vgs g 0 dc 1.2
+
+.op
+.control
+run
+print @m.M1.sky130_fd_pr__nfet_01v8[id]
+print @m.M1.sky130_fd_pr__nfet_01v8[gm]
+print @m.M1.sky130_fd_pr__nfet_01v8[cgs]
+print @m.M1.sky130_fd_pr__nfet_01v8[gds]
+.endc
+.end

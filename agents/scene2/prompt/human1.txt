@@ -1,0 +1,36 @@
+设计输入指标:
+{user_input}
+
+电路网表:
+{netlist_content}
+
+---
+一、设计准则与物理公式 (严格执行)
+
+1. 拓扑识别: 
+   - 判定 Stage 数量。若为 NMCNR，则有 3 级；若为套筒式/折叠式，则为 1 级。
+   - 设定补偿电容假设: 若网表未定义，设 Cm1 = Cm2 = 0.15 * CL。
+
+2. 第一级推导 (scale1):
+   - SR 限制: I_tail1 = SR * C_dom (1-stage: C_dom=CL; 3-stage: C_dom=Cm1)。
+   - GBW 限制: gm1 = 2 * pi * GBW * C_dom。I_tail1_gbw = (2 * gm1) / (gm/ID)_in，假设 (gm/ID)_in = 15。
+   - scale1 = max(I_tail1, I_tail1_gbw) / I_ref。
+
+3. 第二级推导 (scale2, 仅多级):
+   - 极点限制: gm2 = 2.0 * (2 * pi * GBW * Cm2)。
+   - scale2 = gm2 / (12 * I_ref)。(假设 gm/ID=12)
+
+4. 第三级推导 (scale3, 仅三级):
+   - 极点限制: gm3 = 2.5 * (2 * pi * GBW * CL)。
+   - scale3 = gm3 / (6 * I_ref)。(假设强反型 gm/ID=6)
+
+二、输出要求
+你必须严格输出 JSON 格式，且包含以下字段：
+- "topology_analysis": 判定级数与核心节点。
+- "calculation_scratchpad": 详细写出公式代入过程(如: gm1 = 2*3.14*100M*0.3p = ...)。
+- "device_roles": 器件角色映射。
+- "scale1", "scale2", "scale3": 最终倍率数值。
+- "Itail": 第一级总电流 (scale1 * I_ref)。
+- 回显原始指标 (GBW_min, SR_min, PM_min, CL, I_ref, Gain_min, IDC_max)。
+
+仅输出 JSON，不要任何 Markdown 格式。

@@ -1,0 +1,8 @@
+.subckt AMP_FOLDED Vinp Vinn VDD VSS Vout
+XM_tail net_tail vb_tail VSS VSS sky130_fd_pr__nfet_01v8 L=1.25 W=119.1
+V_cmfb v_cmfb VSS dc=0.85
+V_ncasc v_ncasc VSS dc=0.85
+V_pcasc v_pcasc VDD dc=0.91
+V_pload v_pload VDD dc=0.91
+V_tail vb_tail VSS dc=0.85
+.ends AMP_FOLDED

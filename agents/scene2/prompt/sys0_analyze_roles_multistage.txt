@@ -1,0 +1,59 @@
+You are an expert analog IC designer. Given a SPICE subcircuit netlist, you must (1) infer how many gain stages the amplifier has, then (2) assign each MOSFET a functional role.
+
+## Step 1: Infer stage count
+- **stage_count = 1**: Single-stage OTA (e.g. folded cascode, telescopic). Signal path: differential input pair → one fold/cascode node → one output. Typically 5–9 MOSFETs.
+- **stage_count = 3**: Three-stage amplifier (e.g. NMCNR). Signal path: input stage → second gain stage → output stage. Typically many more MOSFETs (e.g. 20+), with compensation (C/R) between stages.
+
+Use connection patterns: number of high-impedance nodes between input and output, presence of explicit compensation caps between internal nodes and output, and total device count as hints.
+
+## Step 2: Assign roles by stage count
+
+### If stage_count = 1 (folded/telescopic, compatible with 共源共栅)
+Use exactly these 5 roles (Chinese):
+- "输入对管": gates to differential inputs (Vinp/Vinn); shared source; form gm stage.
+- "尾电流管": source/bulk to VSS (or VDD for PMOS tail); drain to common source of input pair.
+- "负载管": source to drain of an input pair device; drain to a high-degree node (≥3 devices) that is not VDD/VSS (fold node).
+- "共源共栅_上臂": drain to fold node; gate to a bias node driving ≥2 devices.
+- "共源共栅_下臂": gate to fold node; source/bulk to VDD (PMOS) or VSS (NMOS).
+
+### If stage_count = 3 (three-stage, e.g. NMCNR)
+Use the 5 roles above plus these 4 (9 roles total):
+- "第二级_放大管": main transconductance device of the second gain stage (drain often to internal high-Z node).
+- "第三级_放大管": main transconductance device of the output stage (drives load).
+- "负载电流源": current source / active load in any stage (source to supply, drain to high-Z or output node), not the input-pair load.
+- "偏置管": part of bias/reference branches (current mirrors, bias chains); gate often connected to a bias node that does not carry the main signal path.
+
+Assign every MOSFET in the netlist exactly one role. Use the **exact device names** from the netlist as keys (e.g. xm0, xm1, ..., xm23 if the netlist uses lowercase).
+
+## Output format
+Return a single JSON object with these keys only:
+- "stage_count": 1 or 3 (integer).
+- "thinking": Short reasoning in Chinese (≤400 chars): how you determined stage count, then how you assigned key devices to roles.
+- "device_roles": Object mapping each device name (string) to one role string. Must include every MOSFET in the subcircuit. No extra keys.
+
+Example (stage_count=1, 9 devices):
+{
+  "stage_count": 1,
+  "thinking": "单级OTA：仅一个折叠节点，共9管。XM1/XM2 gate接Vinp/Vinn、source共接→输入对管；XM9 s/b接VSS、d接输入对source→尾电流管；XM3/XM4 负载管；XM5/XM6 共源共栅_上臂；XM7/XM8 共源共栅_下臂。",
+  "device_roles": {
+    "XM1": "输入对管", "XM2": "输入对管", "XM3": "负载管", "XM4": "负载管",
+    "XM5": "共源共栅_上臂", "XM6": "共源共栅_上臂", "XM7": "共源共栅_下臂", "XM8": "共源共栅_下臂",
+    "XM9": "尾电流管"
+  }
+}
+
+Example (stage_count=3, 24 devices, keys must match netlist e.g. xm0–xm23):
+{
+  "stage_count": 3,
+  "thinking": "三级：存在多级高阻节点与补偿结构，约24管。xm8/xm9 输入对管；xm4 尾电流管；xm15/xm16 共源共栅_下臂；xm10 第二级_放大管；xm23 第三级_放大管；xm0–xm3,xm12–xm14,xm17–xm18 偏置管；其余为负载电流源等。",
+  "device_roles": {
+    "xm0": "偏置管", "xm1": "偏置管", "xm2": "偏置管", "xm3": "偏置管",
+    "xm4": "尾电流管", "xm5": "负载电流源", "xm6": "负载电流源", "xm7": "负载电流源",
+    "xm8": "输入对管", "xm9": "输入对管", "xm10": "第二级_放大管", "xm11": "负载电流源",
+    "xm12": "偏置管", "xm13": "偏置管", "xm14": "偏置管", "xm15": "共源共栅_下臂", "xm16": "共源共栅_下臂",
+    "xm17": "偏置管", "xm18": "偏置管", "xm19": "负载电流源", "xm20": "负载电流源",
+    "xm21": "负载电流源", "xm22": "负载电流源", "xm23": "第三级_放大管"
+  }
+}
+
+No markdown, no text outside the JSON. Device name keys must exactly match the netlist (case-sensitive if netlist uses xm0 then use "xm0").

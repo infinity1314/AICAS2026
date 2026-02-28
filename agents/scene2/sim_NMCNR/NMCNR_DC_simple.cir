@@ -1,0 +1,40 @@
+* 极简 NMCNR DC bench，只看子电路能不能找到工作点
+.option ngbehavior=ltpsa
+.include 'src/sim/sky130_ngspice.lib'
+.include 'scene2/sim_NMCNR/pfet_01v8_alias_subckt.spice'
+.include 'scene2/sim_NMCNR/NMCNR.cir'
+
+VSS gnda 0 0
+VDD vdda 0 1.8
+* 输入共模 0.6V，完全对称
+VINN vinn 0 0.6
+VINP vinp 0 0.6
+
+* 临时把 VB3/VB4 当成固定 DC 源（先不用 IREF3/IREF4 那套复杂偏置）
+VVB3 VB3 0 0.7
+VVB4 VB4 0 0.7
+
+XI1 gnda vdda vinn vinp vout Leung_NMCNR_Pin_3
+
+CLOAD vout 0 2p
+* 打印关键管子的 VDS / VGS / VTH 到 scene2/sim_NMCNR/Op_1_simple.txt（使用最近一次 .op 结果）
+.print @m.xi1.xm0.X1.msky130_fd_pr__pfet_01v8_lvt[vds]  \
+       @m.xi1.xm0.X1.msky130_fd_pr__pfet_01v8_lvt[vgs]  \
+       @m.xi1.xm0.X1.msky130_fd_pr__pfet_01v8_lvt[vth]  >  scene2/sim_NMCNR/Op_1_simple.txt
+.print @m.xi1.xm1.X1.msky130_fd_pr__pfet_01v8_lvt[vds]  \
+       @m.xi1.xm1.X1.msky130_fd_pr__pfet_01v8_lvt[vgs]  \
+       @m.xi1.xm1.X1.msky130_fd_pr__pfet_01v8_lvt[vth]  >> scene2/sim_NMCNR/Op_1_simple.txt
+
+.print @m.xi1.xm11.X1.msky130_fd_pr__pfet_01v8_lvt[vds] \
+       @m.xi1.xm11.X1.msky130_fd_pr__pfet_01v8_lvt[vgs] \
+       @m.xi1.xm11.X1.msky130_fd_pr__pfet_01v8_lvt[vth] >> scene2/sim_NMCNR/Op_1_simple.txt
+.print @m.xi1.xm12.msky130_fd_pr__nfet_01v8[vds] \
+       @m.xi1.xm12.msky130_fd_pr__nfet_01v8[vgs] \
+       @m.xi1.xm12.msky130_fd_pr__nfet_01v8[vth] >> scene2/sim_NMCNR/Op_1_simple.txt
+
+.print @m.xi1.xm23.msky130_fd_pr__nfet_01v8[vds] \
+       @m.xi1.xm23.msky130_fd_pr__nfet_01v8[vgs] \
+       @m.xi1.xm23.msky130_fd_pr__nfet_01v8[vth] >> scene2/sim_NMCNR/Op_1_simple.txt
+
+.op
+.end

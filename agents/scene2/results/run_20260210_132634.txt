@@ -1,0 +1,1331 @@
+scene1 run started at 2026-02-10T13:26:34.613693 (log: /home/jzhuang/AnalogLLM/AICAS4Analog/scene1/results/run_20260210_132634.txt)
+
+  Agent0 LLM 推理成功: {'XM1': '输入对管', 'XM2': '输入对管', 'XM3': '负载管', 'XM4': '负载管', 'XM5': '共源共栅_上臂', 'XM6': '共源共栅_上臂', 'XM7': '共源共栅_下臂', 'XM8': '共源共栅_下臂', 'XM9': '尾电流管'}
+  Agent0 拓扑分析思维链: Vinp/Vinn接XM1/XM2栅极，源极共连net3→输入对管。XM9源/体接VSS，漏接net3→尾电流管。XM3/XM4源接XM1/XM2漏（net2/net1），漏接net4/Vout（net4被XM3/XM4/XM5/XM6/XM7/XM8共享）→负载管。XM5/XM6漏接net4/Vout，栅接vbp（驱动XM5/XM6）→共源共栅_上臂。XM7/XM8栅接net4/Vout，源/体接VDD→共源共栅_下臂。 
+SR 放大电路（SL）已加载: ['XSLM10', 'XSLM11', 'XSLM12'] ['VSLBP1']
+Agent0 拓扑 (套筒式五管 OTA): ['XM1', 'XM2', 'XM3', 'XM4', 'XM5', 'XM6', 'XM7', 'XM8', 'XM9']
+Agent0 各管作用: {'XM1': '输入对管', 'XM2': '输入对管', 'XM3': '负载管', 'XM4': '负载管', 'XM5': '共源共栅_上臂', 'XM6': '共源共栅_上臂', 'XM7': '共源共栅_下臂', 'XM8': '共源共栅_下臂', 'XM9': '尾电流管'}
+Agent1 指标与参数: {
+  "GBW_min": 20,
+  "SR_min": 60,
+  "PM_min": 70,
+  "CL": 2,
+  "I_ref": 100,
+  "Gain_min": 60,
+  "IDC_max": 500,
+  "scale1": 1.2,
+  "Itail": 120,
+  "scale2": 1.43,
+  "device_roles": {
+    "XM1": "输入对管",
+    "XM2": "输入对管",
+    "XM3": "负载管",
+    "XM4": "负载管",
+    "XM5": "共源共栅_上臂",
+    "XM6": "共源共栅_上臂",
+    "XM7": "共源共栅_下臂",
+    "XM8": "共源共栅_下臂",
+    "XM9": "尾电流管"
+  },
+  "gm_over_ID_in": 12.566
+}
+仿真使用项目 PDK: models/sky130.lib.spice（与 agents 一致）
+本拓扑仿真文件: ['AMP_AC_pdk.cir', 'AMP_IDC_pdk.cir', 'AMP_SR_pdk.cir']
+  Agent2 饱和迭代 1: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 2: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 3: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 4: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 5: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 6: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 7: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 8: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+Agent2 约束: {
+  "devices": {
+    "XM1": {
+      "L_min": 0.15,
+      "L_max": 0.5,
+      "gm_id_min": 10,
+      "gm_id_max": 25
+    },
+    "XM2": {
+      "L_min": 0.15,
+      "L_max": 0.5,
+      "gm_id_min": 10,
+      "gm_id_max": 25
+    },
+    "XM3": {
+      "L_min": 0.25,
+      "L_max": 1.8,
+      "gm_id_min": 8,
+      "gm_id_max": 25
+    },
+    "XM4": {
+      "L_min": 0.25,
+      "L_max": 1.8,
+      "gm_id_min": 8,
+      "gm_id_max": 25
+    },
+    "XM5": {
+      "L_min": 0.5,
+      "L_max": 1.5,
+      "gm_id_min": 5,
+      "gm_id_max": 18
+    },
+    "XM6": {
+      "L_min": 0.5,
+      "L_max": 1.5,
+      "gm_id_min": 5,
+      "gm_id_max": 18
+    },
+    "XM7": {
+      "L_min": 0.5,
+      "L_max": 1.8,
+      "gm_id_min": 5,
+      "gm_id_max": 18
+    },
+    "XM8": {
+      "L_min": 0.5,
+      "L_max": 1.8,
+      "gm_id_min": 5,
+      "gm_id_max": 18
+    },
+    "XM9": {
+      "L_min": 0.5,
+      "L_max": 2.0,
+      "gm_id_min": 10,
+      "gm_id_max": 22
+    }
+  }
+}
+
+--- 迭代 1/15 ---
+  首轮使用 Agent2 给出的初始 sizing
+  偏置 VBN1=0.66 VBN2=1.21 VBP=0.72
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 67.9752, 'GBW': 68.1065, 'PM': 61.5331, 'i(vmeas)': 108.7095, 'SR': 361.3}
+  gap: {'Gain': 7.9752, 'GBW': 48.1065, 'PM': -8.4669, 'IDC': -391.2905, 'SR': 301.3}
+
+--- 迭代 2/15 ---
+  think: 【推导】套筒式OTA中：
+- Gain ≈ (gm1 ∥ gm3) × (ro1 ∥ ro3 ∥ ro5 ∥ ro6 ∥ ro7 ∥ ro8)，主由输入对管(XM1/XM2)与负载管(XM3/XM4)的gm/ro决定；增大XM3/XM4的L可显著提升ro3/ro4，从而提升Gain和输出节点阻抗，但过大会抬高次极点频率、恶化PM；XM7/XM8（共源共栅下臂）位于输出支路，其ro7/ro8直接串联进输出阻抗，且其gm影响输出节点零点位置——低gm_id会引入右半平面零点(RHPZ)，严重劣化PM；历史iter0中XM7/XM8的gm_id=5.0（已达下限），是PM最敏感的瓶颈。
+- GBW ≈ gm1 / (2π·CL)，由输入对管XM1/XM2的gm主导；当前GBW=68.1 > 20，远超标，无需动输入级。
+- PM由主极点(≈1/(2π·ro_out·CL))与次极点/零点相对位置决定；套筒结构中，输出节点（XM3/XM4漏端）为主极点，共源共栅下臂（XM7/XM8）源端为关键次极点节点；XM7/XM8的gm_id过低→ro7/ro8大但gm小→该节点时间常数大→次极点频率过低→拉近主次极点→PM骤降；同时低gm_id易激发RHPZ。故PM对XM7/XM8的gm_id最敏感，其次为XM5/XM6（上臂cascode）的L/gm_id（影响密勒效应与馈通零点）。
+- SR = Itail / CL = 120μA / 2pF = 60 V/μs，理论已达标；仿真SR=361.3 >> 60，说明电流分配合理，SR非瓶颈。
+- IDC = i(vmeas)=108.7μA << 500μA，功耗余量极大，XM9可保持或微调，不优先动。
+
+【历史验证】当前仅iter0，无param_change→result_delta，但初始配置中XM7/XM8的gm_id=5.0（约束下限），L=1.8（上限），表明设计者已试图用长沟道提升ro，但gm_id过低导致ro高而gm极低，加剧RHPZ风险——这正是PM=-8.47°（远低于70°）的主因。文献与经验均指出：套筒结构PM不足时，首要提升下臂cascode的gm_id（典型值≥8–10），以抑制RHPZ、抬高次极点频率。
+
+【未达标项分析】仅PM严重不达标（gap=-8.4669），其余全裕量充足（Gain+7.98, GBW+48.1, SR+301.3, IDC-391.3）。|gap.PM|=8.47 > 0.3，需中幅调整；且XM7/XM8的gm_id当前=5.0（min），有充足上调空间（max=18）。L当前=1.8（max），继续增L对ro提升边际递减，且可能加重寄生电容，反而不利PM；故本轮应**仅提升XM7/XM8的gm_id**，目标使PM↑约10°，步幅选+2.5（从5.0→7.5），在约束内（5.0→7.5 ∈ [5,18]），且避免一步过大（如+5→10可能超调）。XM1–XM6、XM9保持原值，确保其他指标不劣化。
+  偏置 VBN1=0.66 VBN2=1.29 VBP=0.81
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 7.5,
+    "ids": 60.0,
+    "idW": 0.9595708,
+    "W": 62.53
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 7.5,
+    "ids": 60.0,
+    "idW": 0.9595708,
+    "W": 62.53
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 67.9903, 'GBW': 60.3254, 'PM': 56.6568, 'i(vmeas)': 108.7715, 'SR': 364.0}
+  gap: {'Gain': 7.9903, 'GBW': 40.3254, 'PM': -13.3432, 'IDC': -391.2285, 'SR': 304.0}
+
+--- 迭代 3/15 ---
+  think: 【推导】套筒式OTA中：Gain ≈ (gm1 * ro1) || (gm3 * ro3) || (gm5 * ro5) || ...，但主增益由输入对(gm1)与负载(gm3)并联输出阻抗决定；GBW ≈ gm1 / CL，故主要由XM1/XM2的gm决定（∝ gm_id × ID × f(L)）；PM由主极点(≈1/(ro_out × CL))与次极点(如cascode节点、尾节点等)相对位置决定，其中共源共栅下臂(XM7/XM8)直接构成输出级的高阻节点，其ro7/ro8显著影响次极点频率——ro越小，次极点越靠右，PM越低；反之增大ro7/ro8可抬升次极点，改善PM。SR ≈ Itail / CL，Itail由XM9控制，当前Itail=120μA固定，CL=2pF → SR理论≈60V/μs，仿真SR=364V/μs远超需求，故SR无压力；IDC=108.77μA << IDC_max=500μA，功耗余量极大；当前唯一严重不达标项是PM=-13.34°（即实际PM=56.66° < 70°），且gap.PM最负。【历史验证】iter1仅调高XM7/XM8的gm_id从5.0→7.5（L不变），结果PM进一步下降4.88°，GBW也降7.78MHz——说明增大XM7/XM8的gm_id会降低其ro（ro ∝ 1/(gm_id × ID) × L），从而拉低次极点，恶化PM和GBW，与推导一致。因此，要提升PM，应**反向操作：减小XM7/XM8的gm_id以增大ro7/ro8**，或增大其L（ro ∝ L），二者均抬升次极点。但L已处于上限（XM7/XM8的L_max=1.8，当前L=1.8），无法再增；故唯一可行路径是**降低XM7/XM8的gm_id**。约束中gm_id_min=5.0，当前为7.5，可下探至5.0（最小值）。该调整将显著提升ro7/ro8，缓解次极点拖拽，预计PM可回升>10°，且因ro7/ro8增大，输出阻抗升高，Gain可能微升（有利），GBW受gm1主导影响小，IDC几乎不变（XM7/XM8电流由输入对镜像，不直接受其gm_id影响，仅通过沟道长度调制微扰）。【决策】本轮唯一未达标项为PM，且XM7/XM8是PM最敏感器件组；历史已证实其gm_id↑→PM↓，故应将XM7/XM8的gm_id降至下限5.0；其余器件保持不变，确保归因清晰、避免耦合干扰。
+  偏置 VBN1=0.66 VBN2=1.21 VBP=0.72
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 67.9752, 'GBW': 68.1065, 'PM': 61.5331, 'i(vmeas)': 108.7095, 'SR': 361.3}
+  gap: {'Gain': 7.9752, 'GBW': 48.1065, 'PM': -8.4669, 'IDC': -391.2905, 'SR': 301.3}
+
+--- 迭代 4/15 ---
+  think: 【推导】套筒式OTA中：Gain ≈ (gm1 * ro1) || (gm3 * ro3) || (ro5 * ro7)，主极点 p1 ∝ 1/(CL * (ro1||ro3||ro5||ro7))，GBW ≈ gm1/CL（主导极点近似），次极点 p2 与共源共栅节点（如XM7/XM8漏极）时间常数相关，p2 ∝ gm7/(Cgs7 + Cdb7 + Cgd7)，而PM ≈ 90° − arctan(p2/GBW)，故PM对p2位置极为敏感；p2上移（即次极点频率升高）→ PM↑，p2下移 → PM↓。XM7/XM8为共源共栅下臂，位于输出支路，其gm_id↓ → gm7↓ → p2↓ → PM↓；反之gm_id↑ → gm7↑ → p2↑ → PM↑。同时，XM7/XM8的L↑ → ro7↑ → 输出阻抗↑ → Gain↑、GBW略↓（因ro7↑使主极点略左移）、但更关键的是L↑会增大寄生电容Cdb7/Cgd7，可能略微压低p2；而gm_id↑在固定电流下减小W，降低Cgs/Cgd，有利于p2上移。因此PM最敏感参数是XM7/XM8的gm_id。历史验证：iter1中仅XM7/XM8的gm_id从5.0→7.5（+2.5），result_delta.PM = -4.8763°（gap.PM恶化4.88°），即PM随gm_id↑而↓；iter2中恢复为5.0，PM回升+4.8763°，完全可逆，证实强负相关。当前gap.PM = -8.4669°，未达标且|gap|>0.3，需显著提升PM → 应**降低XM7/XM8的gm_id**（以抬高p2）。但注意：gm_id不能低于约束下限5.0（当前已是5.0），故无法再降；因此必须改L：XM7/XM8的L↑ → ro7↑ → 输出支路阻抗↑ → 主极点左移（p1↓），但更重要的是L↑会显著减小Cgd7（沟道长度↑→栅漏交叠电容↓），从而减小密勒效应、提升p2；同时L↑在固定gm_id下会略微降低gm（因gm ∝ sqrt(2*μn*Cox*W/L*ID) ∝ 1/sqrt(L)），但ID固定→W需增大以维持idW，实际W已由idW和gm_id共同决定；在约束中XM7/XM8的L_max=1.8（当前=1.8），已达上限，无法再增。→ 等等：iter0/iter2中XM7/XM8的L=1.8，已是最大值；而gm_id=5.0，已是下限。说明当前PM不足源于下臂器件已处于‘最利于PM’的边界，但仍不足，需转向其他可调路径。重新审视：PM也受输入对管与负载管匹配及极点分离影响。GBW过高（当前68.1 MHz >> 20 MHz）导致p2需更高才能保PM，而当前p2偏低。因此可适度降低GBW以缓解PM压力——但GBW仍远高于指标，有下调空间。降低GBW最直接方式是降低输入对管gm1：gm1 ∝ gm_id1 / sqrt(L1)（ID固定），故可↓gm_id1或↑L1。XM1/XM2的gm_id范围10–25，当前17.5，有下调空间；L范围0.15–0.5，当前0.325，也可上调。但下调gm_id1会轻微降低Gain（Gain∝gm1*ro1，ro1∝1/gm_id1*sqrt(L1)），而当前Gain=67.98 dB（gap=+7.98）余量充足；且GBW∝gm1，下调gm_id1可线性降GBW，从而间接提升PM（因PM≈90−arctan(p2/GBW)，GBW↓→arctan↓→PM↑）。历史中无单改XM1/XM2的轮次，但理论强支持。另一路径：XM5/XM6（上臂cascode）L↑可提升其ro5，增强隔离、抑制馈通、并略微抬高p2（因上臂节点电容减小），且L_max=1.5，当前=1.0，有0.5裕度；gm_id=11.5，范围5–18，亦可微调。但上臂对PM影响弱于下臂。综上，当前XM7/XM8已卡死在最优PM配置（L_max, gm_id_min），而PM仍缺8.5°，需通过适度降低GBW来‘释放’PM压力。选择下调XM1/XM2的gm_id：从17.5→15.0（Δ=−2.5，步幅合理，仍在[10,25]内），L保持0.325（避免同时动两维）。该调整预期：gm1↓→GBW↓（约−12%），Gain↓（约−1~2 dB，仍>60），PM↑（因GBW↓使相位曲线右移，相同p2下PM↑）。SR∝Itail/CL，Itail由XM9固定为120 μA，CL=2 pF，SR=361 V/µs远超60，无风险。IDC=108.7 μA << 500 μA，余量巨大。故本轮唯一动作：仅下调XM1/XM2的gm_id至15.0，其余全保持。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.72
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 67.6837, 'GBW': 62.0888, 'PM': 64.1435, 'i(vmeas)': 107.846, 'SR': 223.8}
+  gap: {'Gain': 7.6837, 'GBW': 42.0888, 'PM': -5.8565, 'IDC': -392.154, 'SR': 163.8}
+
+--- 迭代 5/15 ---
+  think: 1. 量化分析与归因：
+- 当前未达标项：PM = 64.1435°，gap.PM = -5.8565°（需提升约 5.9°）；其余均远达标（Gain gap=7.7, GBW gap=42.1, SR gap=163.8, IDC gap=-392.2）。因此本轮唯一优化目标是提升 PM。
+- 套筒式OTA中，PM主要由主极点（输出节点，由gm1//ro1//ro3//ro5//ro7等决定）与次极点（常为共源共栅下臂节点/折叠节点，即XM7/XM8源极节点）的分离度决定。增大XM7/XM8的输出阻抗ro可抬高次极点频率（f_p2 ∝ 1/(C_node × ro)），从而改善PM；而ro ∝ (V_A × L) / (I_D)，在ID固定时，ro ∝ L；同时gm_id影响沟道长度调制系数λ（λ ∝ 1/gm_id），故ro ∝ gm_id × L（近似）。因此，增大XM7/XM8的L或gm_id both raise ro7/ro8 → push f_p2 higher → improve PM.
+- 历史验证：iter1→iter2：XM7/XM8 gm_id从7.5→5.0（↓2.5），导致PM↑+4.8763°；iter2→iter3：XM1/XM2 gm_id从17.5→15.0（↓2.5），PM↑+2.6104°（但GBW↓6.0，SR↓137.5，说明输入对管gm_id降会削弱驱动能力，间接缓解密勒效应但代价大）。可见XM7/XM8 gm_id对PM最敏感且副作用小（iter1中其↑导致PM↓，iter2中其↓导致PM↑，单调负相关），且无明显GBW/SR恶化（iter1: GBW↓7.8, PM↓4.9；iter2: GBW↑7.8, PM↑4.9），说明该组参数是PM的主控变量。
+- 其他组影响：XM1/XM2 gm_id↓虽也 raised PM (+2.6°)，但同步导致SR暴跌137.5 V/µs（SR ∝ Itail ∝ gm_id × ID/W，而W∝1/(gm_id×IDW)，实际SR ∝ gm_id² × L × ID —— 但此处ID固定，W shrinks as gm_id↑，故SR ∝ gm_id²；所以gm_id↓显著伤SR）。XM3/XM4 L↑ would raise ro3/ro4 → increase Gain & output ro → may lower f_p1 slightly and push f_p2 relatively → modest PM gain, but less direct than XM7/XM8.
+- 因此，**对PM提升最有效、副作用最小、历史验证最强的单类参数是XM7/XM8的gm_id**。当前XM7/XM8 gm_id = 5.0（下限），约束为[5.0,18.0]，有充足上调空间；且|gap.PM|=5.86 > 0.3，可中幅上调。
+- 步幅选择：iter1中gm_id↑2.5 → PM↓4.88°，即Δgm_id ≈ +1.0 → ΔPM ≈ −2.0°；反向推，为+5.9°需Δgm_id ≈ −2.95 → 但gm_id已达下限5.0，无法再降。⚠️注意：gap.PM = result.PM − PM_min = 64.14 − 70 = −5.86，即PM不足，需**提高PM**；而历史显示：XM7/XM8 gm_id↓ → PM↑（iter2），XM7/XM8 gm_id↑ → PM↓（iter1）。因此，要↑PM，必须↓gm_id —— 但当前已是下限5.0！故不能降gm_id。必须换策略：改L。L↑ also ↑ ro (ro ∝ L × V_A ∝ L × gm_id), and L is unconstrained at upper end (L_max=1.8, current=1.8 for XM7/XM8) —— wait, current L=1.8 (iter3 params shows 'L': 1.8), which is at L_max! So L cannot increase either.
+- Re-check iter3 params: 'XM7': {'L': 1.8, 'gm_id': 5.0} — yes, both at bounds. So we cannot increase L nor decrease gm_id. Then what’s left? We must relax other constraints to allow PM improvement: perhaps reduce gm_id of XM5/XM6 (upper cascode) — they set the pole at the input cascode node; lowering their gm_id increases their ro, pushing that pole higher, which can also help PM by widening p1-p2 separation. But no history on XM5/XM6 yet. Alternatively, XM3/XM4 (load) gm_id↑ → ro3/ro4↓ → lowers output impedance → moves p1 to higher freq → may hurt PM if p2 doesn’t move; but actually in sleeve, load ro directly sets DC gain and p1 = 1/(CL × (ro1//ro3//ro5//ro7)), so increasing ro3 helps both Gain and PM. XM3/XM4 current gm_id=16.5, range [8,25], so can ↑ gm_id → ↑ ro3/ro4 → ↑ ro_out → ↓ p1 frequency? No: p1 = 1/(CL × ro_out), so ↑ ro_out → ↓ p1 → worse for GBW but *better for PM* if p2 rises more. However, GBW is already 62.1 (well above 20), so sacrificing some GBW for PM is acceptable. But better option: XM5/XM6 (upper cascode) — they isolate input pair from output, and their source node is a high-impedance pole. Lowering XM5/XM6 gm_id ↑ their ro → pushes that pole higher → improves PM. And XM5/XM6 gm_id=11.5, range [5,18], so can ↓ to 5.0 (lower bound). No history on them, but topology says upper cascode gm directly affects cascode node impedance and zero location. Also, reducing XM5/XM6 gm_id reduces their transconductance, which may slightly reduce feedforward path, improving phase. So safest move: **decrease XM5/XM6 gm_id from 11.5 to 5.0**, maximum allowed drop, to maximally lift their ro and push cascode-node pole upward, thereby improving PM with minimal side effect (GBW already excessive, SR unaffected as it’s dominated by tail current and CL).
+- Confirm side effects: XM5/XM6 gm_id↓ → W↑ (since ID fixed, W ∝ 1/(gm_id × IDW)), but area not constrained; ro5 ∝ gm_id × L → ro5↓? Wait: ro = VA / ID, VA ∝ L × gm_id (for long-channel approx), so ro ∝ L × gm_id. So ↓gm_id ↓ro5 — that’s bad! Actually ro ∝ VA / ID, and VA ∝ L × (Vgsl - Vth) ∝ L × (overdrive), and overdrive ∝ ID / (gm_id × IDW) — messy. Standard compact model: ro ∝ (1/λ) ∝ gm_id (since λ ∝ 1/gm_id for velocity saturation). So ro ∝ gm_id. Thus ↓gm_id ↓ro5 → lowers cascode node impedance → pulls its pole *lower*, hurting PM. So that’s wrong direction.
+- Correct physics: In strong inversion, ro ∝ 1/(λ × ID), and λ ∝ 1/gm_id (empirically, gm_id is proxy for channel length modulation). So ro ∝ gm_id. Therefore, to ↑ro5, need ↑gm_id. So XM5/XM6 gm_id should be *increased*, not decreased.
+- Then try XM5/XM6 gm_id↑: from 11.5 toward 18.0. That ↑ro5/ro6 → pushes cascode node pole higher → improves PM. No history, but safe: GBW will slightly ↓ (less Miller amplification?), but GBW=62 > 20, margin huge. SR unaffected. So best action: **increase XM5/XM6 gm_id to upper bound 18.0**, while keeping all else same. This is single-group, within bounds, and targets PM via cascode node impedance control.
+- Final decision: XM5 and XM6 are upper cascode; raising their gm_id raises their output resistance, moving their associated pole away from origin, easing phase lag at GBW → improves PM. Current gm_id=11.5, max=18.0 → Δ=+6.5, expected PM gain ~3–6° based on typical sensitivity; sufficient to close −5.86 gap. No other group has both headroom and clean PM leverage. So本轮仅调整XM5/XM6 gm_id from 11.5 → 18.0; L unchanged (1.0, within [0.5,1.5]).
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.93
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 18.0,
+    "ids": 60.0,
+    "idW": 0.01971835,
+    "W": 1000.0
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 18.0,
+    "ids": 60.0,
+    "idW": 0.01971835,
+    "W": 1000.0
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 64.6443, 'GBW': 60.6515, 'PM': 26.8733, 'i(vmeas)': 107.846, 'SR': 217.7}
+  gap: {'Gain': 4.6443, 'GBW': 40.6515, 'PM': -43.1267, 'IDC': -392.154, 'SR': 157.7}
+
+--- 迭代 6/15 ---
+  think: 【量化分析与推导】
+- 当前未达标项：PM gap = -43.1267°（严重不足），其余均远超指标（Gain gap=4.64, GBW gap=40.65, SR gap=157.7, IDC gap=-392.15）；PM 是唯一瓶颈，且缺口极大（需提升 >43°），必须优先解决。
+
+- 各管作用与指标敏感度：
+  • 输入对管（XM1/XM2）：主导GBW ∝ gm1/CL，gm1 ∝ gm_id × ID；但历史 iter3 显示：XM1/XM2 gm_id 从17.5→15.0（↓14.3%）导致 GBW ↓6.02、PM ↑2.61° —— 表明降低输入对gm_id可小幅改善PM（因减小主极点附近gm，缓解高频馈通/次极点上移），但增益/GBW代价大，且PM提升仅2.6°，远不足以补43°缺口；故非首选。
+  • 负载管（XM3/XM4）：决定输出阻抗 ro3/ro4，影响Gain = gm1 × (ro1//ro3//ro5//ro7) 和次极点位置（输出节点时间常数 τ_out = CL × ro_out）。增大L可显著提高ro（ro ∝ L/gm_id × ID），从而提升Gain并**向右推次极点（f_p2 ∝ 1/(CL×ro_out)）**，间接改善PM；但iter0→iter1/2中XM3/XM4未动，PM仍持续恶化，说明其对PM调节能力有限且滞后。
+  • 共源共栅上臂（XM5/XM6）：位于输入对之上，隔离输入级与负载，其gm/ro影响高频零点（如gm5/ro5相关零点）和第二极点。iter4中XM5/XM6 gm_id从11.5→18.0（↑56.5%）导致PM暴跌37.3°，验证其对PM极度敏感——高gm_id会引入低频零点或恶化极点分离，大幅压缩相位裕度。因此，**降低XM5/XM6 gm_id是恢复PM的强候选**，但iter4已试过且造成灾难性PM下降，故本轮应反向操作：若此前过高，则需回调；但当前iter4的XM5/XM6 gm_id=18.0已达约束上限（gm_id_max=18），无法再降，故排除进一步下调。
+  • 共源共栅下臂（XM7/XM8）：位于负载支路下方，与XM3/XM4串联构成高阻输出支路，其ro7/ro8直接参与输出节点总阻抗 ro_out = ro3//ro4//ro7//ro8//ro5//ro6。更重要的是，XM7/XM8的gm_id直接影响该支路的寄生极点/零点位置及**密勒效应抑制能力**；低gm_id → 高ro → 提升ro_out → 推迟次极点 f_p2 → 增加PM；同时，其L增大也显著提升ro（ro ∝ L）。历史iter1→iter2：XM7/XM8 gm_id从7.5→5.0（↓33%），PM ↑4.88°，GBW ↑7.78MHz —— 证明**降低XM7/XM8 gm_id可同步提升PM和GBW**（因ro_out↑使f_p2右移，且未显著拖慢主极点）。而当前XM7/XM8 gm_id=5.0已是约束下限（gm_id_min=5.0），无法再降；但L仍有调节空间（L_min=0.5, L_max=1.8，当前L=1.8已达上限），故L已无上调余地。
+  • 尾电流管（XM9）：设定Itail=120μA（固定），IDC≈Itail（实测~107.8μA << IDC_max=500μA），功耗充裕；其L/gm_id变化主要影响尾支路输出阻抗和启动稳定性，对PM无直接主导作用；iter0–4中XM9未变，PM持续恶化，故非关键。
+
+- 关键洞察：PM缺口达43°，而所有单参数微调历史中，最大PM单步提升仅4.88°（iter2 XM7/XM8 gm_id↓2.5），说明必须采用**能产生更大PM增益的机制**。回顾套筒式OTA结构：PM ≈ 180° − arctan(f_u/f_p2) − arctan(f_u/f_z)，其中f_u=GBW，f_p2为次极点（主导PM）。要大幅提升PM，最有效方式是**显著右移f_p2**，即大幅增加输出节点等效阻抗 ro_out。ro_out由XM3/XM4/XM5/XM6/XM7/XM8的ro并联决定。其中：
+  • ro ∝ L / (gm_id × ID) × (1 + λVDS) ≈ k × L / gm_id（ID固定时）。
+  • XM7/XM8当前L=1.8（max）、gm_id=5.0（min），ro已达局部峰值；
+  • XM5/XM6当前gm_id=18.0（max），ro极小（iter4中idW=0.0197 → W=1000 → ro ∝ 1/W → ro5/ro6极小），严重拖累ro_out；这是iter4 PM暴跌的根源！
+  ⇒ 因此，XM5/XM6是当前ro_out的‘短板’，其高gm_id（=18.0）导致ro5/ro6过小，拉低整体ro_out，使f_p2左移、PM崩溃。虽然gm_id已达上限无法再升，但**可降低其gm_id以恢复ro_out**——但当前为18.0，约束允许下限为5.0，故必须大幅下调！iter4中从11.5→18.0已证明危害，现在需从18.0→回调至更安全值（如11.5或更低）。尽管iter4未测试11.5→更低，但iter0中XM5/XM6 gm_id=11.5时PM=61.5°（gap=-8.5°），比当前-43°好34.5°，说明11.5是合理起点。且iter0中XM5/XM6 L=1.0，未达L_max=1.5，L仍有上调空间（↑L可进一步增ro，且不恶化PM），但优先解决gm_id超标问题。
+
+- 验证：iter0（XM5/XM6 gm_id=11.5）→ PM=61.5°；iter4（XM5/XM6 gm_id=18.0）→ PM=26.9°；Δgm_id=+6.5 → ΔPM=−34.6°，灵敏度≈−5.3°/unit gm_id。要弥补−43.1°缺口，需Δgm_id ≈ −43.1 / (−5.3) ≈ −8.1 → 目标gm_id ≈ 18.0−8.1=9.9。取整为10.0（在约束5–18内），保守一步到位。
+
+- 其他参数：XM1/XM2当前gm_id=15.0（iter3下调后），Gain仍>64dB（>60dB要求），GBW>60MHz（>20MHz），有冗余；XM7/XM8已到极限；XM3/XM4可微调L以辅助提升ro_out，但非首要；XM9无需动。
+
+- 结论：当前PM严重不足的根因是XM5/XM6 gm_id过高（18.0）导致ro5/ro6过小、ro_out被严重劣化。**唯一高效解是将XM5/XM6 gm_id从18.0大幅下调至10.0**（降幅44%，在约束内），预计PM可回升约42°，接近达标。此为单变量、高影响力、历史验证过的因果路径（iter4反向）。其他管子保持iter4值（即XM1/XM2=15.0, XM3/XM4=16.5, XM7/XM8=5.0, XM9=16.0），仅动XM5/XM6 gm_id；L保持原值（XM5/XM6 L=1.0，在约束0.5–1.5内，无需调）。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.67
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 10.0,
+    "ids": 60.0,
+    "idW": 0.8161566,
+    "W": 73.52
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 10.0,
+    "ids": 60.0,
+    "idW": 0.8161566,
+    "W": 73.52
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 67.5978, 'GBW': 61.7526, 'PM': 65.0117, 'i(vmeas)': 107.846, 'SR': 223.4}
+  gap: {'Gain': 7.5978, 'GBW': 41.7526, 'PM': -4.9883, 'IDC': -392.154, 'SR': 163.4}
+
+--- 迭代 7/15 ---
+  think: 【量化分析】当前未达标项：PM gap = -4.9883°（即 PM=65.0117° < 70°），其余均显著达标（Gain gap=7.6, GBW gap=41.75, SR gap=163.4, IDC gap=-392.15）。需优先提升 PM。回顾历史单变量调整轮次：
+- iter1→iter2：仅 XM7/XM8 gm_id 从 7.5↔5.0 变化，对应 PM Δ=+4.8763°（iter2 − iter1），且 GBW Δ=+7.78，Gain Δ=−0.015，SR Δ=−2.7 —— 明确表明：↓XM7/XM8 gm_id → ↑PM、↑GBW、微↓Gain、微↓SR；该影响与共源共栅下臂（XM7/XM8）作用一致：其位于负载支路底部，控制输出节点（主极点所在）与次级极点（cascode 源端节点）的分离度；gm_id↓ → ro↑（ro ∝ 1/(gm_id·ID)），同时降低其跨导对高频零点/极点位置扰动，从而改善相位裕度；且因 ro↑ 提升了输出阻抗，间接助益 GBW（GBW ≈ gm1 / CL，但主极点 p1 = 1/(ro_out·CL)，ro_out↑ → p1↓ → GBW↑，与观察一致）。
+- iter3：仅 XM1/XM2 gm_id 从 17.5→15.0 → PM ↑2.61°，但 GBW ↓6.02，SR ↓137.5（严重恶化）——说明输入对管 gm_id↓虽略助PM（因降低高频馈通/减小寄生极点强度），但代价是GBW和SR大幅牺牲，不经济。
+- iter4→iter5：XM5/XM6 gm_id 18.0→10.0 → PM ↑38.14°！但注意：iter4 PM=26.87°（严重不达标），iter5 PM=65.01°，Δ=+38.14°，是迄今最强PM提升动作。然而，该轮伴随XM5/XM6 gm_id剧烈下调（18→10），而XM5/XM6是共源共栅_上臂，叠在输入对之上，其gm_id↓ → ro5/ro6↑ → 抬高中间节点阻抗，削弱密勒效应，将次极点推向更高频，从而显著改善PM；但此操作也导致Gain↓3.04（iter4 Gain=64.64），说明上臂cascode ro过大会削弱增益（因gm1//ro1并联到ro5等效负载变弱？需注意套筒结构中上臂cascode主要隔离输入对与负载，其ro↑有利于提高输出节点ro，但若过大可能使中间节点Q值升高引发峰化或改变极点轨迹）。不过iter5已恢复Gain=67.6，说明10.0是合理值。关键结论：XM5/XM6 gm_id 对PM影响极强（Δgm_id=−8 → ΔPM=+38.1），远超XM7/XM8（Δgm_id=−2.5 → ΔPM=+4.88）。但需警惕：iter4中XM5/XM6 gm_id=18.0时PM仅26.87°，说明过高gm_id会严重劣化PM；而iter5 gm_id=10.0时PM=65.01°，仍差4.99°，故进一步小幅↓XM5/XM6 gm_id有望补足。
+- 约束检查：XM5/XM6 gm_id_min=5.0，当前=10.0，有充足下调空间（可至5.0）；L当前=1.0，L_min=0.5，L_max=1.5，亦可调，但历史中仅调gm_id就产生巨大PM效应，且L变化对ro影响为√L（ro ∝ L/(gm_id·ID)），不如gm_id直接；故优先调gm_id。
+- 其他未达标项无：SR gap=163.4（远超60），IDC gap=−392（远低于500），无需动尾管XM9；Gain/GBW均富余，无需动XM1/XM2或XM3/XM4。
+- 微调判断：当前PM gap=−4.9883，|gap|≈5.0 > 0.3，但历史显示Δgm_id=−5.0（15→10）带来ΔPM≈+38°，即每−1.0 gm_id ≈ +7.6° PM；因此为补足5°，需Δgm_id ≈ −0.66 → 建议下调0.7，设为9.3（在[5,18]内，安全）。
+- 验证可行性：XM5/XM6 L保持1.0（未动过，且L对PM影响弱于gm_id；若后续PM仍不足再考虑L↑以进一步增ro）。
+- 综上：当前唯一瓶颈是PM，影响最大、最灵敏的参数是XM5/XM6的gm_id；本轮应仅下调XM5/XM6 gm_id至9.3，其余器件维持iter5值（即XM1/XM2=15.0, XM3/XM4=16.5, XM7/XM8=5.0, XM9=16.0, L全维持），确保单变量归因、安全、高效。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.65
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.3,
+    "ids": 60.0,
+    "idW": 1.054176,
+    "W": 56.92
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.3,
+    "ids": 60.0,
+    "idW": 1.054176,
+    "W": 56.92
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 66.4724, 'GBW': 61.613, 'PM': 65.1951, 'i(vmeas)': 107.846, 'SR': 223.4}
+  gap: {'Gain': 6.4724, 'GBW': 41.613, 'PM': -4.8049, 'IDC': -392.154, 'SR': 163.4}
+
+--- 迭代 8/15 ---
+  think: 【推导】套筒式OTA中：
+- Gain ≈ (gm1 ∥ gm3) × (ro1 ∥ ro3 ∥ ro5 ∥ ro6 ∥ ro7 ∥ ro8)，主由输入对管(XM1/XM2)和负载管(XM3/XM4)的gm、ro决定；ro∝L×gm_id⁻¹（近似），故增大XM3/XM4的L可显著提升ro3/ro4，从而提升Gain与PM（因输出阻抗升高→主极点左移、次极点右移）；但XM3/XM4的gm_id↑会降低ro，故优先调L。
+- GBW ≈ gm1 / CL，gm1∝gm_id1×ID1，ID1=Itail/2=60μA固定（XM9决定Itail=120μA），故GBW主要由XM1/XM2的gm_id控制；但当前GBW=61.6>20，余量充足（gap=41.6），非瓶颈。
+- PM由主极点（输出节点）、次极点（cascode节点、输入对节点）及零点位置决定。在套筒结构中，共源共栅下臂(XM7/XM8)的源极节点是关键次极点（常为第二主导极点），其时间常数τ = (ro7 ∥ ro8) × Cnode；ro7∝L7×gm_id7⁻¹，故增大L7或减小gm_id7均可增大ro7，使次极点左移→PM↑；历史iter1→iter2验证：XM7/XM8的gm_id从7.5→5.0（↓2.5），PM从56.66→61.53（↑4.87°），gap.PM从-13.34→-8.47（改善4.87）；iter5→iter6：XM5/XM6的gm_id从10.0→9.3（↓0.7），PM仅↑0.18°，影响微弱；而iter4→iter5：XM5/XM6的gm_id从18.0→10.0（↓8.0），PM却↑38.14°——说明XM5/XM6（上臂）对PM影响剧烈但方向反直觉：高gm_id5导致上臂跨导过大，可能引入右半平面零点或恶化极点分离，大幅拉低PM；因此XM5/XM6应保持较低gm_id（已从18→9.3），当前9.3已较优。而XM7/XM8的gm_id=5.0是下限（约束gm_id_min=5），无法再降；但L7/L8=1.8已是上限（L_max=1.8），也无法增。故转向其他可调项。
+- SR = Itail / CL = 120μA / 2pF = 60 V/μs（理论值），当前SR=223.4 > 60，达标（gap=163.4），无需动。
+- IDC = Itail = 120μA（由XM9设定），当前i(vmeas)=107.8μA，远低于IDC_max=500μA，余量极大。
+
+【历史单变量归因验证】
+- iter1: 仅XM7/XM8的gm_id↑2.5 → PM↓4.88°，证实XM7/XM8的gm_id与PM强负相关；
+- iter5: 仅XM5/XM6的gm_id↓8.0 → PM↑38.14°，证实XM5/XM6的gm_id与PM强负相关（高gm_id5恶化PM）；
+- iter3: 仅XM1/XM2的gm_id↓2.5 → GBW↓6.02, SR↓137.5，说明输入对管gm_id对SR敏感（因SR∝gm1×Vov，而Vov∝1/gm_id），但当前SR已超标，且PM是唯一瓶颈（gap.PM=-4.80，其余均远超），故不碰XM1/XM2；
+- iter4: XM5/XM6的gm_id↑6.5 → PM↓37.27°，再次确认XM5/XM6是PM最大杠杆；当前XM5/XM6的gm_id=9.3，iter5结果PM=65.01（gap=-4.99），iter6微降至9.3后PM=65.20（gap=-4.80），改善0.18°，说明仍在敏感区；继续小幅降低XM5/XM6的gm_id可进一步提升PM，且其约束下限为5，当前9.3→目标≈8.5～8.8（降幅0.5～0.8，属正常步幅）。
+
+【当前未达标项】仅PM不足（gap.PM=-4.80），其余Gain(6.47), GBW(41.61), SR(163.4)均大幅超额，IDC余量巨大。PM最敏感参数是XM5/XM6的gm_id（历史显示±8.0变化引起±38°PM变化，灵敏度≈4.75°/unit），且当前9.3尚未触底，安全下调空间充足。XM7/XM8已到gm_id_min=5和L_max=1.8，无调节余地。故本轮唯一动作：将XM5和XM6的gm_id从9.3降至8.6（降幅0.7，与iter5→iter6的0.7同幅，预期PM↑≈0.7×4.75≈3.3°，可将gap.PM从-4.80提升至≈-1.5，接近达标）。L保持1.0（在约束[0.5,1.5]内，且历史未显示L5/L6对PM有显著独立影响，优先不动L）。其他管子保持不变，避免干扰。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.63
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 8.6,
+    "ids": 60.0,
+    "idW": 1.358083,
+    "W": 44.18
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 8.6,
+    "ids": 60.0,
+    "idW": 1.358083,
+    "W": 44.18
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 66.3807, 'GBW': 61.3321, 'PM': 65.6581, 'i(vmeas)': 107.846, 'SR': 229.9}
+  gap: {'Gain': 6.3807, 'GBW': 41.3321, 'PM': -4.3419, 'IDC': -392.154, 'SR': 169.9}
+
+--- 迭代 9/15 ---
+  think: 1. 量化分析：当前未达标项仅 PM（gap.PM = -4.3419°，即实际 PM = 65.6581° < 70°），其余均显著达标（Gain=66.38dB >60, GBW=61.33MHz >20, SR=229.9V/µs >60, IDC=107.85µA <<500µA）。历史中单组调整对PM影响最显著的是XM7/XM8（共源共栅_下臂）：iter1→2中XM7/XM8的gm_id从7.5→5.0（Δgm_id=-2.5），PM从56.66°→61.53°（+4.88°）；iter2→3未动XM7/XM8，PM变化由XM1/XM2降低gm_id导致（-0.29dB Gain但PM+2.61°，说明输入对管gm_id↓轻微改善PM但非主因）；iter4→5中XM5/XM6 gm_id从18.0→10.0（Δ=-8.0），PM从26.87°→65.01°（+38.14°），表明上臂cascode gm_id↓大幅提升PM——但该轮同时GBW↓、Gain↓，且iter5→6→7持续降XM5/XM6 gm_id（10.0→9.3→8.6），PM持续↑（65.01→65.19→65.66°），但增幅递减（+0.18°→+0.46°），说明XM5/XM6已接近敏感度饱和区。而XM7/XM8在iter1→2的Δgm_id=-2.5带来+4.88°PM，单位Δgm_id≈+1.95°/unit；当前XM7/XM8 gm_id=5.0（下限），不能再降；但L可调（L_min=0.5, L_max=1.8，当前L=1.8，已达上限）。根据套筒架构：XM7/XM8作为下臂cascode，其L↑→ro↑→输出节点极点f_p2↓（f_p2 ∝ 1/(ro7·CL)），同时提升主极点隔离度，抑制右半平面零点或减小次极点与主极点间距，从而提升PM；L已达1.8上限，无法再增。转看XM5/XM6：上臂cascode，其gm_id↓→gm5↓→减小密勒效应增益，降低高频馈通，同时提升输出阻抗（ro5∝1/(gm5·λ)），使次极点f_p2进一步右移，拉大f_p2/f_p1比值，直接改善PM；历史iter4→5 Δgm_id=-8.0 → +38.14°PM，iter5→7累计Δgm_id=-1.4 → +0.64°PM，说明边际效益下降但仍有效；当前XM5/XM6 gm_id=8.6（约束下限为5.0），仍有下调空间（8.6→5.0可再降3.6），且iter7中Δgm_id=-0.7（9.3→8.6）带来PM+0.46°，线性外推每降1.0 gm_id约+0.66°PM，降3.6可望+2.4°PM，叠加当前gap=-4.34°，有望达标。此外，XM5/XM6 L当前为1.0（约束L_min=0.5, L_max=1.5），L↑亦可提升ro5，辅助PM提升，但历史未试过调L，且L变化对W影响大（idW固定时L↑→W↑），可能引发版图面积/寄生问题，优先用更可靠的gm_id调节。其他管子：XM1/XM2 gm_id↓虽略升PM（iter3 Δgm_id=-2.5 → PM+2.61°），但同步导致GBW↓6.02MHz、SR↓137.5V/µs，当前SR=229.9已远超60，但GBW余量（41.33MHz）仍充足，不过为保GBW不恶化，不选此路径；XM3/XM4（负载管）L↑可提升ro3/ro4→Gain↑、f_p2↓→PM↑，但Gain已超标7dB，且iter0中L=1.025，约束L_max=1.8，有空间，但历史无相关单变量实验，归因不确定性高；XM9（尾管）影响IDC和SR，当前IDC极低、SR极高，无需调整。综上，PM未达标且gap=-4.34°，影响最大、历史验证最充分、剩余调节空间最足的参数是XM5/XM6的gm_id（当前8.6，下限5.0），应继续下调。2. 微调决策：|gap|=4.34>0.3，需正常步幅；iter6→7 Δgm_id=-0.7 → PM+0.46°，斜率≈0.66°/unit，为覆盖gap需Δgm_id≈-4.34/0.66≈-6.6，但须保守——因边际效益递减，且避免过度下调导致GBW/Gain恶化；取Δgm_id=-1.2（从8.6→7.4），预计PM+0.79°，达66.45°，仍不足；但iter7中PM已65.66°，距70°差4.34°，若按线性外推，需Δgm_id≈-6.6，但约束允许下至5.0，故一步到位降至5.0（最大安全下调），历史iter4→5已验证gm_id=10.0→65.01°，8.6→5.0应能突破70°。同时，XM5/XM6 gm_id=5.0在约束范围内（gm_id_min=5.0），合法。L保持1.0（未达L_max=1.5，暂不调）。其余管子维持当前值以避免干扰。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.41
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 5.357444,
+    "W": 11.2
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 5.357444,
+    "W": 11.2
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 57.9763, 'GBW': 60.3319, 'PM': 66.8617, 'i(vmeas)': 107.846, 'SR': 227.2}
+  gap: {'Gain': -2.0237, 'GBW': 40.3319, 'PM': -3.1383, 'IDC': -392.154, 'SR': 167.2}
+
+--- 迭代 10/15 ---
+  think: 【推导】 sleeve OTA 架构中：
+- Gain ≈ (gm1 || gm3) × (ro1 || ro3 || ro5 || ro6 || ro7 || ro8)，主由输入对管(XM1/XM2)和负载管(XM3/XM4)的gm与ro决定；其中ro∝L×gm_id⁻¹（近似），故增大负载管L或减小其gm_id可显著提升ro3/ro4，从而提升Gain；输入对管L增大会略微降低gm1（因固定idW→W↓→gm1∝√(idW×W)↓），但ro1↑，综合Gain常微降；历史iter3中XM1/XM2的gm_id从17.5→15.0（-2.5）导致Gain↓0.29，验证输入对管gm_id降对Gain影响小；iter4中XM5/XM6的gm_id从11.5→18.0（+6.5）导致Gain↓3.04，说明上臂cascode gm_id↑会显著降低ro5/ro6（因ro∝1/gm_id），恶化Gain；iter5中XM5/XM6的gm_id从18.0→10.0（-8.0）使Gain↑2.95，验证ro5/ro6对Gain强正相关；iter8中XM5/XM6的gm_id从8.6→5.0（-3.6）使Gain↓8.4，说明过低gm_id导致W剧增、沟道长度调制弱化、ro非线性下降，Gain崩溃——故XM5/XM6 gm_id存在最优区间（~8–10）。
+- GBW ≈ gm1 / CL；gm1 ∝ idW × gm_id × (W/L)⁰·⁵，但idW固定时W∝1/gm_id，故gm1 ∝ √(gm_id / L)；因此提高XM1/XM2的gm_id或减小其L可提GBW；iter3中XM1/XM2 gm_id↓2.5→GBW↓6.0，验证敏感；XM5/XM6主要影响次极点位置，对GBW影响弱（iter4/5中其变化仅引起GBW±1.4），故非首选。
+- PM 主要由主极点（输出节点）与次极点（cascode节点或输入对节点）之比决定；sleeve结构中，共源共栅下臂(XM7/XM8)直接控制输出节点阻抗与次极点分离度：其gm_id↓→ro7/ro8↑→输出节点时间常数↑（主极点左移），同时cascode节点阻抗↑→次极点右移，PM↑；iter1中XM7/XM8 gm_id↑2.5→PM↓4.88；iter2中恢复为5.0→PM↑4.88，完美镜像，证明XM7/XM8 gm_id是PM最强杠杆；当前PM gap=-3.14，急需提升，且|gap|>0.3，需中幅调整。
+- SR = Itail / CL；Itail由XM9决定（ids=120uA固定），故SR已由scale1/Itail保障（当前SR=227.2 > 60），不需动；IDC=107.8μA << 500μA，余量极大，无需优化功耗。
+
+【历史验证】
+- 单组调整轮次：iter1/2（XM7/XM8 gm_id）、iter3（XM1/XM2 gm_id）、iter4/5/6/7/8（XM5/XM6 gm_id）。其中：
+  • XM7/XM8 gm_id：+2.5 → PM↓4.88；−2.5 → PM↑4.88 → 线性灵敏度≈1.95°/unit；当前PM缺3.14°，需降低XM7/XM8 gm_id约 3.14/1.95≈1.61 → 目标gm_id≈5.0−1.6=3.4，但约束下限为5.0 → **已达下限，无法再降**。
+  • XM5/XM6 gm_id：iter5（10.0→PM65.0）、iter6（9.3→65.2）、iter7（8.6→65.7）、iter8（5.0→66.9）；从8.6→5.0（−3.6）仅使PM↑1.2，远不如XM7/XM8高效；且Gain在iter8已跌破60（−2.02），说明XM5/XM6已过低，不能再降。
+  • XM1/XM2 gm_id：iter3（17.5→15.0）→ Gain↓0.29，GBW↓6.0，PM↑2.6；说明降低XM1/XM2 gm_id可小幅提PM、但严重损GBW/Gain；当前GBW=60.3 > 20，余量充足，但Gain已不达标，不可再降。
+  • 负载管XM3/XM4：尚未调整过；其L↑→ro3/ro4↑→Gain↑，且ro3/ro4↑也使输出节点主极点左移、改善PM（因次极点相对右移）；L↑对GBW影响小（GBW由gm1主导）；L↑对PM有正向贡献（增大输出阻抗，提升主极点/次极点比）；且XM3/XM4 L_max=1.8，当前L=1.025，有+0.775裕量；L↑不会触碰任何约束，安全。
+
+【决策】
+未达标项：Gain(gap=−2.02), PM(gap=−3.14)。XM7/XM8 gm_id已达下限5.0，无法再调；XM5/XM6已降至5.0，再降将崩溃Gain；XM1/XM2 gm_id降会恶化Gain。唯一安全高效路径：提升负载管XM3/XM4的L以同时提升Gain和PM。目标Gain需+2.02，历史中iter0/1/2的Gain≈67.97，iter8=57.98，差10dB，对应Gain_linear×3.2；而Gain∝ro3，ro3∝L×gm_id⁻¹，当前XM3 gm_id=16.5，若L从1.025→1.8（+75%），ro3理论↑75%，Gain↑≈5.4dB（log10(1.75)×20≈4.8dB），叠加PM受益，足以覆盖缺口。步幅取L=1.8（上限），一步到位；gm_id保持16.5（在[8,25]内，且高gm_id利于电流匹配与噪声，无副作用）。其他管子维持iter8值，确保归因清晰。
+  偏置 VBN1=0.66 VBN2=1.18 VBP=0.41
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM4": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 5.357444,
+    "W": 11.2
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 5.357444,
+    "W": 11.2
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 58.4156, 'GBW': 35.0719, 'PM': -0.70617, 'i(vmeas)': 107.9566, 'SR': 159.3}
+  gap: {'Gain': -1.5844, 'GBW': 15.0719, 'PM': -70.7062, 'IDC': -392.0434, 'SR': 99.3}
+
+--- 迭代 11/15 ---
+  think: 1) 量化分析与归因：
+- 当前未达标项：Gain (gap = -1.5844)，PM (gap = -70.7062)，GBW (gap = 15.0719，仍达标但余量收窄)，SR (gap = 99.3，远达标)，IDC (gap = -392.04，远低于上限，功耗极宽松)。
+- 关键历史单变量轮次验证：
+  • iter1→iter2：仅调 XM7/XM8 gm_id（5.0 ↔ 7.5），result_delta.PM = ±4.8763，且 PM 随 gm_id↓而↑（iter2: gm_id=5.0 → PM=61.53；iter1: gm_id=7.5 → PM=56.66），说明 XM7/XM8 的 gm_id 对 PM 具有强负相关性（gm_id↓ → ro↑ → 输出节点极点右移/次极点左移 → PM↑）；同时 GBW↓7.78 当 gm_id↑，表明 XM7/XM8 gm_id↑会降低输出阻抗、加剧密勒效应或引入高频零点劣化带宽，但主影响在PM。
+  • iter4→iter5：仅调 XM5/XM6 gm_id（18.0→10.0），result_delta.PM = +38.14（PM从26.87→65.01），证明上臂cascode（XM5/XM6）gm_id对PM影响极大——gm_id↓显著提升PM，因其降低上臂跨导，削弱高频馈通、抬高次极点频率、改善相位裕度。该效应远超XM7/XM8（同量级gm_id变化仅ΔPM≈4.9°）。注意iter4中XM5/XM6 gm_id=18.0导致PM暴跌至26.87°，是当前PM严重不足的主因。
+  • iter8→iter9：仅调 XM3/XM4 L（1.025→1.8），result_delta.Gain=+0.44（微增），但GBW↓25.26、PM↓67.57！说明增大负载管L虽略提ro（Gain∝ro1·ro3等），但大幅增加其寄生电容，恶化次极点/主导极点分离，严重损害GBW和PM——因此负载管L不是当前PM修复的优选路径。
+  • iter3：降XM1/XM2 gm_id（17.5→15.0），result_delta.SR=-137.5（SR从361→223），证实输入对管gm_id直接正比于gm1，而SR∝Itail（固定）但受输入级驱动能力与压摆路径影响；但当前SR=159.3仍远高于60，非瓶颈。
+- 各指标敏感源总结（套筒架构）：
+  • Gain：主要由输入对gm1×(ro1//ro3//ro5//ro7)决定，负载管(XM3/XM4)和上下臂cascode(XM5–XM8)的ro共同构成高阻节点；但Gain_min=60已接近当前58.4，小幅提升即可，且iter9中Gain=-1.58，属轻度不足。
+  • GBW：GBW ≈ gm1 / (2π·CL)，主由XM1/XM2的gm决定；当前GBW=35.07 < 20? 不，GBW_min=20，当前35.07已达标（gap=15.07>0），无需优先优化。
+  • PM：套筒结构PM由主极点（输出节点）、次极点（cascode共源节点，如XM5/XM6漏端、XM7/XM8源端）及零点（密勒/衬底）决定。历史明确显示：XM5/XM6 gm_id 是PM最强杠杆（Δgm_id=−8 → ΔPM=+38°），其次XM7/XM8 gm_id（Δgm_id=−2.5 → ΔPM=+4.9°）。XM5/XM6位于输入对上方，其低gm_id可显著提高其漏极阻抗、将次极点推向更高频，从而大幅提升PM。当前XM5/XM6 gm_id=5.0（iter8/9），已是约束下限（gm_id_min=5），不能再降；但L尚在约束内（L_min=0.5, L_max=1.5），而L↑→ro↑→同样提升次极点频率→改善PM，且L↑对gm1/GBW影响小（输入对L未变），是安全可行的PM提升手段。
+  • SR：SR ≈ Itail / CL = 120μA / 2pF = 60 V/μs，理论值恰好满足SR_min=60；当前仿真SR=159.3，余量充足，无需调整。
+  • IDC：i(vmeas)=107.96 μA << IDC_max=500 μA，功耗空间巨大，尾管XM9可保持不动。
+
+2) 决策逻辑：
+- 最紧迫缺口是PM（gap=−70.7°），且历史证明XM5/XM6是PM最敏感节点；其gm_id已达下限5.0，无法再降，故转向调节其L（当前L=1.0，约束[0.5,1.5]），增大L可提升ro5/ro6，进一步推高次极点频率，改善PM。步幅选择：L从1.0→1.3（+0.3，中等步进），预期ΔPM > +10°（iter4→iter5中gm_id降8带来+38°，L增0.3对应ro增约20–30%，保守估计+15°以上）。
+- Gain缺口仅−1.58，属轻度不足；可同步微调负载管XM3/XM4的L（当前1.8，已达L_max=1.8？不，iter9设为1.8，但约束L_max=1.8，已达上限，不可再增）；改gm_id：XM3/XM4 gm_id=16.5，约束[8,25]，仍有下调空间；但gm_id↓→ro↓→Gain↓，不利；故Gain提升应靠增强输入对gm1或负载ro。XM1/XM2 gm_id=15.0（约束[10,25]），可适度上调（如+1.0→16.0），提升gm1→直接提升Gain与GBW（但GBW已达标），且SR仍充裕；Δgm_id=+1.0预计Gain↑~1–2dB（iter3中gm_id−2.5→Gain−0.29dB，反向推算+1.0≈+0.12dB，不够）；更有效的是提升XM3/XM4的ro，但L已达顶格，故唯一可行的是略微提升XM1/XM2 gm_id（安全，不损PM，且iter0中gm_id=17.5时Gain=67.97>60）。
+- 综合：本轮**单变量聚焦XM5/XM6的L**（主攻PM），辅以**XM1/XM2 gm_id微升**（补Gain，且历史无负向impact）；但根据单变量归因原则，为避免混淆，**严格只动一类参数**。由于PM缺口巨大（−70.7°）且XM5/XM6 L是当前唯一可安全、强效提升PM的自由度（gm_id已锁死下限），故**本轮仅提升XM5/XM6的L**，其余全保持。L从1.0→1.3（+0.3，在[0.5,1.5]内），符合‘正常步幅’；XM5/XM6 L=1.3后，ro↑→次极点f_p2↑→PM↑，且对Gain/GBW影响中性偏正面（ro↑略提Gain，GBW≈gm1/CL不变），SR/IDC不变。此为最高效、最安全的PM修复动作。
+  偏置 VBN1=0.66 VBN2=1.18 VBP=0.4
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM4": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM5": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM6": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 58.9952, 'GBW': 35.1727, 'PM': -1.45629, 'i(vmeas)': 107.9566, 'SR': 160.6}
+  gap: {'Gain': -1.0048, 'GBW': 15.1727, 'PM': -71.4563, 'IDC': -392.0434, 'SR': 100.6}
+
+--- 迭代 12/15 ---
+  think: 【量化分析与推导】
+1. 指标敏感度建模（基于 sleeve OTA 架构）：
+- Gain ≈ (gm1 || gm3) × (ro1 || ro3 || ro5 || ro7) —— 主要由输入对管（XM1/XM2）跨导 gm1、负载管（XM3/XM4）跨导 gm3 及所有 cascode 管（XM5–XM8）输出阻抗 ro 共同决定；其中 ro ∝ L × gm_id⁻¹（因 ro ∝ 1/(λ×ID), ID ∝ gm_id²×(W/L), λ∝1/L ⇒ ro ∝ L²/(gm_id²×W/L) ∝ L³/(gm_id²×W)，但 W 由 idW=ID/W 决定，idW 固定时 W∝ID/gm_id²∝1/gm_id² ⇒ ro ∝ L³×gm_id⁴；实际仿真中更主导的是 L 对 ro 的线性正向影响，尤其对 cascode 管）。故 Gain 对负载管 L 最敏感（增大 XM3/XM4 的 L → ro3/ro4 ↑ → Gain ↑），其次对 XM5–XM8 的 L 敏感（提升共源共栅隔离，减小密勒效应，间接提升有效增益）。
+- GBW ≈ gm1 / CL —— 主极点在输出节点，GBW 直接正比于输入对管 gm1。gm1 ∝ gm_id × ID^(1/2) ∝ gm_id × (gm_id² × W/L)^(1/2) ∝ gm_id² × sqrt(W/L)；但 W 由 idW 和 ID 决定，在固定 ID 下，W ∝ 1/gm_id² ⇒ gm1 ∝ gm_id² × sqrt(1/(gm_id² L)) ∝ 1/sqrt(L)。因此：固定 ID 时，gm1 随 L↑ 而 ↓，随 gm_id↑ 而 ↑（但受 W 约束，实际 gm_id↑ 导致 W↓，需权衡）。历史 iter3 显示：XM1/XM2 gm_id 从 17.5→15.0（↓14.3%），GBW 从 68.1→62.1（↓8.8%），验证 gm_id↓ → GBW↓；iter0→iter1 中 XM7/XM8 gm_id↑（5→7.5）导致 GBW↓7.8，说明上臂/下臂 gm_id↑ 会降低次极点频率或引入零点恶化主极点位置，间接压低 GBW。
+- PM 主要由主极点（f_p1 ≈ 1/(2π×CL×ro_out)）与次极点（f_p2，常位于 cascode 管源极节点，如 XM5/XM6 源极或 XM7/XM8 源极）之比决定：PM ≈ 90° − arctan(f_p2/f_p1)。f_p2 ∝ gm_cascode / C_node；增大 XM7/XM8 的 L → ro7/ro8 ↑ → f_p2 ↓ → f_p2/f_p1 ↓ → PM ↑；减小 XM7/XM8 的 gm_id → gm7/8 ↓ → f_p2 ↓ → PM ↑。历史 iter1（XM7/XM8 gm_id↑5→7.5）→ PM↓4.9°；iter2（恢复为5）→ PM↑4.9°；iter5（XM5/XM6 gm_id↓10→9.3→8.6→5.0）→ PM 从65.0→65.7→66.9→66.9（iter8），但 iter9 中 XM3/XM4 L↑→PM 断崖式跌至−0.7°，说明负载管 L 过大会显著降低 f_p2（因 ro3/ro4↑ 导致输出节点时间常数↑，f_p1↓，而 f_p2 不变甚至因密勒增强而↑），使 f_p2/f_p1 ↑ → PM↓。因此 PM 最敏感参数是 XM7/XM8 的 L 和 gm_id：二者↓均使 f_p2 ↓，提升 PM。
+- SR = Itail / CL —— Itail = ID_XM9；当前 i(vmeas)≈108 μA，Itail 设为120 μA（需求中给出），但实测 IDC 远低于 IDC_max=500 μA，SR 实测160 V/μs > SR_min=60，故 SR 已达标（gap.SR=100.6>0），无需调整。
+- IDC = i(vmeas) ≈ 2×ID_XM1 + 2×ID_XM3 + ...，但尾电流管 XM9 直接设 Itail=120 μA，其余支路电流由比例分配；当前 IDC≈108 μA << 500 μA，功耗余量极大，IDC 不是瓶颈。
+
+2. 历史单变量归因验证（仅看 single-group change 轮次）：
+- iter1 & iter2：仅改 XM7/XM8 gm_id（5↔7.5），Δgm_id=±2.5 → ΔPM=∓4.88°，ΔGBW=±7.78 MHz，ΔGain≈0 —— 证实 XM7/XM8 gm_id 是 PM 的最强杠杆，且对 GBW 有强负向影响（不可再增）。
+- iter3：仅改 XM1/XM2 gm_id（17.5→15.0）→ ΔGBW=−6.0，ΔSR=−137.5（SR 从361→224），ΔPM=+2.6 —— 说明输入对 gm_id↓虽降 GBW/SR，但略升 PM（因减小输入级驱动强度，缓解密勒效应）。
+- iter4/5/6/7/8：仅改 XM5/XM6 gm_id（11.5→18→10→9.3→8.6→5.0）→ ΔPM=+38.1（iter4→5）、+0.2（iter5→6）、+0.5（6→7）、+1.2（7→8）；ΔGain=−3.0→+2.9→−1.1→−0.1→−8.4 —— 表明 XM5/XM6 gm_id↓可稳定提升 PM，但 Gain 在 gm_id<8.6 后急剧下降（iter8 Gain=57.97 <60），说明 XM5/XM6 gm_id 过低会削弱上臂 cascode 的隔离，导致增益崩溃。
+- iter9：仅改 XM3/XM4 L（1.025→1.8）→ ΔPM=−67.6°，ΔGBW=−25.3 MHz —— 证实负载管 L 过大严重恶化 PM 和 GBW，不可取。
+- iter10：仅改 XM5/XM6 L（1.0→1.3）→ ΔPM=−0.75°，微损 —— 说明 XM5/XM6 L 对 PM 影响弱于其 gm_id，且方向相反（L↑→ro↑→f_p2↓？但实测 PM↓，可能因 L↑ 导致寄生电容↑ 或 W 被压缩引发其他效应），应避免调 L，优先调 gm_id。
+
+3. 当前未达标项诊断（iter10 gap）：
+- Gain gap = −1.0048（未达标，缺1.0 dB，即线性增益缺~12.6%）
+- PM gap = −71.4563（严重未达标，缺71.5°，当前 PM≈−1.5°，已不稳定）
+- GBW gap = +15.17（达标）
+- SR gap = +100.6（达标）
+- IDC gap = −392（远达标）
+→ 最紧急：PM（gap绝对值最大，且为负相位裕度，电路可能振荡）；其次 Gain（仅缺1.0 dB，属微缺）。
+
+4. 单参数优先级决策：
+- PM 最敏感参数：XM7/XM8 gm_id（历史显示 Δgm_id=±2.5 → ΔPM=∓4.88°，灵敏度≈1.95°/unit）。当前 XM7/XM8 gm_id=5.0（已达约束下限 gm_id_min=5），无法再降。次优选择：XM7/XM8 L。约束 L_min=0.5，当前 L=1.8（上限），故可大幅 ↓L（如降至0.5）→ ro7/ro8 ↓ → f_p2 ↑？等等，需修正：f_p2 位于 XM7/XM8 源极节点，该节点电容主要由 XM5/XM6 漏极电容和 XM7/XM8 栅电容构成，而 f_p2 ∝ gm7/8 / C_node；若 ↓L_XM7，则 ro7↓，但 gm7∝gm_id×sqrt(ID×L)（因 ID 固定，gm∝√(gm_id²×W/L)×...），更关键的是：L↓ 会减小沟道长度调制效应，ro↓，但同时会略微增加 gm（短沟道效应），综合效果需看仿真。然而历史中无 XM7/XM8 L 单独变化轮次。但根据 sleeve 架构共识：下臂 cascode（XM7/XM8）的 L↓ 会降低其源极节点输出阻抗，从而**提升该节点的等效带宽（f_p2↑），反而恶化 PM** —— 这与直觉相反？重新思考：在 sleeve 结构中，次极点 f_p2 主要由上臂 cascode（XM5/XM6）的源极节点决定（高阻节点），而 XM7/XM8 是下臂，其源极接输出节点，本身不形成独立高阻节点；XM7/XM8 的作用是提升负载管（XM3/XM4）的等效输出阻抗 ro_eff = ro3×(1+gm3×ro7) ≈ gm3×ro3×ro7，因此 XM7/XM8 的 ro 直接乘入 ro_eff，影响主极点 f_p1 = 1/(2π×CL×ro_eff)。所以：XM7/XM8 ro↑ → ro_eff↑ → f_p1↓ → 若 f_p2 不变，则 f_p2/f_p1↑ → PM↓；反之，XM7/XM8 ro↓ → ro_eff↓ → f_p1↑ → f_p2/f_p1↓ → PM↑。而 ro ∝ L（近似），故 ↓XM7/XM8 L → ro7/8↓ → f_p1↑ → PM↑。iter1/2 中 XM7/XM8 gm_id↑→ro↓（因 gm_id↑→λ↑→ro↓），但实测 PM↓，说明 gm_id↑ 对 ro 的削弱不足以抵消其对 f_p2 的抬升主导作用。综合判断：为救 PM，最安全高效方式是 ↓XM7/XM8 L（当前1.8→目标0.5，降幅72%），这是约束允许的最大改善幅度，且无历史反例（因从未试过）。同时，Gain 缺1.0 dB，可同步微调 XM3/XM4 gm_id↑（当前16.5，上限25），因 gm_id↑→gm3↑→Gain↑，且 XM3/XM4 L 已被 iter9 证明不可↑，故只动 gm_id。但规则要求「每轮只调一类参数」，而 PM 比 Gain 更紧急（负PM=振荡风险），故本轮**唯一动作：将 XM7/XM8 L 从 1.8 降至最小值 0.5**，以最大化 PM 提升潜力。XM7/XM8 gm_id 已在下限，不能再动；XM5/XM6 gm_id=5.0 已到下限，再降 Gain 崩溃（iter8 Gain=57.97），故不可动；XM1/XM2 gm_id↓会进一步恶化 GBW/SR，且当前 GBW 已达标，但 Gain 缺口小，可留待下轮用 XM3/XM4 gm_id 补足。因此，本轮 action：仅降 XM7/XM8 L 至 0.5。
+  偏置 VBN1=0.66 VBN2=1.24 VBP=0.46
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM4": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM5": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM6": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM7": {
+    "L": 0.5,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 10.37121,
+    "W": 5.79
+  },
+  "XM8": {
+    "L": 0.5,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 10.37121,
+    "W": 5.79
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 48.9707, 'GBW': 37.0751, 'PM': 0.251771, 'i(vmeas)': 108.0081, 'SR': 104.6}
+  gap: {'Gain': -11.0293, 'GBW': 17.0751, 'PM': -69.7482, 'IDC': -391.9919, 'SR': 44.6}
+
+--- 迭代 13/15 ---
+  think: 【量化分析与推导】
+1. 指标现状（iter 11）：Gain=-11.03（严重不足），PM=-69.75（极差），GBW=17.08（达标余量尚可，>15），SR=44.6（达标但余量中等），IDC=-392（远未超标）。当前最紧急的是 Gain 和 PM，且二者均严重不达标。
+
+2. 各管作用与指标敏感度（套筒架构）：
+- 输入对管（XM1/XM2）：主导主极点 p1 ≈ gm1/(CL·A0)，GBW ≈ gm1/CL；Gain ≈ (gm1·ro1)∥(gm3·ro3)∥(ro5·ro7)…，但其 ro1 贡献有限；降低 L/gm_id 会减小 gm1→降低 GBW/Gain；增大 gm_id（固定 W/L）会提升 gm1，但受电流分配约束（Itail=120μA，XM1/XM2各60μA）。历史 iter3 中 XM1/XM2 gm_id 从17.5→15.0（↓2.5），导致 GBW↓6.0、Gain↓0.3、SR↓137.5——说明输入对 gm_id 对 SR 影响极大（SR∝Itail，而 Itail 固定，但 SR 也正比于跨导效率；此处 SR 骤降主因是 gm1↓→输出级驱动能力↓），但 Gain 变化小，说明 Gain 主导不在输入对。
+- 负载管（XM3/XM4）：决定高阻节点输出阻抗 ro3/ro4，Gain ∝ ro3∥ro4；增大 L 显著提升 ro（ro ∝ L/(gm_id·ID)），但 iter9 中 XM3/XM4 L 从1.025→1.8（↑0.775），结果 Gain仅+0.44，GBW却暴跌25.26，PM暴跌67.6°——说明过长L导致次极点（如cascode源极节点）严重左移，恶化PM和GBW，得不偿失。故负载管L不宜再增。
+- 共源共栅上臂（XM5/XM6）：隔离输入对与负载，影响第二极点p2（常位于cascode源极）和零点；iter4中XM5/XM6 gm_id从11.5→18.0，PM暴跌37.3°，Gain↓3.0；iter5恢复至10.0后PM回升38.1°，验证XM5/XM6 gm_id↑ → p2左移→PM↓；iter8进一步降至5.0，PM升至66.9°（gap=-3.1），说明低gm_id利于PM。但iter8中Gain跌至57.98（gap=-2.0），iter9–11在XM5/XM6 gm_id=5.0下Gain继续恶化（→48.97），说明XM5/XM6 gm_id过低削弱了cascode隔离，使输出节点电容耦合增强，增益崩溃。
+- 共源共栅下臂（XM7/XM8）：位于负载支路底部，控制输出节点（Vout）的等效阻抗和极点分布；其ro7/ro8与XM3/XM4串联，共同决定输出阻抗；更重要的是，XM7/XM8 的源极节点是关键次极点p2位置（套筒结构中，下臂cascode源极常为最高频极点）。iter11中将XM7/XM8 L从1.8→0.5（↓1.3），result_delta显示：PM↑1.7°（虽仍负，但方向正确），Gain↓10.0，GBW↑1.9，SR↓56。这表明减小L→ro7↓→输出阻抗↓→Gain↓，但p2右移→PM↑；然而Gain损失过大，不可取。反向思考：增大XM7/XM8 L应能↑ro7↑→↑Gain、↑p2频率→↑PM，但需谨慎避免p2过近主极点。
+- 尾电流管（XM9）：设定Itail=120μA，已满足I_ref=100μA及scale1=1.2要求；IDC=108μA << IDC_max=500μA，无压力；SR=104.6 > SR_min=60，但余量仅44.6，且iter11 SR较iter8（227.2）下降明显，说明SR瓶颈已从Itail转向驱动能力——即输出级跨导不足，根源在XM7/XM8和XM3/XM4的gm/ro失衡。
+
+3. 历史单变量轮次归因（关键验证）：
+- iter1 & iter2（仅调XM7/XM8 gm_id：5.0↔7.5）：Δgm_id=+2.5 → PM↓4.9°，GBW↓7.8，Gain↑0.015 ——证明XM7/XM8 gm_id↑ → p2左移→PM/GBW双降，Gain几乎不变。故当前PM极差，必须↓XM7/XM8 gm_id（但iter8已到下限5.0，不能再降）。
+- iter5 & iter6 & iter7 & iter8（XM5/XM6 gm_id从10.0→5.0）：PM从65.0→66.9°（↑1.9°），Gain从67.6→57.98（↓9.6），说明XM5/XM6 gm_id对PM有缓和作用，但Gain代价巨大；当前Gain已崩，XM5/XM6 gm_id=5.0已达约束下限（gm_id_min=5），不能再降。
+- iter9（仅增XM3/XM4 L）：Gain微升但PM崩塌，排除。
+- iter11（仅降XM7/XM8 L）：Gain崩塌更甚，排除。
+
+→ 结论：当前Gain和PM双崩，核心矛盾是输出级阻抗太低（ro3, ro7太小）且次极点失控。而XM3/XM4 L已到上限1.8（iter9），不能再增；XM7/XM8 L在iter11被错误地降到0.5（下限0.5），已触底；XM7/XM8 gm_id=5.0也触底。因此，唯一可操作的自由度是**提升XM7/XM8的沟道长度L以增加ro7/ro8**，但iter11 L=0.5已是min，故本轮必须将XM7/XM8 L设为**最大值1.8**（约束L_max=1.8），以最大化ro7/ro8，从而同时提升Gain（ro7↑→输出阻抗↑）和PM（p2右移）。虽然iter9中XM3/XM4 L=1.8曾导致PM崩，但那是因XM7/XM8 L被设为0.5，造成p2严重左移；本轮XM7/XM8 L=1.8将把p2推至更高频，有望挽救PM。此外，XM7/XM8 L从0.5→1.8是+1.3，步幅大，但必要——因gap.PM=-69.75，|gap|>0.3，需一步到位。其他管子保持iter11值（XM1/XM2: L=0.325,gm_id=15.0；XM3/XM4: L=1.8,gm_id=16.5；XM5/XM6: L=1.3,gm_id=5.0；XM9: L=1.25,gm_id=16.0），因它们均已处于约束边界或历史验证过的合理值，且无单变量证据表明调整它们能同时救Gain和PM。特别注意：XM7/XM8 L=1.8是约束允许的最大值，安全。
+  偏置 VBN1=0.66 VBN2=1.18 VBP=0.4
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM4": {
+    "L": 1.8,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 6.80335e-07,
+    "W": 1000.0
+  },
+  "XM5": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM6": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 58.9952, 'GBW': 35.1727, 'PM': -1.45629, 'i(vmeas)': 107.9566, 'SR': 160.6}
+  gap: {'Gain': -1.0048, 'GBW': 15.1727, 'PM': -71.4563, 'IDC': -392.0434, 'SR': 100.6}
+
+--- 迭代 14/15 ---
+  think: 1) 量化分析与归因：
+- 当前未达标项：Gain gap = -1.0048（即 Gain=58.9952 < 60），PM gap = -71.4563（即 PM≈-1.46°，严重不足），GBW=35.17 MHz（gap=15.17，达标但余量中等），SR=160.6 V/µs（gap=100.6，远超60），IDC=107.96 µA（gap≈-392，远低于500 µA上限）。
+- 关键历史单变量轮次验证：
+  • iter1→iter2：仅调 XM7/XM8 gm_id 5.0↔7.5 → PM Δ=+4.88°（iter2−iter1），且 GBW↓7.78 MHz，Gain↑0.015 dB。说明 XM7/XM8 gm_id ↓ 显著提升 PM（因降低下臂cascode跨导，减弱高频馈通、抬高次极点频率、改善相位裕度），但轻微牺牲 GBW（可能因输出节点阻抗变化影响主极点位置）。
+  • iter5→iter6→iter7→iter8：XM5/XM6 gm_id 从10.0→9.3→8.6→5.0，PM持续↑（+0.18→+0.46→+1.20°），但Gain在gm_id=5.0时骤降8.4 dB（iter8 vs iter7），表明XM5/XM6过低gm_id会严重削弱上臂cascode的隔离能力，导致增益崩溃和极点分裂，反而恶化PM（iter8 PM=66.86°仍>0，但iter9/10/11因同时改XM3/XM4 L而PM崩塌至负值，说明负载L增大对PM是灾难性的）。
+  • iter9：仅增大XM3/XM4 L（1.025→1.8），PM从66.86°→-0.71°，ΔPM≈-67.6°，Gain微升但GBW↓25.26 MHz —— 这表明负载管L↑大幅降低ro（因ro∝L/(gm_id·ID)），使输出节点主极点左移、次极点右移，严重恶化PM；同时GBW受主极点主导而下降。因此XM3/XM4 L是PM最大负面因子，必须避免增大。
+  • iter11：将XM7/XM8 L从1.8→0.5（gm_id固定5.0），PM从-1.46°→+0.25°（Δ=+1.71°），Gain却暴跌10 dB —— 因L↓显著降低XM7/XM8的ro（ro∝L），削弱输出支路阻抗，直接摧毁Gain；同时PM仅微升，说明L对PM影响弱于gm_id，且代价巨大。
+  • 综合：PM最敏感参数是XM7/XM8的gm_id（iter1/2明确显示±2.5 gm_id → ±4.9° PM），且调整方向清晰：↓gm_id → ↑PM（因降低下臂跨导，减小密勒效应与高频零点强度，提升相位裕度）。当前PM=-1.46°，缺口71.5°，需大幅降低XM7/XM8 gm_id。但iter8已试过gm_id=5.0（XM5/XM6），而XM7/XM8当前也是gm_id=5.0（iter12 action），其约束下限为5.0 —— 已达下限！故无法再降gm_id。此时唯一可行路径是↑XM7/XM8 L（因ro∝L，↑L可提升输出支路阻抗，缓解主极点左移，间接助PM；且iter11显示↓L毁Gain，反向↑L应有益）。查看约束：XM7/XM8 L_max=1.8，当前L=1.8（iter12 action），已达上限 —— 也封顶？不，iter12 action中XM7/XM8 L=1.8，但iter0/1/2/3/4/5/6/7/8/9/10/11中XM7/XM8 L均为1.8（除iter11=0.5），所以L=1.8是当前值，尚未尝试更高？约束L_max=1.8，不可超。→ 矛盾？重新检查约束：'XM7': {'L_min': 0.5, 'L_max': 1.8} —— 确实上限1.8，当前已是1.8。那PM如何救？
+- 转向其他PM相关结构：套筒式OTA中，PM主要由主极点（输出节点）、次极点（cascode节点或输入对共源节点）及可能的右半平面零点（RHPZ）决定。XM5/XM6（上臂）控制内节点阻抗，影响次极点；XM7/XM8（下臂）控制输出节点阻抗和RHPZ。当前XM5/XM6 gm_id=5.0（iter12），已达其约束下限（gm_id_min=5.0），不能再降；但iter8显示当XM5/XM6 gm_id=5.0时Gain=57.98<60，而iter12 Gain=58.99，略升，说明XM5/XM6 gm_id=5.0尚可接受，但需保Gain。当前Gain缺口仅-1.0 dB，属微小缺口（|gap|<0.3不成立，但<1.0，可视为'小缺口'，适合微调）。
+- Gain提升路径：Gain = gm1 × (ro1//ro3//ro5//ro7) ≈ gm1 × ro_out。当前XM1/XM2 gm_id=15.0（iter12），L=0.325；约束L_min=0.15，L_max=0.5，gm_id_min=10，gm_id_max=25。↑gm_id或↑L均可↑gm1（gm1∝gm_id×ID，ID固定为60µA，故↑gm_id直接↑gm1）；↑L↑ro1。但↑gm_id会↓fT，可能影响GBW/PM平衡。历史中iter3：XM1/XM2 gm_id从17.5→15.0，Gain↓0.29 dB，GBW↓6.02 MHz，PM↑2.61° —— 说明↓gm_id可↑PM但↓Gain/GBW。反之，↑gm_id应↑Gain/GBW但↓PM。当前PM极度不足（-1.46°），不能↑gm_id。另一路径：↑XM3/XM4 gm_id（负载管）可↑ro3（ro∝1/gm_id），从而↑Gain。iter0中XM3/XM4 gm_id=16.5，iter9/10/11/12保持16.5，约束gm_id_max=25，有上调空间（16.5→20~22）。且iter9显示↑XM3/XM4 L毁PM，但↑gm_id不改变L，ro3∝1/gm_id，↑gm_id↓ro3 → 会↓Gain？矛盾！需澄清：ro = VA / ID，VA∝ (Vth + Vov) × L ∝ (gm_id × Vov) × L / gm_id? 实际ro ∝ L × (Vth + Vov) / ID，而gm_id = gm/ID，gm ∝ μCox(W/L)Vov，故ro ∝ L² × (1/Vov) × (1/ID) ∝ L² / (gm_id × ID) × ID? 更准确：ro = VA / ID，VA ∝ L × Veff，Veff ∝ Vov，而gm = gm_id × ID，gm ∝ (W/L) × Vov ⇒ Vov ∝ gm × L / W ∝ gm_id × ID × L / W。故ro ∝ L × Vov / ID ∝ L × (gm_id × ID × L / W) / ID ∝ L² × gm_id / W。因此↑gm_id ↑ro（若W不变），但W随gm_id变化（idW = ID/W，W = ID/idW，而idW由工艺角和Vov决定）。在恒ID下，↑gm_id ⇒ ↓Vov ⇒ ↑ro（因VA∝L×Vov，Vov↓但L固定，VA↓？不，VA通常与L正相关，Vov影响较小）。实际仿真经验：在恒ID下，↑gm_id 通常略微↓ro，但↑L显著↑ro。因此提升Gain最安全方式是↑XM3/XM4 L —— 但iter9已证明↑L from 1.025 to 1.8 crashes PM。故不可行。
+- 唯一剩余自由度：XM9（尾管）。当前XM9 L=1.25, gm_id=16.0，约束L_max=2.0, gm_id_max=22。XM9控制Itail=120µA（给定），但its W和L影响各支路匹配及寄生。更重要的是：XM9的L和gm_id不影响DC电流（Itail fixed），但影响其输出阻抗，进而影响共模反馈或电源抑制，对PM/Gain间接作用小。主要作用是设定总IDC，当前IDC=107.96 µA << 500 µA，完全宽松。
+- 重新审视PM根源：iter12 PM=-1.46°，而iter8（同XM7/XM8 gm_id=5.0, L=1.8）PM=66.86°，差异在于iter8的XM3/XM4 L=1.025，iter12的XM3/XM4 L=1.8。iter9证实L=1.8 for XM3/XM4 kills PM。因此，**根本问题在XM3/XM4 L=1.8**。当前必须将XM3/XM4 L从1.8降下来！约束L_min=0.25，当前1.8→可降至1.025（iter0值）或更低。iter0中L=1.025, gm_id=16.5 → PM=61.53°（gap=-8.47°），虽仍不足但比-1.46°好50°以上。且iter0 Gain=67.97>60，GBW=68.1>20。因此，本轮首要动作：将XM3/XM4 L从1.8回调至1.025（原iter0值），这是修复PM的最直接、最有效、且被历史验证的手段（iter0→iter9对比）。此操作预计PM↑≈60°，Gain微降（iter9中L↑导致Gain↑0.44，故L↓应Gain↓0.44，仍>60），GBW↑25 MHz（iter9 ΔGBW=-25.26），完全可接受。
+- Gain缺口仅-1.0 dB，待XM3/XM4 L回调后，若Gain仍未达标，下轮再微调XM1/XM2 gm_id或XM5/XM6 gm_id。但当前先解决PM生死线。
+- 结论：影响PM最大的单参数组是XM3/XM4的L；当前必须将其从1.8降至1.025（约束允许：0.25≤1.025≤1.8）。其他管子本轮保持不变，以确保归因清晰。
+2) 调整方案：仅修改XM3/XM4 L from 1.8 to 1.025；其余所有管子维持iter12的action值（XM1/XM2: L=0.325,gm_id=15.0；XM5/XM6: L=1.3,gm_id=5.0；XM7/XM8: L=1.8,gm_id=5.0；XM9: L=1.25,gm_id=16.0）。此操作严格单变量，可明确归因于XM3/XM4 L，且符合约束。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.4
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM4": {
+    "L": 1.025,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.28928,
+    "W": 46.54
+  },
+  "XM5": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM6": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 58.5326, 'GBW': 60.7674, 'PM': 65.9063, 'i(vmeas)': 107.846, 'SR': 229.2}
+  gap: {'Gain': -1.4674, 'GBW': 40.7674, 'PM': -4.0937, 'IDC': -392.154, 'SR': 169.2}
+
+--- 迭代 15/15 ---
+  think: 【量化分析与归因】
+- 当前未达标项：Gain (gap = -1.4674)，PM (gap = -4.0937)；其余均远达标（GBW gap=40.8，SR gap=169.2，IDC gap≈-392 →功耗极低，余量巨大）。
+- 历史单变量归因验证：
+  • XM7/XM8（共源共栅下臂）：iter1→2（XM7/8 gm_id:5→7.5）→PM↓4.88°，GBW↓7.78；iter2→1（反向）→PM↑4.88°，GBW↑7.78。说明XM7/XM8 gm_id↑ → 输出节点寄生电容/极点位置恶化 → PM显著下降，且轻微拖累GBW。而L变化（iter11→12：XM7/8 L:0.5→1.8）导致Gain↑10.0，PM↓1.7°，GBW↓1.9 —— L↑提升ro7/ro8，增强输出阻抗，但同时抬高次极点频率（因cascode下臂L↑→其源极节点时间常数减小），对PM有微损、对Gain有益。
+  • XM3/XM4（负载管）：iter9→13（L:1.8→1.025）→Gain↓0.46，GBW↑25.6，PM↑67.4！这是最强PM提升路径：L↓降低负载管ro，削弱其在输出节点的阻抗主导性，使主极点（output node）更主导，同时将次极点（如cascode上臂源极节点）推远，极大改善相位裕度。该轮PM从-1.46°→+65.9°，跨越70°门槛，证明负载管L是PM最敏感调节器。
+  • XM5/XM6（共源共栅上臂）：iter4→5（gm_id:18→10）→PM↑38.1°，Gain↑2.95；iter5→8（gm_id:10→5）→PM↑1.2°，Gain↓8.4。说明上臂gm_id↓ → gm5/gm6↓ → 上臂源极节点等效阻抗↑ → 次极点频率↓ → PM↑，但过低gm_id会削弱增益（因输入对管电流被上臂分流效率下降，或跨导分配失衡）。当前XM5/XM6已降至gm_id=5.0（iter8–13），属下限，不宜再降。
+  • XM1/XM2（输入对管）：iter3（gm_id:17.5→15.0）→Gain↓0.29，GBW↓6.0，SR↓137.5 —— 显著损害SR（因SR∝Itail，而Itail固定为120μA，但输入对gm_id↓→相同ids下W↓→fT↓→实际带宽受限；更关键：SR也受输入级驱动能力影响，gm_id↓削弱压摆率初始斜率）。当前SR=229.2 V/μs >> 60，余量充足，不需动输入对。
+- 综合影响排序（针对当前缺口）：
+  • PM缺口4.1°：历史显示XM3/XM4 L↓是PM提升最高效方式（iter9→13单改L从1.8→1.025带来PM+67.4°），且当前L=1.025仍高于最小值0.25，有下调空间；XM7/XM8 L↑曾带来PM-1.7°，故不可取；XM5/XM6已到gm_id_min=5，不可再降。
+  • Gain缺口1.47°：XM3/XM4 L↓虽在iter9→13带来Gain-0.46，但那是从L=1.8→1.025的大幅下调；而iter0（L=1.025, gm_id=16.5）时Gain=67.98，远高于当前58.53——说明当前Gain损失主因是XM5/XM6 gm_id=5.0过低（iter8起），导致上臂跨导严重不足，削弱整体增益传递。iter5（XM5/6 gm_id=10）时Gain=67.6；iter4（gm_id=18）时Gain=64.6（因PM崩溃）；iter5→8（gm_id=10→5）Gain↓8.4。因此Gain对XM5/XM6 gm_id高度敏感，且当前5.0已达约束下限（gm_id_min=5），不能再降；但可小幅↑回——约束允许gm_id_min=5，当前=5，故可安全升至5.5或6.0。
+- 冲突权衡：PM需XM3/XM4 L↓，Gain需XM5/XM6 gm_id↑。但二者无直接耦合，可协同调整。然而规则要求「每轮只调一类参数」以保归因清晰。需选**对当前最大gap改善效率更高者**：
+  • |gap.PM|=4.09，|gap.Gain|=1.47；但PM改善斜率≈67.4° / (1.8−1.025) ≈ 87°/μm；Gain改善斜率≈8.4 / (10−5) = 1.68 dB per unit gm_id。即单位L变化对PM影响远大于单位gm_id对Gain影响。
+  • 更重要的是：PM=65.9°（iter13）距目标70°仅差4.1°，而Gain=58.5°距60°仅差1.5°，两者缺口绝对值相近，但PM是稳定性红线，一旦<60°易振荡，必须优先保障；且历史中PM对XM3/XM4 L极其敏感，风险可控（L下调→ro↓→Gain略降但GBW↑，当前Gain已接近达标，GBW余量巨大）。
+- 微调策略：
+  • PM缺口4.1°，参考iter9→13：L从1.8→1.025（ΔL=−0.775）→PM+67.4°，线性估算每−0.1L → PM+8.7°。为补4.1°，需ΔL ≈ −0.047 → 新L ≈ 1.025−0.05 = 0.975。检查约束：XM3/XM4 L_min=0.25，0.975∈[0.25,1.8]，可行。
+  • Gain缺口1.5°，若同步微调XM5/XM6 gm_id，但违反单变量原则。故本轮专注PM，Gain留待下轮（届时若PM达标，可升XM5/XM6 gm_id至5.5）。
+- 其他管子：XM7/XM8当前L=1.8（上限），gm_id=5.0（下限），已是最强输出阻抗配置，但历史表明其L↑损PM，故保持；XM9尾管无IDC压力（当前i=107.8μA << 500μA），无需动。
+→ 结论：本轮唯一动作——小幅下调XM3/XM4的L至0.975，其余全保持。此操作预计提升PM≈4.1°，Gain微降<0.1dB（可接受），GBW进一步上升，完全符合安全、精准、单变量原则。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.4
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 15.0,
+    "ids": 60.0,
+    "idW": 4.88686,
+    "W": 12.28
+  },
+  "XM3": {
+    "L": 0.975,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.31773,
+    "W": 45.53
+  },
+  "XM4": {
+    "L": 0.975,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.31773,
+    "W": 45.53
+  },
+  "XM5": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM6": {
+    "L": 1.3,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 3.969404,
+    "W": 15.12
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 58.4999, 'GBW': 60.8182, 'PM': 66.3622, 'i(vmeas)': 107.8461, 'SR': 228.0}
+  gap: {'Gain': -1.5001, 'GBW': 40.8182, 'PM': -3.6378, 'IDC': -392.1539, 'SR': 168.0}
+
+完成。History 长度: 15
+
+[Log file closed at 2026-02-10T13:43:12.236201]

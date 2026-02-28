@@ -1,0 +1,31 @@
+.subckt Leung_NMCNR_Pin_3 gnda vdda vinn vinp vout
+.PARAM CURRENT_0_BIAS=5.0u
+xm0 net013 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=4
+xm1 VB4 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=4
+xm2 DM_1 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=4
+xm3 VB3 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=4
+xm4 net31 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.6228 m=16
+xm5 VOUTN VOUTN vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=4
+xm6 net050 VOUTN vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=4
+xm7 net049 net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=4
+xm8 DM_2 vinn net31 net31 sky130_fd_pr__pfet_01v8_lvt l=2.0 w=3.8236 m=4
+xm9 net063 vinp net31 net31 sky130_fd_pr__pfet_01v8_lvt l=2.0 w=3.8236 m=4
+xm10 net043 net050 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=1.45 w=2.692 m=4
+xm11 vout net013 vdda vdda sky130_fd_pr__pfet_01v8_lvt l=2.0 w=1.8152 m=40
+xm12 VB4 VB3 net54 gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.6693 m=16
+xm13 DM_1 VB3 net56 gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.3346 m=16
+xm14 VB3 VB3 gnda gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.3331 m=4
+xm15 VOUTN VB3 DM_2 gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.2907 m=16
+xm16 net050 VB3 net063 gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.2907 m=16
+xm17 net54 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.3376 m=16
+xm18 net56 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.1688 m=16
+xm19 DM_2 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.2964 m=32
+xm20 net063 VB4 gnda gnda sky130_fd_pr__nfet_01v8 l=0.9 w=0.2964 m=32
+xm21 net043 net043 gnda gnda sky130_fd_pr__nfet_01v8 l=1.5 w=19.5731 m=4
+xm22 net049 net043 gnda gnda sky130_fd_pr__nfet_01v8 l=1.5 w=19.5731 m=4
+xm23 vout net049 gnda gnda sky130_fd_pr__nfet_01v8 l=2.0 w=0.7505 m=4
+I0 net013 gnda 'CURRENT_0_BIAS'
+C1 net044 net049 0.2p
+C0 net050 net044 0.4p
+R0 net044 vout 15.0k
+.ends Leung_NMCNR_Pin_3

@@ -1,0 +1,52 @@
+* Leung NMCNR OTA IDC（从项目根运行）；与 NMCMR1.cir 黄金版一致：仅 .lib + 电路，不注入 ngspice 用 .param
+.option ngbehavior=ltpsa
+
+* 与 NMCMR1.cir 一致：仅 .lib，用绝对路径（run_simulation 会注入）
+.lib 'scene2/models/sky130.lib.spice' tt
+.include 'scene2/sim_NMCNR/NMCNR.cir'
+
+* 与 NMCMR1.cir 完全一致：0/vdd 节点与实例名 XX1；VMEAS 测电流
+VDD_SRC vdd_src 0 dc=1.8
+VMEAS vdd_src vdd 0
+
+VCM_IN vinp 0 dc=0.9
+VAC vinn vinp DC 0
+
+XX1 0 vdd vinn vinp vout Leung_NMCNR_Pin_3
+CL vout 0 10e-12
+
+* VB3/VB4 为子电路内部节点，由内部镜像（如 xm14 二极管接法）自偏，不接外部参考，与可工作点一致
+
+.op
+.CONTROL
+run
+op
+print i(vmeas) > Idc_1.txt
+* 实例名 XX1 与 NMCMR1 一致
+print @m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm0.msky130_fd_pr__pfet_01v8_lvt[vth]  >  Op_1.txt
+print @m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm1.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm2.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm3.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm4.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm5.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm6.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm7.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm8.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[vds]  @m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[vgs]  @m.xx1.xm9.msky130_fd_pr__pfet_01v8_lvt[vth]  >> Op_1.txt
+print @m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[vds] @m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[vgs] @m.xx1.xm10.msky130_fd_pr__pfet_01v8_lvt[vth] >> Op_1.txt
+print @m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[vds] @m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[vgs] @m.xx1.xm11.msky130_fd_pr__pfet_01v8_lvt[vth] >> Op_1.txt
+print @m.xx1.xm12.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm12.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm12.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm13.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm13.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm13.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm14.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm14.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm14.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm15.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm15.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm15.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm16.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm16.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm16.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm17.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm17.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm17.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm18.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm18.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm18.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm19.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm19.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm19.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm20.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm20.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm20.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm21.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm21.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm21.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm22.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm22.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm22.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+print @m.xx1.xm23.msky130_fd_pr__nfet_01v8[vds] @m.xx1.xm23.msky130_fd_pr__nfet_01v8[vgs] @m.xx1.xm23.msky130_fd_pr__nfet_01v8[vth] >> Op_1.txt
+.ENDC
+.END
+

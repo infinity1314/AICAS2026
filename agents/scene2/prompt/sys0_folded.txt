@@ -1,0 +1,20 @@
+* 折叠共源共栅 OTA (folded cascode). L/W in um; design flow overwrites via gm/id lookup.
+* Device roles: M_tail 尾电流管; M_in_p,M_in_n 输入对管; M_load_p,M_load_n 负载管; M_casc_p_p,M_casc_p_n,M_casc_n_p,M_casc_n_n 共源共栅; M_cmfb_p,M_cmfb_n CMFB负载
+.subckt AMP Vinp Vinn VDD VSS Vout
+M_tail net_tail vb_tail VSS VSS nmos L=0.5 W=20
+M_in_p net_fold_n Vinp net_tail VSS nmos L=0.2 W=50
+M_in_n net_fold_p Vinn net_tail VSS nmos L=0.2 W=50
+M_load_p net_fold_p vb_pload VDD VDD pmos L=0.5 W=20
+M_load_n net_fold_n vb_pload VDD VDD pmos L=0.5 W=20
+M_casc_p_p Vout vb_pcasc net_fold_p VDD pmos L=0.5 W=20
+M_casc_p_n Vout vb_pcasc net_fold_n VDD pmos L=0.5 W=20
+M_casc_n_p Vout vb_ncasc net_low_p VSS nmos L=0.5 W=20
+M_casc_n_n Vout vb_ncasc net_low_n VSS nmos L=0.5 W=20
+M_cmfb_p net_low_p vctrl_cmfb VSS VSS nmos L=0.5 W=10
+M_cmfb_n net_low_n vctrl_cmfb VSS VSS nmos L=0.5 W=10
+V_tail vb_tail VSS dc=0.5
+V_ncasc vb_ncasc VSS dc=1.0
+V_pcasc VDD vb_pcasc dc=0.3
+V_pload VDD vb_pload dc=0.6
+V_cmfb vctrl_cmfb VSS dc=0.8
+.ends AMP

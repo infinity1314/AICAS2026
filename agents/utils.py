@@ -113,7 +113,25 @@ def update_ids_result(mosfet_dict, Itail: float, tail_device: str = None, topolo
     I3_raw = scale3 * I_ref_for_I3 if scale3 > 0 else I2
     I3 = min(I3_raw, I1 * 10.0)  # 第三级电流上限 10×I1，避免输出级 43× 第一级、vout 锁轨
 
+    # 如果显式给出各支路电流比例（相对 I_ref），则优先使用
+    ratio_map = {}
+    ratios = cfg.get("current_ratios") or {}
+    if isinstance(ratios, dict) and ratios:
+        name_map = {n.lower(): n for n in mosfet_dict.keys()}
+        for k, v in ratios.items():
+            if v is None:
+                continue
+            key = str(k).lower()
+            if key in name_map:
+                try:
+                    ratio_map[name_map[key]] = float(v)
+                except (TypeError, ValueError):
+                    pass
+
     for name, m in mosfet_dict.items():
+        if ratio_map and name in ratio_map:
+            m.update_param("ids", float(ratio_map[name]) * I_ref)
+            continue
         if name in stage1_tail:
             val = I1
         elif name in stage1_main:

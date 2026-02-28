@@ -1,0 +1,5 @@
+* NMCNR 用 pfet_01v8，sky130_ngspice.lib 只有 pfet_01v8_lvt，此处别名映射
+.subckt sky130_fd_pr__pfet_01v8 d g s b
+.param L=1 W=1
+X1 d g s b sky130_fd_pr__pfet_01v8_lvt L={L} W={W}
+.ends sky130_fd_pr__pfet_01v8

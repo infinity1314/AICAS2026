@@ -1,0 +1,33 @@
+* Leung NMCNR OTA AC（从项目根运行）；与 NMCMR1.cir 黄金版一致：仅 .lib + 电路，不注入 .param
+.option ngbehavior=ltpsa
+
+* 与 NMCMR1.cir 一致：仅 .lib，用绝对路径（run_simulation 会注入）
+.lib 'scene2/models/sky130.lib.spice' tt
+.include 'scene2/sim_NMCNR/NMCNR.cir'
+.TEMP 25
+
+* 与 NMCMR1.cir 完全一致：0/vdd、VVDD、VCM_IN、VAC
+VVDD vdd 0 dc=1.8
+VCM_IN vinp 0 dc=0.9
+VAC vinn vinp DC 0 AC 1
+
+XX1 0 vdd vinn vinp vout Leung_NMCNR_Pin_3
+CL vout 0 10e-12
+
+* VB3/VB4 为子电路内部节点，由内部镜像自偏，不接外部参考，与可工作点一致
+
+.ac dec 100 1 1000Meg
+.print ac vdb(vout) vp(vout)
+
+.CONTROL
+set units=degrees
+run
+meas ac gain_max find vdb(vout) at=1
+meas ac gbw when vdb(vout)=0
+meas ac phase_margin find vp(vout) when vdb(vout)=0
+echo "Gain= $&gain_max" >  AC_results_1.txt
+echo "GBW= $&gbw"       >> AC_results_1.txt
+echo "PM= $&phase_margin" >> AC_results_1.txt
+.ENDC
+.END
+

@@ -1,0 +1,18 @@
+.subckt AMP Vinp Vinn VDD VSS Vout
+XM1 net2 Vinp net3 net3 sky130_fd_pr__nfet_01v8 L=1.325 W=38.8693
+XM2 net1 Vinn net3 net3 sky130_fd_pr__nfet_01v8 L=1.325 W=38.8693
+XM3 net4 vbn2 net2 net2 sky130_fd_pr__nfet_01v8 L=1.125 W=28.2474
+XM4 Vout vbn2 net1 net1 sky130_fd_pr__nfet_01v8 L=1.125 W=28.2474
+XM5 net4 vbp net6 net6 sky130_fd_pr__pfet_01v8_lvt L=1.45 W=10.38 m=10
+XM6 Vout vbp net5 net5 sky130_fd_pr__pfet_01v8_lvt L=1.45 W=10.38 m=10
+XM7 net6 net4 VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1.6 W=8.41 m=10
+XM8 net5 net4 VDD VDD sky130_fd_pr__pfet_01v8_lvt L=1.6 W=8.41 m=10
+XM9 net3 vbn1 VSS VSS sky130_fd_pr__nfet_01v8 L=1.25 W=7.77 m=10
+XSLM10 Vout net7 VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.5 W=5.0
+XSLM11 net7 vbp1 VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.5 W=5.0
+XSLM12 net7 net3 VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=5.0
+VBP vbp VSS dc=0.88
+VBN2 vbn2 VSS dc=1.31
+VBN1 vbn1 VSS dc=0.7
+VSLBP1 vbp1 VSS dc=0.9
+.ends AMP

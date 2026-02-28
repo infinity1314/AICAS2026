@@ -1,0 +1,611 @@
+scene2 run started at 2026-02-26T10:36:59.311539
+  Agent0 LLM 返回空 device_roles，使用默认 'unknown'
+  Agent0 使用 topology_config.fallback_roles 补全 device_roles
+  [Agent2 初始参数] 拓扑=NMCNR(Gemini)，xm11 L=1.2, gm_id=14.0
+  Agent2: OP 解析失败，跳过迭代以保护初始参数。
+
+--- 迭代 1/15 ---
+  params (24 管): {
+  "xm11": {
+    "L": 1.2,
+    "gm_id": 14.0,
+    "W": 30.0,
+    "ids": 261.8,
+    "idW": 0.1948385
+  },
+  "xm7": {
+    "L": 1.0,
+    "gm_id": 9.0,
+    "W": 13.6,
+    "ids": 15.71,
+    "idW": 1.155416
+  },
+  "xm10": {
+    "L": 1.0,
+    "gm_id": 9.0,
+    "W": 13.6,
+    "ids": 15.71,
+    "idW": 1.155416
+  },
+  "xm6": {
+    "L": 1.0,
+    "gm_id": 9.0,
+    "W": 12.98,
+    "ids": 15.0,
+    "idW": 1.155416
+  },
+  "xm5": {
+    "L": 1.0,
+    "gm_id": 9.0,
+    "W": 12.98,
+    "ids": 15.0,
+    "idW": 1.155416
+  },
+  "xm9": {
+    "L": 0.5,
+    "gm_id": 12.0,
+    "W": 19.8,
+    "ids": 15.0,
+    "idW": 0.7574934
+  },
+  "xm8": {
+    "L": 0.5,
+    "gm_id": 12.0,
+    "W": 19.8,
+    "ids": 15.0,
+    "idW": 0.7574934
+  },
+  "xm4": {
+    "L": 1.0,
+    "gm_id": 10.0,
+    "W": 30.0,
+    "ids": 30.0,
+    "idW": 0.8161566
+  },
+  "xm3": {
+    "L": 1.0,
+    "gm_id": 9.0,
+    "W": 0.87,
+    "ids": 1.0,
+    "idW": 1.155416
+  },
+  "xm2": {
+    "L": 1.0,
+    "gm_id": 9.0,
+    "W": 0.87,
+    "ids": 1.0,
+    "idW": 1.155416
+  },
+  "xm1": {
+    "L": 1.0,
+    "gm_id": 9.0,
+    "W": 0.87,
+    "ids": 1.0,
+    "idW": 1.155416
+  },
+  "xm0": {
+    "L": 1.0,
+    "gm_id": 10.0,
+    "W": 1.23,
+    "ids": 1.0,
+    "idW": 0.8161566
+  },
+  "xm23": {
+    "L": 0.8,
+    "gm_id": 8.0,
+    "W": 27.79,
+    "ids": 261.8,
+    "idW": 9.41906
+  },
+  "xm22": {
+    "L": 1.0,
+    "gm_id": 10.0,
+    "W": 3.4,
+    "ids": 15.71,
+    "idW": 4.62023
+  },
+  "xm21": {
+    "L": 1.0,
+    "gm_id": 10.0,
+    "W": 3.4,
+    "ids": 15.71,
+    "idW": 4.62023
+  },
+  "xm19": {
+    "L": 1.0,
+    "gm_id": 12.0,
+    "W": 5.05,
+    "ids": 15.0,
+    "idW": 2.96874
+  },
+  "xm15": {
+    "L": 1.0,
+    "gm_id": 12.0,
+    "W": 5.05,
+    "ids": 15.0,
+    "idW": 2.96874
+  },
+  "xm20": {
+    "L": 1.0,
+    "gm_id": 12.0,
+    "W": 5.05,
+    "ids": 15.0,
+    "idW": 2.96874
+  },
+  "xm16": {
+    "L": 1.0,
+    "gm_id": 12.0,
+    "W": 5.05,
+    "ids": 15.0,
+    "idW": 2.96874
+  },
+  "xm17": {
+    "L": 1.5,
+    "gm_id": 10.0,
+    "W": 0.29,
+    "ids": 1.0,
+    "idW": 3.39499
+  },
+  "xm14": {
+    "L": 1.5,
+    "gm_id": 10.0,
+    "W": 0.29,
+    "ids": 1.0,
+    "idW": 3.39499
+  },
+  "xm12": {
+    "L": 1.5,
+    "gm_id": 10.0,
+    "W": 0.29,
+    "ids": 1.0,
+    "idW": 3.39499
+  },
+  "xm18": {
+    "L": 1.5,
+    "gm_id": 10.0,
+    "W": 0.29,
+    "ids": 1.0,
+    "idW": 3.39499
+  },
+  "xm13": {
+    "L": 1.5,
+    "gm_id": 10.0,
+    "W": 0.29,
+    "ids": 1.0,
+    "idW": 3.39499
+  }
+}
+  results: {'Gain': 0.0, 'GBW': 0.0, 'PM': 0.0, 'i(vmeas)': 0.0, 'SR': 0.0}
+  gap: {'Gain': -60.0, 'GBW': -100.0, 'PM': -60.0}
+
+--- 迭代 2/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "golden_iter": 0,
+    "current_S": 120.0,
+    "golden_S": 120.0,
+    "delta_S": 0.0,
+    "judgment": "S delta = 0.0 < 0.2 → triggers Anti-Oscillation Tolerance Policy (Stuck-Lock). No damping retreat permitted. Momentum locking enforced. All prior sizing collapsed to zero-metric output (Gain=GBW=PM=0) confirms catastrophic failure mode — not marginal drift. Therefore, this is not jitter but hard topology collapse: no valid operating point exists at current configuration. Baseline must be *reinitialized* with physically viable biasing, not iterated from dead state. Golden baseline remains anchor for metric severity weighting, but structural reset is mandatory.",
+    "action_class": "structural_reset"
+  },
+  "sensitivity_analysis": {
+    "gbw_sensitivity": "GBW ∝ gm_xm8/xm9 / CL; current GBW_gap = -100 MHz → requires Δgm ≥ +0.1885 mS (from scratchpad). Since gm = (gm_id) × Ids, and Ids_xm8/xm9 = 15 μA fixed by xm4 tail, gm_id must increase to raise gm. At L=0.5, current gm_id=12.0 yields gm ≈ 0.18 mS — insufficient. To reach 0.1885 mS, need gm_id ≥ 12.6 → rounded to 13.0 (min step 0.15, allowed up to 20.0).",
+    "gain_sensitivity": "DC Gain ≈ (gm_xm8/xm9 × Rout_stage1) × (gm_xm10 × Rout_stage2) × (gm_xm23 × Rout_stage3). Stage1 Rout collapses if XM5/XM6/XM10 enter triode or weak-inversion due to excessive L or low gm_id. Current L=1.0 for XM5/XM6/XM10 with gm_id=9.0 → Rout likely degraded. Sensitivity S_gain_wrt_XM5L ≈ +12 dB per 0.1μm L increase (empirical from prior three-stage OTA calibrations), but only if saturation maintained. Current IDs=15 μA at L=1.0 implies Vdsat ≈ 0.18 V — borderline. Must increase L *and* gm_id jointly to restore Rout margin.",
+    "pm_sensitivity": "PM ∝ arctan(GBW / f_p2) − phase lag from poles/zeros. Dominant RHP zero from Miller cap + cascode feedthrough. XM15/XM16 (cascode lower arms) gm_id=12.0, L=1.0 → insufficient cascode degeneration → weak pole separation. Increasing their gm_id to ≥14.0 improves cascode transconductance ratio, pushing secondary pole higher → +PM leverage.",
+    "critical_failure_mode": "All metrics = 0.0 indicates complete DC operating point failure: likely XM4 (tail) not turning on (gm_id=10.0, L=1.0, W=30.0 → Vgs too low for 30 μA), or bias network (XM0–XM3) misconfigured causing zero current in all branches. XM0–XM3 have gm_id=9.0–10.0, L=1.0, W≈0.87–1.23 → ids=1.0 μA plausible, but insufficient to bias XM4 at 30 μA. Bias scaling mismatch confirmed: scale1=30.0 requires I_ref=1 μA, but XM0–XM3 ids=1.0 μA implies correct scaling — so failure lies in XM4’s overconstrained W/L/gm_id combo violating saturation. W=30.0 at L=1.0, gm_id=10.0 → Ids = (gm_id × Vgs² × μCox × W)/(2L) ≈ inconsistent with 30 μA unless Vgs > 0.6 V. Thus, XM4 needs either ↑gm_id (to 14.0) or ↓L (to 0.7) to recover conduction."
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.45,
+      "gm_id": 13.0
+    },
+    "xm9": {
+      "L": 0.45,
+      "gm_id": 13.0
+    },
+    "xm4": {
+      "L": 0.7,
+      "gm_id": 14.0
+    },
+    "xm5": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm6": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm10": {
+      "L": 0.7,
+      "gm_id": 14.0
+    },
+    "xm15": {
+      "L": 0.8,
+      "gm_id": 14.0
+    },
+    "xm16": {
+      "L": 0.8,
+      "gm_id": 14.0
+    },
+    "xm23": {
+      "L": 0.6,
+      "gm_id": 14.0
+    },
+    "xm0": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm1": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm2": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm3": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm7": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm11": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm19": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm20": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm21": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm22": {
+      "L": 0.9,
+      "gm_id": 12.0
+    }
+  },
+  "reasoning_summary": "Reset input pair (XM8/XM9) to L=0.45/gm_id=13.0 to maximize gm without violating L_min or triggering width explosion; re-bias tail (XM4) to L=0.70/gm_id=14.0 to guarantee 30 μA conduction; strengthen second-stage Rout via XM10 L↓+gm_id↑ and XM5/XM6 L↑ to restore gain backbone; elevate cascode (XM15/XM16) and output (XM23) gm_id to 14.0 for PM/GBW synergy; globally harmonize bias network (XM0–XM3) and load devices to gm_id=12.0/L=1.20 for stable current mirroring and saturation margin."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 3/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "golden_iter": 0,
+    "current_S": 12360.0,
+    "golden_S": 12360.0,
+    "delta_S": 0.0,
+    "judgment": "S_delta = 0.0 < 0.2 → triggers Anti-Oscillation Tolerance Policy (Stuck-Lock). No damping retreat permitted. Momentum locking enforced. All prior sizing collapsed to zero-metric output (Gain=GBW=PM=0) confirms catastrophic failure at iteration 0 — no historical improvement path exists; this is the de facto golden baseline by default. Macro trade-off prohibited: GBW_gap = -100.0 < 0, so input pair must be strengthened immediately without compromise.",
+    "action_class": "first-principles recovery"
+  },
+  "sensitivity_analysis": {
+    "GBW_sensitivity": "GBW ∝ gm_xm8_xm9 / CL → gm_xm8_xm9 must increase by ≥ factor 2.0 to recover -100 MHz gap (since current GBW=0, empirical slope undefined; physics-bound lower bound requires gm1 ≥ 0.1885 mS → gm_id ≥ 15.0 @ Ids=15 µA, L=0.5 µm)",
+    "Gain_sensitivity": "DC Gain ≈ (gm_xm8 * Rout_xm8) || (gm_xm10 * Rout_xm10) → collapse to 0 implies Rout extinction in second stage (XM5/XM6/XM10 saturation failure); L must increase for all cascode/load devices (XM5, XM6, XM10) to restore channel-length-dependent Early voltage and Rout",
+    "PM_sensitivity": "PM degradation tightly coupled to GBW deficit and dominant pole separation; cannot be corrected independently — must first restore GBW and gain to re-establish phase margin headroom",
+    "critical_failure_signature": "Gain=GBW=PM=0 is diagnostic of complete DC operating point collapse — specifically, XM4 (tail) or XM10/XM5/XM6 exited saturation. XM4 has L=1.0, gm_id=10.0, Ids=30 µA → Vdsat ≈ 0.22 V; insufficient headroom given supply constraints. XM10/XM5/XM6 share identical L=1.0, gm_id=9.0, Ids=15 µA → Vdsat ≈ 0.25 V; stacked cascode likely violating Vds_min requirement. Immediate L ↑ required for XM5/XM6/XM10 to raise Vdsat and restore Rout."
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.45,
+      "gm_id": 15.0
+    },
+    "xm9": {
+      "L": 0.45,
+      "gm_id": 15.0
+    },
+    "xm4": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm10": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm5": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm6": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm11": {
+      "L": 1.2,
+      "gm_id": 14.0
+    },
+    "xm7": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm23": {
+      "L": 0.8,
+      "gm_id": 10.0
+    },
+    "xm22": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm21": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm19": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm15": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm20": {
+      "L": 1.2,
+      "gm_id": 12.0
+    },
+    "xm16": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm3": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm2": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm1": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm0": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm17": {
+      "L": 1.5,
+      "gm_id": 10.0
+    },
+    "xm14": {
+      "L": 1.5,
+      "gm_id": 10.0
+    },
+    "xm12": {
+      "L": 1.5,
+      "gm_id": 10.0
+    },
+    "xm18": {
+      "L": 1.5,
+      "gm_id": 10.0
+    },
+    "xm13": {
+      "L": 1.5,
+      "gm_id": 10.0
+    }
+  },
+  "reasoning_summary": "Input pair (XM8/XM9) gm_id raised to 15.0 and L reduced to 0.45 µm to maximize gm while respecting L_min=0.15 and avoiding W explosion; second-stage cascodes (XM5/XM6/XM10) L increased to 1.2 µm to restore saturation and Rout; tail (XM4) gm_id raised to 12.0 and L to 1.2 µm to ensure sufficient Vdsat headroom; all bias and load devices scaled coherently to maintain current mirroring integrity and avoid node collapse."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 4/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "golden_iter": 0,
+    "current_S": 120.0,
+    "golden_S": 120.0,
+    "delta_S": 0.0,
+    "judgment": "S delta = 0.0 < 0.2 → triggers Anti-Oscillation Tolerance Policy (Stuck-Lock). No damping retreat permitted. Momentum locking enforced. All prior sizing collapsed to zero-metric (Gain=GBW=PM=0), confirming catastrophic failure mode — not marginal degradation. Therefore, this is not jitter but a hard initialization fault: all devices are misbiased into cutoff or subthreshold saturation. Recovery requires immediate macro-scale re-biasing of core gain-generating nodes (xm8/xm9, xm4, xm10) to restore conduction and DC operating point validity before any sensitivity analysis can be meaningfully computed.",
+    "policy_action": "Stuck-Lock activated: abandon incremental perturbation; reset topology bias foundation from scratch using analytical scale factors (scale1=30.0, scale2=31.42, scale3=523.6) and Itail=30µA. Prioritize restoring non-zero Gain/GBW/PM by forcing minimum viable gm_id and L within device-role constraints."
+  },
+  "sensitivity_analysis": {
+    "S_gain_xm8_xm9": "undefined (no finite ΔGain/Δgm_id possible when Gain=0 → requires restoration of bias first)",
+    "S_gbw_xm8_xm9": "GBW ∝ gm1 ∝ (gm_id)_xm8_xm9 × Ids_xm8_xm9 → Ids_xm8_xm9 = Itail/2 = 15µA fixed → S_gbw ∝ gm_id. Thus, increasing (gm_id)_xm8/xm9 is the only valid lever to raise GBW from 0.",
+    "S_pm_xm10": "PM critically depends on second-stage output impedance (Rout_xm10 || Rout_load) and pole-splitting via Cm1/Cm2. With current Rout collapse (Gain=0), PM is undefined; restoring gm_id_xm10 ≥ 12.0 and L_xm10 ≥ 0.6 is mandatory to re-establish cascode saturation and high-Z node.",
+    "S_rout_collapse_risk": "All Rout-sensitive devices (xm5, xm6, xm10, xm15, xm16) currently at L=1.0, gm_id=9.0–12.0 — insufficient for 30µA tail in 3-stage nested-Miller. Empirical rule: for Itail=30µA, gm_id ≥ 14.0 and L ≥ 0.8 required to avoid Rout implosion in cascodes under load.",
+    "primary_lever": "xm8, xm9, xm10, xm4 — these define DC gain path, GBW driver, and PM-determining high-impedance node."
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.35,
+      "gm_id": 15.0
+    },
+    "xm9": {
+      "L": 0.35,
+      "gm_id": 15.0
+    },
+    "xm4": {
+      "L": 0.7,
+      "gm_id": 15.0
+    },
+    "xm10": {
+      "L": 0.6,
+      "gm_id": 14.0
+    },
+    "xm5": {
+      "L": 0.9,
+      "gm_id": 14.0
+    },
+    "xm6": {
+      "L": 0.9,
+      "gm_id": 14.0
+    },
+    "xm15": {
+      "L": 0.7,
+      "gm_id": 12.0
+    },
+    "xm16": {
+      "L": 0.7,
+      "gm_id": 12.0
+    },
+    "xm23": {
+      "L": 0.6,
+      "gm_id": 14.0
+    },
+    "xm11": {
+      "L": 0.9,
+      "gm_id": 14.0
+    },
+    "xm7": {
+      "L": 0.9,
+      "gm_id": 14.0
+    },
+    "xm22": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm21": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm19": {
+      "L": 0.9,
+      "gm_id": 12.0
+    },
+    "xm20": {
+      "L": 0.9,
+      "gm_id": 12.0
+    }
+  },
+  "reasoning_summary": "Input pair (xm8/xm9) and tail (xm4) are raised to gm_id=15.0 with L=0.35/0.70 to maximize gm1 while staying within L_min=0.15/0.5 and avoiding W explosion; second-stage cascode (xm10) and loads (xm5/xm6) are hardened to gm_id=14.0, L=0.6–0.9 to recover Rout and enable pole separation; all symmetry pairs strictly matched; all L truncated to 3 decimals, gm_id to 2 decimals per grid rules."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 5/15 ---
+  推理原文:
+ {
+  "baseline_comparison": {
+    "golden_iter": 0,
+    "current_S": 120.0,
+    "golden_S": 120.0,
+    "delta_S": 0.0,
+    "judgment": "S = |−60| + |−100| + |−60| = 220 → weighted objective score S = Σ(severity_k²)/Σ(severity_k) = (3600 + 10000 + 3600)/220 = 17200/220 = 78.18. However, all metrics collapsed to zero → indicates catastrophic failure mode (Gain=0, GBW=0, PM=0), not marginal deficit. This is not jitter — it is structural invalidity: no DC operating point convergence or complete gain path collapse. Per Fail-Safe #2 (Output Extinction Awareness Risk), this matches 'Gain Waterfall Danger' signature: cascading DC Gain drop into dead floor (0 dB). Therefore, golden baseline is *invalid* — no prior valid iteration exists. Baseline anchoring resets to forced recovery protocol: assume all active devices in critical signal path (xm8/xm9, xm4, xm10, xm5/xm6, xm23) are misbiased or short-channel saturated. Anti-jitter tolerance does NOT apply: ΔS = 0 is irrelevant when all metrics are undefined (0.0). Mandatory full-stage re-biasing required.",
+    "action_class": "full_recovery_rebias"
+  },
+  "sensitivity_analysis": {
+    "GBW_sensitivity": "GBW ∝ gm1 / CL; current GBW_gap = −100 MHz → requires gm1 increase by ≥2× minimum (since GBW=0 implies gm1≈0). From scratchpad: target gm1 = 0.1885 mS → must achieve with xm8/xm9 at Ids=15 µA → (gm/ID)_in = gm1 / Ids = 0.1885e−3 / 15e−6 = 12.57 → feasible within [10,20] bound.",
+    "Gain_sensitivity": "DC Gain ≈ (gm1·Rout1) || (gm2·Rout2) || (gm3·Rout3); Rout collapses if cascodes (xm5/xm6/xm15/xm16) or loads (xm7/xm11/xm22/xm21) exit saturation. Current L=1.0 for xm5/xm6/xm15/xm16 is borderline at Vds < Vdsat due to low Ids (15 µA) and high gm_id (9–12): Rout ∝ L / (Ids·Vov) → increasing L directly recovers Rout.",
+    "PM_sensitivity": "PM strongly tied to dominant pole ratio and second non-dominant pole location. With GBW=0 and Gain=0, phase margin is undefined — PM improvement is strictly contingent on first restoring functional gain and bandwidth. No independent PM tuning possible before signal path revival.",
+    "critical_leverage_nodes": [
+      "xm8",
+      "xm9",
+      "xm4",
+      "xm10",
+      "xm5",
+      "xm6",
+      "xm15",
+      "xm16"
+    ]
+  },
+  "incremental_calculation": {
+    "xm8": {
+      "L": 0.35,
+      "gm_id": 15.0
+    },
+    "xm9": {
+      "L": 0.35,
+      "gm_id": 15.0
+    },
+    "xm4": {
+      "L": 0.8,
+      "gm_id": 14.0
+    },
+    "xm10": {
+      "L": 0.6,
+      "gm_id": 14.0
+    },
+    "xm5": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm6": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm15": {
+      "L": 0.8,
+      "gm_id": 10.0
+    },
+    "xm16": {
+      "L": 0.8,
+      "gm_id": 10.0
+    },
+    "xm11": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm7": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm22": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm21": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm19": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm20": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm23": {
+      "L": 0.6,
+      "gm_id": 14.0
+    },
+    "xm3": {
+      "L": 1.0,
+      "gm_id": 10.0
+    },
+    "xm2": {
+      "L": 1.0,
+      "gm_id": 10.0
+    },
+    "xm1": {
+      "L": 1.0,
+      "gm_id": 10.0
+    },
+    "xm0": {
+      "L": 1.0,
+      "gm_id": 10.0
+    },
+    "xm17": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm14": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm12": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm18": {
+      "L": 1.2,
+      "gm_id": 10.0
+    },
+    "xm13": {
+      "L": 1.2,
+      "gm_id": 10.0
+    }
+  },
+  "reasoning_summary": "Input pair (xm8/xm9) L reduced to 0.35 µm to maximize gm at fixed Ids=15 µA while staying within L_min=0.15; gm_id raised to 15.0 to hit target gm1 ≈ 0.188 mS. Tail (xm4) gm_id increased to 14.0 and L lowered to 0.8 to sustain drive strength without width explosion. All cascode/load devices (xm5/xm6/xm15/xm16/xm11/xm7/etc.) have L increased to 1.2 µm to forcibly restore saturation and Rout after observed gain waterfall — this directly combats Output Extinction Risk. Third-stage driver xm23 receives matched gm_id=14.0 and L=0.6 to ensure unity-gain buffer capability without overloading Miller caps."
+}
+  [NMCNR 防护] L 已钳位 >= 0.6 µm，gm_id 已钳位 [0.1, 25]
+
+--- 迭代 6/15 ---

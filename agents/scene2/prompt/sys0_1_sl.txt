@@ -1,0 +1,5 @@
+* SR 放大电路（slew-rate enhancement），与主 OTA 同属 .subckt AMP，L/W 单位 um。
+XSLM10 Vout net7 VDD VDD pmos L=0.5 W=5
+XSLM11 net7 vbp1 VDD VDD pmos L=0.5 W=5
+XSLM12 net7 net3 VSS VSS nmos L=0.5 W=5
+VSLBP1 vbp1 VSS dc=0.9

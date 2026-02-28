@@ -1,0 +1,1190 @@
+scene1 run started at 2026-02-10T11:34:35.560073 (log: /home/jzhuang/AnalogLLM/AICAS4Analog/scene1/results/run_20260210_113435.txt)
+
+  Agent0 LLM 推理成功: {'XM1': '输入对管', 'XM2': '输入对管', 'XM3': '负载管', 'XM4': '负载管', 'XM5': '共源共栅_上臂', 'XM6': '共源共栅_上臂', 'XM7': '共源共栅_下臂', 'XM8': '共源共栅_下臂', 'XM9': '尾电流管'}
+  Agent0 拓扑分析思维链: Vinp/Vinn接XM1/XM2栅极，源极共连net3→输入对管。XM9源/体接VSS，漏接net3→尾电流管。XM3/XM4源接XM1/XM2漏（net2/net1），漏均接net4/Vout→负载管。XM5/XM6漏接net4/Vout、栅接vbp（驱动XM5/XM6）→共源共栅_上臂。XM7/XM8栅接net4、源/体接VDD→共源共栅_下臂。 
+SR 放大电路（SL）已加载: ['XSLM10', 'XSLM11', 'XSLM12'] ['VSLBP1']
+Agent0 拓扑 (套筒式五管 OTA): ['XM1', 'XM2', 'XM3', 'XM4', 'XM5', 'XM6', 'XM7', 'XM8', 'XM9']
+Agent0 各管作用: {'XM1': '输入对管', 'XM2': '输入对管', 'XM3': '负载管', 'XM4': '负载管', 'XM5': '共源共栅_上臂', 'XM6': '共源共栅_上臂', 'XM7': '共源共栅_下臂', 'XM8': '共源共栅_下臂', 'XM9': '尾电流管'}
+Agent1 指标与参数: {
+  "GBW_min": 20,
+  "SR_min": 60,
+  "PM_min": 60,
+  "CL": 2,
+  "I_ref": 100,
+  "Gain_min": 60,
+  "IDC_max": 500,
+  "scale1": 1.2,
+  "Itail": 120,
+  "scale2": 1.4,
+  "device_roles": {
+    "XM1": "输入对管",
+    "XM2": "输入对管",
+    "XM3": "负载管",
+    "XM4": "负载管",
+    "XM5": "共源共栅_上臂",
+    "XM6": "共源共栅_上臂",
+    "XM7": "共源共栅_下臂",
+    "XM8": "共源共栅_下臂",
+    "XM9": "尾电流管"
+  },
+  "gm_over_ID_in": 12.566
+}
+仿真使用项目 PDK: models/sky130.lib.spice（与 agents 一致）
+本拓扑仿真文件: ['AMP_AC_pdk.cir', 'AMP_IDC_pdk.cir', 'AMP_SR_pdk.cir']
+  Agent2 饱和迭代 1: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 2: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 3: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 4: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 5: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 6: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 7: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 8: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 9: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 10: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 11: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+  Agent2 饱和迭代 12: 未饱和管 ['XM7', 'XM8']，微调 L/gm_id 后重仿。
+Agent2 约束: {"devices": {"XM1": {"L_min": 0.15, "L_max": 0.5, "gm_id_min": 10, "gm_id_max": 25}, "XM2": {"L_min": 0.15, "L_max": 0.5, "gm_id_min": 10, "gm_id_max": 25}, "XM3": {"L_min": 0.25, "L_max": 2.0, "gm_id_min": 8, "gm_id_max": 25}, "XM4": {"L_min": 0.25, "L_max": 2.0, "gm_id_min": 8, "gm_id_max": 25}, "XM5": {"L_min": 0.5, "L_max": 1.5, "gm_id_min": 5, "gm_id_max": 18}, "XM6": {"L_min": 0.5, "L_max": 
+
+--- 迭代 1/15 ---
+  首轮使用 Agent2 给出的初始 sizing
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.82
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 11.5,
+    "ids": 60.0,
+    "idW": 0.5507635,
+    "W": 108.94
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.9598, 'GBW': 66.462, 'PM': 58.5418, 'i(vmeas)': 108.6935, 'SR': 352.8}
+  gap: {'Gain': 3.9598, 'GBW': 46.462, 'PM': -1.4582, 'IDC': -391.3065, 'SR': 292.8}
+
+--- 迭代 2/15 ---
+  think: 1) Quantitative analysis: From iter-0, current gap shows only PM is undersatisfied (gap.PM = -1.4582°), while Gain (+3.96 dB), GBW (+46.46 MHz), SR (+292.8 V/µs), and IDC (-391.3 µA) all have large margins. PM is most sensitive to the cascode lower-arm devices XM7/XM8 per topology knowledge — lowering their gm_id increases output impedance and improves phase margin by pushing the dominant pole rightward and/or mitigating the effect of the right-half-plane zero or secondary pole; increasing their L also raises ro and isolates better, further helping PM. History shows XM7/XM8 are at minimum gm_id (5.0) and maximum L (1.8), i.e., already at the most PM-friendly corner of their constraint range. Since gm_id cannot go lower (already at gm_id_min=5.0), the only remaining PM-improving direction is to *further increase L* — but L is already at L_max=1.8 for both XM7 and XM8, so no L increase is allowed. Therefore, we must consider secondary levers: (a) reduce gm_id of upper-cascode (XM5/XM6) slightly — though less impactful than lower-arm, reducing their transconductance can ease loading on high-impedance nodes and modestly improve PM; (b) increase L of load devices XM3/XM4 — this raises ro and thus gain, but risks worsening PM due to reduced bandwidth of the output node; however, current GBW is extremely high (+46.46 MHz margin), so we can afford a small GBW sacrifice to recover PM — and indeed, increasing load L is known to *slightly degrade PM*, but since current PM is only ~1.46° short and GBW has huge headroom, a *small increase in XM3/XM4 L* may be tolerable and could synergize with other changes; (c) decrease L of input pair XM1/XM2 — this would raise gm and GBW further (already excessive), but more critically, it moves the dominant pole rightward and often *worsens PM*, so this is harmful and must be avoided. Thus, the safest and most effective next step is to *reduce gm_id of XM5/XM6* (upper cascode), which is currently at 11.5 — well within [5,18] range — and has room to drop. Lowering gm_id there reduces local transconductance without violating constraints, e.g., to 10.0 or 9.5, which historically (in similar topologies) yields +1–2° PM improvement with negligible impact on Gain/GBW/SR. Also, since |gap.PM| = 1.4582 < 0.3? No — it's >0.3, so normal step size applies. But because XM7/XM8 are saturated at extremes, and XM5/XM6 offer the most controllable, safe, and effective PM boost, we choose to reduce XM5/XM6 gm_id from 11.5 → 9.5 (Δ=−2.0, ~17% reduction, within safe range). We keep all other devices unchanged — especially XM7/XM8 (already at optimal corner), XM1/XM2 (no change to avoid PM degradation), XM3/XM4 (no L increase yet — wait for next iteration if PM still short), and XM9 (IDC has huge margin, no need to touch). 2) Reasoning: Only PM is unmet; XM7/XM8 are at gm_id_min and L_max — no further PM gain possible there. XM5/XM6 gm_id is adjustable and known to moderately influence PM via node impedance and pole-splitting. Reducing it from 11.5 to 9.5 is a targeted, minimal, constraint-compliant action with high likelihood of closing the −1.46° gap. All other metrics have >3.9 dB / >46 MHz / >292 V/µs / >390 µA margins — no risk of violating them. So action is: XM5 & XM6 only — gm_id ← 9.5; L unchanged (1.0); all others unchanged.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.76
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.4003, 'GBW': 66.0328, 'PM': 59.8027, 'i(vmeas)': 108.6935, 'SR': 352.2}
+  gap: {'Gain': 3.4003, 'GBW': 46.0328, 'PM': -0.1973, 'IDC': -391.3065, 'SR': 292.2}
+
+--- 迭代 3/15 ---
+  think: 1) 量化分析：从 iter0→iter1，仅 XM5/XM6 的 gm_id 从 11.5 降至 9.5（L 不变），其余全保持。result_delta 显示：PM ↑1.2609°（gap_delta.PM = +1.2609），Gain ↓0.5595 dB，GBW ↓0.4292 MHz，SR ↓0.6 V/µs，IDC unchanged。这验证了‘共源共栅上臂 gm_id 降低 → PM 提升’的次要影响（但非最强）；而 PM 仍差 -0.1973°（即实际 PM=59.8027°，距60°仅差0.1973°），已进入 |gap|<0.3 微调阶段。当前唯一未达标项是 PM（gap=-0.1973），其余全部显著达标（Gain+3.4dB, GBW+46MHz, SR+292V/µs, IDC−391µA）。根据拓扑知识，**共源共栅下臂（XM7/XM8）对 PM 最敏感**——历史虽未动 XM7/XM8，但其当前 gm_id=5.0（已达约束下限），L=1.8（已达 L_max），说明该组已处于 PM 最优配置边缘：gm_id 已最小（利于提升 PM），L 已最大（ro 最大、隔离最好，也利于 PM）。因此，当前 PM 略不足的根源极可能是 XM7/XM8 的 gm_id 已触底，无法再降；而 L 已达上限，也无法再增。此时应转向次优但仍有调节空间的参数：**输入对管 L**（减小 L → gm↑ → GBW↑，但主极点右移、次极点相对左移 → PM↓；增大 L → gm↓、ro↑ → 主极点左移、输出节点时间常数改善 → PM↑，且 Gain 常略升）。iter0→iter1 中 PM 随上臂 gm_id 降而升，说明系统对 cascode 相位贡献敏感；而输入对管 L 增大可提升输出级稳定性裕度。当前 XM1/XM2 的 L=0.325，位于 [0.15,0.5] 中段，有向上调节空间（+0.05～0.1），且微增 L 对 GBW 影响小（GBW 余量高达 +46MHz），对 Gain 有轻微正向作用（Gain 当前+3.4dB，余量充足）。故对 PM 微调，最优单参数是 **XM1/XM2 的 L 增加 0.05 → 0.375**（小幅、安全、符合微调原则）。其他器件无需改动：XM3/XM4 L 已较高（1.125），再增易恶化 PM；XM5/XM6 gm_id 已降至 9.5，若再降可能使 GBW/Gain 进一步受损（当前 GBW 仍远超需求）；XM7/XM8 gm_id 已到下限、L 到上限，无调节空间；XM9 IDC 余量巨大，无需动。2) 决策：仅 PM 未达标且 |gap|=0.1973<0.3，执行微调；影响 PM 最大的可调单参数是输入对管 L；故将 XM1/XM2 的 L 从 0.325 → 0.375（+0.05），其余所有器件维持 iter1 的值（即 XM1/XM2 gm_id 不变；XM3–XM9 全部保持 iter1 的 action 值）。
+  偏置 VBN1=0.66 VBN2=1.21 VBP=0.76
+  params (9 管): {
+  "XM1": {
+    "L": 0.375,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 2.44599,
+    "W": 24.53
+  },
+  "XM2": {
+    "L": 0.375,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 2.44599,
+    "W": 24.53
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 64.0963, 'GBW': 69.467, 'PM': 58.0885, 'i(vmeas)': 109.4012, 'SR': 701.0}
+  gap: {'Gain': 4.0963, 'GBW': 49.467, 'PM': -1.9115, 'IDC': -390.5988, 'SR': 641.0}
+
+--- 迭代 4/15 ---
+  think: 量化分析：从历史看，iter0→iter1：XM5/XM6的gm_id从11.5降至9.5（其他不变），导致PM提升+1.26°，Gain/GBW微降（-0.56/-0.43），验证了上臂cascode gm_id降低对PM有正向影响，但作用中等；iter1→iter2：XM1/XM2的L从0.325增至0.375（gm_id不变），导致PM显著恶化-1.71°，GBW提升+3.43，Gain微升+0.70，印证输入对管L增大虽提升GBW（因ro略增、极点分离改善？但更可能是寄生相位变化主导），但明显损害PM —— 符合拓扑知识：输入对管L增大使主极点左移有限，但次极点/零点移动更不利，且与下臂共同决定环路相位裕度。当前gap.PM = -1.9115（严重未达标），其余指标均大幅富余（Gain+4.1, GBW+49.5, SR+641, IDC余量390μA）。根据角色知识，共源共栅下臂（XM7/XM8）对PM最敏感：gm_id降低 → 跨导减小 → 下臂驱动能力减弱 → 次极点推远/零点优化 → PM显著升高；L增大 → ro增大 → 隔离增强 → 同样利于PM。历史中尚未调整XM7/XM8，其当前处于约束极限（L=1.8/max, gm_id=5.0/min），即已用尽‘增大L’和‘降低gm_id’两个最有效PM提升手段。因此，当前PM不足的根源是下臂已到约束边界，无法继续按常规方向优化；需转向次优但仍有空间的参数：负载管（XM3/XM4）L若减小，可降低输出节点阻抗、加快次极点频率、缓解PM恶化（但会牺牲Gain）；然而当前Gain富余达+4.1dB，允许适度降L以换PM；但更稳妥的是微调输入对管L——iter2中L↑0.05导致PM↓1.71°，反向操作L↓0.05应可带来≈+1.7°PM提升，且GBW将略降（当前GBW富余49.5MHz，完全可承受），Gain微降（仍>60dB）。此外，XM7/XM8的gm_id已在min=5.0，不可再降；L已达max=1.8，不可再增；故唯一可行、安全、精准的PM修复动作是：小幅减小XM1/XM2的L（从0.375→0.325），复位到iter1水平，预计PM回升≈1.7°，回到~59.8°，仍略低，但结合其他微调可补足；但注意iter0→iter1时XM5/XM6 gm_id降2.0带来PM+1.26°，说明多管协同更高效。因此本轮最优策略：保持XM5/XM6 gm_id=9.5（已比iter0更低），同时将XM1/XM2 L从0.375回调至0.325（ΔL=-0.05），形成双路径PM提升（输入对L↓ + 上臂gm_id↓），预计PM总提升≈1.71+1.26≈3.0°，可突破60°。其余管子无必要变动：负载管L维持1.125（Gain富余足够）；下臂已到边界不动；尾管无IDC压力，维持。综上，影响PM最大的单参数组合是XM1/XM2的L与XM5/XM6的gm_id，本轮聚焦这两组做精准修复。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.76
+  params (9 管): {
+  "XM1": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.325,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.4003, 'GBW': 66.0328, 'PM': 59.8027, 'i(vmeas)': 108.6935, 'SR': 352.2}
+  gap: {'Gain': 3.4003, 'GBW': 46.0328, 'PM': -0.1973, 'IDC': -391.3065, 'SR': 292.2}
+
+--- 迭代 5/15 ---
+  think: 量化分析：从历史看，iter0→iter1：XM5/XM6的gm_id从11.5降至9.5（-2.0），PM提升+1.26°，GBW微降-0.43，Gain微降-0.56；说明降低上臂cascode gm_id对PM有正向影响，但非最强。iter1→iter2：XM1/XM2的L从0.325增至0.375（+0.05），PM骤降-1.71°，GBW升+3.43，Gain升+0.70；验证输入对管L增大→主极点左移但次极点/零点恶化→PM显著下降，是PM最敏感的负向扰动之一。iter2→iter3：XM1/XM2的L回调至0.325（-0.05），PM回升+1.71°，与前轮完全镜像，确认输入对管L对PM具有高灵敏度、可逆、且当前处于临界点附近（gap.PM = -0.1973，|gap|<0.3 → 微调阶段）。当前唯一未达标项为PM（-0.1973°），其余均大幅达标（Gain+3.4, GBW+46, SR+292, IDC余量巨大）。根据角色知识：共源共栅下臂（XM7/XM8）对PM最敏感，且其当前gm_id=5.0（已达约束下限），无法再降；而L=1.8（已达L_max），已最大化ro和隔离，进一步增L不可行。因此，PM微调应转向次敏感但可控的参数——输入对管L：历史显示±0.05 L变化带来±1.71° PM变化，线性度好；当前gap.PM=-0.1973，需提升约0.2°，对应ΔL ≈ +0.05 × (0.2/1.71) ≈ +0.006，但为稳妥起见并兼顾工艺鲁棒性，采用最小可行步进：L从0.325微增至0.33（+0.005），预期PM提升≈0.2°，可闭环达标。其他器件保持不变：XM3/XM4负载管L已足够（Gain远超指标），无需动；XM5/XM6上臂gm_id已降至9.5（较iter0更低），继续降可能影响GBW或导致W过大；XM7/XM8已卡在约束边界；XM9尾管IDC余量充足，无需调整。综上，本轮仅微调XM1/XM2的L至0.33，其余全保持。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.76
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.5,
+    "ids": 60.0,
+    "idW": 1.033913,
+    "W": 58.03
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.4158, 'GBW': 65.8354, 'PM': 59.8814, 'i(vmeas)': 108.7025, 'SR': 359.3}
+  gap: {'Gain': 3.4158, 'GBW': 45.8354, 'PM': -0.1186, 'IDC': -391.2975, 'SR': 299.3}
+
+--- 迭代 6/15 ---
+  think: 1) Quantitative analysis: From history, we observe that PM is extremely sensitive to XM5/XM6 gm_id (iter1: reducing XM5/XM6 gm_id from 11.5→9.5 increased PM by +1.26°), and also highly sensitive to XM1/XM2 L (iter2: increasing XM1/XM2 L from 0.325→0.375 dropped PM by −1.71°; iter3: reverting back raised PM by +1.71°). This confirms topology knowledge: XM5/XM6 are cascode upper arms — their gm_id reduction improves isolation and pushes secondary pole outward, aiding PM; XM1/XM2 L increase reduces gm (slightly), lowers GBW, and improves PM margin. Critically, XM7/XM8 (cascode lower arms) have been held fixed at gm_id=5.0 (minimum allowed) and L=1.8 (maximum allowed) across all iterations — yet PM remains just shy of 60° (gap_PM = −0.1186 at iter4). Since XM7/XM8 are *the most PM-sensitive devices*, and they’re already at extreme bounds (min gm_id, max L), further PM gain must come from *relaxing constraints on them* — but they’re already at limits. So the only remaining PM-boosting levers are: (a) reduce XM5/XM6 gm_id further (currently 9.5, min=5 → still headroom), or (b) slightly increase XM1/XM2 L (currently 0.33, max=0.5 → safe). However, iter2 showed that +0.05 L on XM1/XM2 caused −1.71° PM drop — so increasing L there harms PM. Thus, XM5/XM6 gm_id is the *only parameter with proven positive PM impact and remaining headroom*. Also, |gap_PM| = 0.1186 < 0.3 → micro-adjustment required: reduce XM5/XM6 gm_id by only 0.3 (from 9.5 → 9.2), well within [5,18] and consistent with prior +1.26° gain per −2.0 gm_id step (≈+0.19° per −0.3 step — sufficient to cross threshold). All other metrics are comfortably met: Gain gap=+3.42 (>0), GBW gap=+45.8 (>0), SR gap=+299.3 (>0), IDC gap=−391.3 (<0, i.e., far below max). So only PM needs correction — and XM5/XM6 gm_id is the single most effective, safe, and fine-tunable knob.
+2) Reasoning: Only PM is unmet (gap=−0.1186), and |gap|<0.3 → micro-adjustment. XM5/XM6 gm_id has strongest historical PM-positive correlation (+1.26° when reduced by 2.0); current value 9.5 has ample room down to 5.0. Reducing by 0.3 → 9.2 yields ~+0.19° PM (linear extrapolation), pushing PM from 59.88° → ~60.07°, satisfying PM_min=60. No other parameters need change: XM1/XM2 L was just tweaked (0.325→0.33) with negligible effect; XM7/XM8 are already at optimal (min gm_id, max L); tail and load unchanged — no risk to Gain/GBW/SR/IDC. Prioritize L first? Not needed — gm_id adjustment is more direct for PM here, and is within micro-step range.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.75
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.2,
+    "ids": 60.0,
+    "idW": 1.135557,
+    "W": 52.84
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.2,
+    "ids": 60.0,
+    "idW": 1.135557,
+    "W": 52.84
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.0706, 'GBW': 65.8367, 'PM': 59.9335, 'i(vmeas)': 108.7025, 'SR': 359.4}
+  gap: {'Gain': 3.0706, 'GBW': 45.8367, 'PM': -0.0665, 'IDC': -391.2975, 'SR': 299.4}
+
+--- 迭代 7/15 ---
+  think: 1) Quantitative analysis: From history, PM is the only unmet metric (gap.PM = -0.0665 at iter 5), and |gap| < 0.3 → micro-tuning phase. Past param changes show: (a) Reducing XM5/XM6 gm_id from 11.5→9.5 (iter1) increased PM by +1.26°; further reducing to 9.2 (iter5) added +0.052° — diminishing return, and GBW/Gain slightly degraded. (b) Increasing XM1/XM2 L from 0.325→0.375 (iter2) *reduced* PM by −1.71°, confirming input pair L↑ harms PM (due to main pole shift & reduced gm/ro trade-off). (c) XM7/XM8 are the 'cascode lower arm' — topology knowledge states they are *most sensitive to PM*: lowering their gm_id increases PM (by reducing transconductance-driven zero/pole shifts near dominant compensation node); current gm_id = 5.0 is already at its *minimum allowed* (gm_id_min = 5), so cannot reduce further. However, their L = 1.8 is at *L_max* (L_max = 1.8), and increasing L improves ro and isolation → improves PM. But L cannot increase beyond 1.8 — so we must instead *increase L of XM7/XM8 to its max*, which is already done. So next best lever is *XM5/XM6 gm_id*: though effect is weakening, it’s the only parameter with proven positive PM impact in recent history and still has room (gm_id_min = 5, current = 9.2 → can go down to 5.0, but micro-tuning requires small step). Since |gap.PM| = 0.0665 is tiny, a *very small reduction* in XM5/XM6 gm_id (e.g., −0.1 → 9.1) is sufficient and low-risk. All other metrics are comfortably met: Gain gap = +3.07 (>0), GBW gap = +45.8 (>0), SR gap = +299.4 (>0), IDC gap = −391.3 (<0, i.e., well under budget). No need to adjust other devices. 2) Reasoning: Only PM is unmet, and by far the most sensitive historical and topological lever is XM5/XM6 gm_id (upper cascode). Since |gap| < 0.3, apply fine-tuning: decrease XM5/XM6 gm_id by 0.1 (from 9.2 → 9.1), keeping all else unchanged. L values remain at current settings (within bounds). This avoids destabilizing GBW/Gain (which barely moved when gm_id dropped 0.3 before) and preserves large PM margin gain per unit change.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.74
+  ✓ 满足要求！FOM = 534.641097（当前最佳）
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.9878, 'GBW': 66.0974, 'PM': 60.0635, 'i(vmeas)': 108.7025, 'SR': 359.3}
+  gap: {'Gain': 3.9878, 'GBW': 46.0974, 'PM': 0.0635, 'IDC': -391.2975, 'SR': 299.3}
+  FOM = 534.641097
+  → 当前最佳 FOM！
+
+--- 迭代 8/15 ---
+  think: 1) Quantitative analysis: From history, we observe that PM is the most sensitive and tightest spec — it crossed from -0.1973 (iter1) → -0.1186 (iter4) → -0.0665 (iter5) → +0.0635 (iter6), i.e., just barely met at iter6 with gap.PM = +0.0635° (actual PM = 60.0635°). This confirms PM is critically sensitive to XM5/XM6 gm_id: reducing gm_id from 9.5→9.2→9.1 raised PM by +0.0521→+0.13°, with negligible impact on GBW/Gain/IDC. Meanwhile, Gain and GBW are comfortably above specs (gap.Gain=3.99, gap.GBW=46.1), and IDC is far below max (gap.IDC ≈ −391 μA), meaning large headroom for power reduction. SR is also excessive (gap.SR≈299 V/µs). FOM = (GBW_MHz × 10^(Gain_dB/20)) / (VDD × IDC_μA); since VDD is fixed, maximizing FOM requires increasing GBW and/or Gain while decreasing IDC — but PM margin is only +0.0635°, so any change must preserve PM ≥60°. From topology knowledge: (a) XM7/XM8 (cascode lower arm) has strongest PM impact — but they’re already at min gm_id=5.0 and max L=1.8 (tight constraints), so cannot adjust further for PM improvement; (b) XM5/XM6 (upper cascode) have moderate PM impact and room to reduce gm_id further (current=9.1, min=5.0), and their reduction slightly *increases* Gain (as seen: +0.9172 from iter5→6) and maintains GBW — ideal for FOM boost without risking PM; (c) Tail current XM9 has gm_id=16.0 (range 10–22), and IDC is only ~108.7 μA vs Itail=120 μA target — but total measured IDC is dominated by tail, and lowering XM9 gm_id (i.e., increasing W or L) would reduce gm/ID ratio, potentially lowering IDC — however, historical data shows XM9 param_change was never made, and its impact on PM is secondary (but low gm_id may degrade current matching and hurt PM). Safer path: keep XM9 unchanged (no risk), and instead push XM5/XM6 gm_id down further (e.g., to 8.8–8.9) to gently lift Gain & maintain PM margin while slightly cutting gm-driven parasitics — this has been proven effective and low-risk. Also, XM1/XM2 L was varied (0.325↔0.375) and caused large GBW/PM trade-off (ΔGBW≈±3.4, ΔPM≈∓1.7); since GBW is already high, no need to touch them. XM3/XM4 L=1.125 is mid-range; increasing L would raise Gain but hurt PM — unnecessary given ample Gain margin. So the single highest-leverage parameter for FOM improvement *without violating specs* is XM5/XM6 gm_id: reduce further to lift Gain linearly (10^(Gain/20) grows sublinearly but still helps), keep GBW stable, and — crucially — preserve PM margin (since trend shows PM increases monotonically as gm_id decreases in this range). |gap.PM|=0.0635 < 0.3 → micro-adjust: reduce gm_id by only 0.15–0.2 (from 9.1 → 8.9 or 8.85) to avoid overshoot into instability. All other devices stay unchanged to avoid unintended coupling.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.73
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 8.85,
+    "ids": 60.0,
+    "idW": 1.186469,
+    "W": 50.57
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 8.85,
+    "ids": 60.0,
+    "idW": 1.186469,
+    "W": 50.57
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.6146, 'GBW': 66.0965, 'PM': 60.1037, 'i(vmeas)': 108.7025, 'SR': 359.3}
+  gap: {'Gain': 3.6146, 'GBW': 46.0965, 'PM': 0.1037, 'IDC': -391.2975, 'SR': 299.3}
+  FOM = 512.149114
+
+--- 迭代 9/15 ---
+  think: 量化分析：从历史看，iter0→1：XM5/XM6 gm_id 从11.5→9.5（-2.0），PM↑1.26°，Gain↓0.56dB，GBW↓0.43MHz；iter1→2：XM1/XM2 L 从0.325→0.375（+0.05），PM↓1.71°，GBW↑3.43MHz，Gain↑0.70dB；iter2→3：XM1/XM2 L 回调至0.325（-0.05），PM↑1.71°，GBW↓3.43MHz；iter5→6：XM5/XM6 gm_id 从9.2→9.1（-0.1），PM↑0.13°，Gain↑0.92dB；iter6→7：XM5/XM6 gm_id 从9.1→8.85（-0.25），PM↑0.04°，Gain↓0.37dB。可见：① XM5/XM6 gm_id 对 PM 具有正向敏感性（降 gm_id → PM ↑），但边际效应递减（-0.1→+0.13°，-0.25→+0.04°）；② XM1/XM2 L 对 GBW/Gain/PM 影响显著且可逆，L↑→GBW↑、PM↓；③ 当前 iter7 specs_met=true，所有 gaps > 0：PM_gap=0.1037°（仅略超指标，余量极小）、Gain_gap=3.61dB、GBW_gap=46.1MHz、SR_gap=299.3V/µs、IDC_gap=-391.3µA（功耗远低于上限）。FOM=512.15，低于历史最佳534.64（iter6），而iter6对应XM5/XM6 gm_id=9.1，PM_gap=0.0635°（更紧），Gain_gap=3.99dB（更高），说明适度提高 Gain 和 GBW（同时控制 PM 不跌破60°）可提升 FOM。当前 PM 余量仅0.10°，是瓶颈；而 XM7/XM8 的 gm_id 仍为5.0（下限），是 PM 最敏感组，但已处于最小值，无法再降；因此提升 PM margin 的唯一可行路径是微增 XM7/XM8 L（L_max=1.8，当前=1.8，已达上限，不可增）或微调 XM5/XM6 gm_id —— 但 iter7 中继续降 XM5/XM6 gm_id 致 PM 增幅已衰减至0.04°，且 Gain 反而下降，说明已过最优拐点。反观 XM1/XM2：L=0.33（约束0.15–0.5），仍有下调空间；L↓→gm↑→GBW↑、Gain↑（历史 iter1→2 显示 L↑→Gain↑，但那是因 L↑→ro↑主导；而输入对管 L↓ 主导 gm↑，GBW∝gm1/CL，故 GBW 必↑；实际 iter0→1 未动 XM1/XM2，GBW 从66.46→66.03，微降；iter1→2 L↑→GBW↑3.43，说明当前工作点下 L 与 GBW 正相关？需注意：GBW = gm1/(2π·CL)，而 gm1 ∝ (W/L)^(1/2)·ID，当 ID 固定（由尾电流和比例决定），L↓→gm1↑→GBW↑。iter2 中 L↑ 导致 GBW↑，可能因 W 同步调整（idW 不变，L↑→W↑→W/L↑→gm↑），但 param_change 未显示 W 变化，实际 W 由 idW 和 ids 决定：idW = ids/W ⇒ W = ids/idW；iter0: idW_XM1=3.50893, ids=60 ⇒ W=17.1；iter2: idW=2.44599 ⇒ W=24.53，即 L↑时 W↑以维持相同 idW，故 gm1 ∝ sqrt(W/L) ↑。因此，若保持 idW 不变，L↓ 将导致 W↓，W/L ↓，gm1 ↓，GBW ↓ —— 这与直觉相反。但仿真中 GBW 主要由 gm1 决定，而 gm1 = gm_id × ID；ID 固定（60µA），gm_id 是设计变量，当前 XM1/XM2 gm_id=17.5（约束10–25），尚有上调空间（+1~+2）可安全提升 gm1，从而提升 GBW 和 Gain，且因不改变 L，对 PM 影响较小（相比动 L）。验证：iter0 中 gm_id=17.5，GBW=66.46；iter1 相同 gm_id，GBW=66.03；差异来自 XM5/XM6 gm_id 下调，说明 XM1/XM2 gm_id=17.5 已较优。另一杠杆是尾管 XM9：当前 L=1.25, gm_id=16.0，IDC=108.7µA（远低于 IDC_max=500µA），功耗余量巨大；但 FOM 分母为 Power=VDD×IDC，降低 IDC 可直接提升 FOM；然而 IDC 由 Itail=120µA（scale1=1.2, I_ref=100µA）设定，XM9 是尾电流源，其 gm_id 控制输出阻抗，对 PM 有次要影响（gm_id 过低会增大寄生、恶化 PM），当前 gm_id=16.0 属中上水平（约束10–22），可尝试微降（如→15.0）以略微减小 W（idW=1.2036 ⇒ W=ids/idW=120/1.2036≈99.7，不变），但实际 IDC 由偏置网络决定，XM9 的 gm_id 不直接影响 IDC，只影响电流源精度和输出阻抗；因此 IDC 主要由 scale1/Itail 固定，无法通过调 XM9 降低。真正可优化的是：在保证 PM≥60°前提下，适度提高 GBW 和 Gain。当前 PM 余量仅0.10°，最敏感器件是 XM7/XM8（已到 gm_id_min=5.0），其次 XM5/XM6（当前 gm_id=8.85，iter6=9.1 时 PM=60.06°，FOM 更高），说明 9.1 是 PM-Gain-GBW 平衡更优点。因此本轮应回调 XM5/XM6 gm_id 从 8.85 → 9.1（+0.25），预计 PM↓0.04°→60.0635°（仍达标），Gain↑0.37dB→63.9878dB（iter6值），GBW 微升→66.0974MHz，FOM 回升至 534.64。其余器件保持不变，因 XM1/XM2、XM3/XM4、XM7/XM8、XM9 均无进一步优化空间（XM7/XM8 gm_id 已最小，XM9 功耗不敏感，XM3/XM4 L=1.125 有上调空间但会恶化 PM，不可取）。综上，最大 FOM 提升路径是恢复 XM5/XM6 gm_id 至 9.1，这是历史验证过的更优点，且确保 PM 仍满足（gap_PM=0.0635>0）。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.74
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.9878, 'GBW': 66.0974, 'PM': 60.0635, 'i(vmeas)': 108.7025, 'SR': 359.3}
+  gap: {'Gain': 3.9878, 'GBW': 46.0974, 'PM': 0.0635, 'IDC': -391.2975, 'SR': 299.3}
+  FOM = 534.641097
+  → 当前最佳 FOM！
+
+--- 迭代 10/15 ---
+  think: 量化分析：当前 iter=8，specs_met=true，所有 gap ≥0（PM_gap=0.0635°，Gain_gap=3.9878 dB，GBW_gap=46.0974 MHz，SR_gap=299.3 V/µs，IDC_gap=-391.3 µA），指标全部满足。FOM=534.64，与 iter=6 相同，为历史最高值。观察历史中 FOM 变化：iter6→7，XM5/XM6 gm_id 从9.1→8.85，导致 Gain↓0.3732 dB、PM↑0.0402°、GBW≈不变，FOM↓22.5；iter7→8 回调至9.1，Gain↑0.3732、PM↓0.0402，FOM恢复。说明在当前工作点附近，XM5/XM6 gm_id 对 Gain/PM 有微弱负相关，但对 FOM 影响显著——因 Gain_linear = 10^(Gain_dB/20) 非线性，Gain 小幅下降会明显拉低分子（GBW×Gain_linear）；而 IDC 几乎恒定（i(vmeas)稳定在108.7 µA），故 Power_μW ≈ VDD×IDC 不变，FOM 主要由 Gain_linear 和 GBW 驱动。进一步看：输入对管 XM1/XM2 L 在 iter2 中从0.325→0.375 导致 GBW↑3.43 MHz 但 PM↓1.71°，Gain↑0.7 dB；随后 iter3 回调 L 至0.325，GBW↓3.43、PM↑1.71，验证其强影响。负载管 XM3/XM4 L 未被调整过（始终1.125），而 Gain 当前63.99 dB（仅比 min 60 dB 高3.99 dB），仍有提升空间；增大 L 可提升 ro、增 Gain，且历史中未见其对 PM 的剧烈恶化（iter0-1 负载 L 固定，PM 从58.5→59.8→58.1→59.8，波动主因 XM1/XM2 和 XM5/XM6），因此负载 L 是安全的 Gain 提升杠杆。同时，IDC 当前仅108.7 µA（远低于 IDC_max=500 µA），功耗余量极大，但 FOM 分母 Power_μW = VDD×IDC，若 VDD 固定，则降低 IDC 可直接提升 FOM；而 IDC 由 XM9（尾管）Itail=120 µA 决定（scale1=1.2, I_ref=100 → Itail=120），当前 XM9 gm_id=16.0，L=1.25，在约束内（L_min=0.5, L_max=2.0; gm_id_min=10, gm_id_max=22）仍有下调空间：降低 XM9 gm_id 可减小 W（因 ids=120 fixed, idW=ids/W ⇒ W↑ when gm_id↓），但更关键的是——在电流镜偏置结构中，尾管 gm_id 过高可能导致静态工作点敏感或寄生电容增加，适度降低 gm_id（保持在合理范围）可微降总功耗或改善匹配，但需注意：历史中 XM9 从未被调整，且 iter0-8 IDC 稳定在108.7 µA，说明当前偏置已锁定 Itail，XM9 参数变化可能不直接影响 IDC（因 Itail 由 I_ref 和 scale1 强制设定），故 IDC 优化潜力有限。真正可提升 FOM 的路径是：① 微增 Gain（通过 XM3/XM4 L）以提升 Gain_linear；② 微增 GBW（通过 XM1/XM2 L 微降，但需严控 PM 余量）；③ 或微调 XM5/XM6 gm_id 向更高值（如9.2）试探是否能同步提 GBW/Gain 而不跌破 PM_min（当前 PM_gap=0.0635°，余量极小，不可冒险降）。当前 PM_gap 仅 0.0635°，是所有指标中最紧的约束，任何降低 PM 的操作（如降 XM1/XM2 L、升 XM5/XM6 gm_id）都可能导致 specs_met=false。因此，最稳健的 FOM 提升策略是：在不触碰 PM 边界的前提下，提升 Gain —— 负载管 XM3/XM4 L 增大可提升 ro、增 Gain，且历史中无证据显示其显著恶化 PM（iter0-8 负载 L 恒定，PM 波动来自其他管）；XM3/XM4 L 当前1.125，L_max=2.0，有充足空间。保守步进：L 从1.125→1.25（+0.125），预计 Gain ↑~0.3–0.5 dB（参考 iter2 XM1 L+0.05 → Gain+0.7 dB，但负载 L 效应通常更平缓），且 PM 影响极小。其余管子保持当前最优值：XM1/XM2 L=0.33/gm_id=17.5（已平衡 GBW/PM）、XM5/XM6 gm_id=9.1（iter6/8 给出最高 FOM）、XM7/XM8 L=1.8/gm_id=5.0（下臂 gm_id 已达最小，是 PM 余量的关键保障，不可动）、XM9 保持（IDC 不敏感，且无历史依据支持调整）。综上，本轮唯一动作：XM3/XM4 L 从1.125→1.25，其余全维持。
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.74
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM4": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 64.0348, 'GBW': 65.9096, 'PM': 58.5508, 'i(vmeas)': 108.7041, 'SR': 364.2}
+  gap: {'Gain': 4.0348, 'GBW': 45.9096, 'PM': -1.4492, 'IDC': -391.2959, 'SR': 304.2}
+
+--- 迭代 11/15 ---
+  think: 1) Quantitative analysis: From history, we observe that PM is extremely sensitive to XM3/XM4 L (iter9: +0.125 L → PM drops -1.51°), confirming topology knowledge that load L increase raises output resistance but degrades PM by lowering secondary pole. In contrast, XM5/XM6 gm_id reduction improves PM (iter1: -2.0 gm_id → +1.26° PM; iter5→6: -0.1→+0.13°; iter6→7: -0.25→+0.04°), but effect is modest and saturating. Crucially, XM7/XM8 are the *most PM-sensitive group* per topology knowledge — yet they have been held fixed at L=1.8/gm_id=5.0 across all 10 iterations, never tuned. Their gm_id is at minimum (5.0, lower bound), so cannot decrease further; but L is at upper bound (1.8), and increasing L further would raise ro and improve isolation — however, L_max=1.8 is already hit. So only remaining PM-boosting action on XM7/XM8 is *not possible* within constraints. Next best lever is XM5/XM6: their gm_id has been varied from 11.5→9.1→8.85→9.1, and PM response is positive but diminishing (e.g., iter7→8: +0.25 gm_id → -0.04° PM). To recover the -1.45° PM gap, we need a larger downward step in XM5/XM6 gm_id — but iter7 showed gm_id=8.85 gave only +0.04° vs iter6, suggesting diminishing returns. Alternatively, reducing XM1/XM2 L increases gm → boosts GBW but historically hurts PM (iter2: +0.05 L → -1.71° PM; iter3: -0.05 L → +1.71° PM), so to help PM we should *increase* XM1/XM2 L slightly — but iter2 showed +0.05 L caused -1.71° PM drop, contradicting expectation? Wait: iter2 increased XM1/XM2 L from 0.325→0.375 and PM dropped from 59.8→58.09, i.e., *increasing input pair L hurt PM*. That aligns with theory: longer channel → higher ro → less dominant-pole separation? Actually no — for input pair, longer L increases ro1, which *improves* PM margin by moving dominant pole left and pushing second pole right (via higher output impedance at first stage). But simulation shows opposite — likely because in sleeve topology, input pair’s source degeneration or cascode interaction dominates. Given empirical evidence: XM1/XM2 L↑ → PM↓ (iter2), XM1/XM2 L↓ → PM↑ (iter3), so to boost PM we should *decrease* XM1/XM2 L. However, current XM1/XM2 L=0.33 is already near min (0.15), and iter4 used 0.33 (vs 0.325) and got +0.0787° PM — very small gain. So safest, most effective PM lever is XM5/XM6 gm_id ↓. Current gm_id=9.1 (iter8/9); iter7 used 8.85 and achieved PM=60.1037° (gap=+0.1037), but iter9 regressed to PM=58.55° due to XM3 L↑. So to compensate -1.45° deficit, we need to go below 8.85. Constraint allows down to gm_id_min=5 for XM5/XM6 — but going too low may harm GBW/Gain. Iter1 used gm_id=9.5 → PM=59.8°; iter5 used 9.2 → 59.93°; iter6 used 9.1 → 60.06°; iter7 used 8.85 → 60.10°. So trend is clear: lower gm_id → higher PM, ~0.04° per -0.1 gm_id near 9.1. To gain ~1.5°, need Δgm_id ≈ -0.375 → target ~8.725. But let’s be conservative: step -0.2 → 8.9. Also, since |gap.PM|=1.4492 > 0.3, normal step size applies. No other metric is at risk: Gain=64.03 > 60, GBW=65.9 > 20, SR=364 > 60, IDC=108.7 < 500 — all ample margin. So sole focus is PM, and largest impact parameter is XM5/XM6 gm_id (confirmed by 6 iterations showing monotonic PM↑ as gm_id↓). 2) Reasoning: Only PM is unmet (gap=-1.4492). Per history and topology, XM5/XM6 gm_id is the most effective and safe knob: decreasing it raises PM reliably, with minimal side effects (Gain/GBW change <0.4°/0.2 MHz per 0.1 step). Current gm_id=9.1; reduce to 8.9 (Δ=-0.2), within [5,18] constraint. All other devices unchanged — especially avoid touching XM3/XM4 again (caused large PM drop last time), and XM7/XM8 are already at gm_id_min and L_max so no room. This is a targeted, minimal, high-impact adjustment.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.74
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM4": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 8.9,
+    "ids": 60.0,
+    "idW": 1.243577,
+    "W": 48.25
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 8.9,
+    "ids": 60.0,
+    "idW": 1.243577,
+    "W": 48.25
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.6938, 'GBW': 65.3574, 'PM': 58.8391, 'i(vmeas)': 108.7041, 'SR': 372.8}
+  gap: {'Gain': 3.6938, 'GBW': 45.3574, 'PM': -1.1609, 'IDC': -391.2959, 'SR': 312.8}
+
+--- 迭代 12/15 ---
+  think: 1) 量化分析：当前 iter=10，唯一未达标项为 PM（gap.PM = -1.1609，即实际 PM=58.8391° < 60°）。回顾历史中对 PM 影响最显著的参数变化：iter1→iter2 中 XM1/XM2 L 从 0.325→0.375（+0.05），导致 PM↓1.7142；iter2→iter3 中 XM1/XM2 L 回调至 0.325，PM↑1.7142 —— 表明输入对管 L 增大会显著恶化 PM（与拓扑知识一致：L↑→gm↓但 ro↑，主极点左移但次极点更易下移，且 sleeve 结构中输入对管 L↑会降低跨导主导的零点/极点比，削弱相位裕度）。iter9→iter10 中 XM5/XM6 gm_id 从 9.1→8.9（-0.2），PM↑0.2883，验证上臂 cascode gm_id 降低可小幅改善 PM（因降低上臂跨导可缓解密勒效应、提升次极点频率），但影响弱于下臂。最关键证据在 iter0→iter1：XM5/XM6 gm_id 从 11.5→9.5（-2.0），PM↑1.2609；而 iter6→iter7：XM5/XM6 gm_id 从 9.1→8.85（-0.25），PM↑0.0402 —— 斜率约 ΔPM/Δgm_id ≈ -0.16/0.1，即每降 0.1 gm_id 提升 ~0.016° PM。但更关键的是共源共栅下臂（XM7/XM8）：其 gm_id=5.0 已处于约束下限（gm_id_min=5），且历史中从未调整过——根据拓扑知识，下臂 gm_id 是 PM 最敏感参数：gm_id↓→下臂跨导↓→输出节点等效阻抗↑、次极点上移、零点位置优化→PM 显著提升。iter0 中 XM7/XM8 gm_id=5.0、PM=58.54°；iter1–iter10 均保持 gm_id=5.0，PM 在 58.55–60.10°间波动，说明当前 PM 紧绷的根本原因是下臂 gm_id 已触底，无法再降；因此必须改 L（L_max=1.8，当前=1.8，已达上限！）——等等，iter0–iter10 中 XM7/XM8 L 始终为 1.8，即已取最大值。L↑→ro↑→隔离增强→PM↑，但 L 已达约束上限（1.8），无法再增。故需转向其他高影响力路径：负载管 L 增大虽曾导致 PM↓（iter9：XM3/XM4 L↑0.125→PM↓1.5127），说明负载 L 对 PM 负向敏感，应避免再增；输入对管 L 已被验证负向敏感（iter1→iter2），且当前 L=0.33（介于 0.325–0.375 之间），微调空间小；上臂 cascode gm_id 还有下调余量（当前 8.9，min=5），但历史显示其 PM 效率低（Δgm_id=0.2 → ΔPM≈0.29）；而尾电流管 XM9：当前 L=1.25、gm_id=16.0，约束为 L∈[0.5,2.0]、gm_id∈[10,22]，尚未调整过。尾管 gm_id 过高可能导致电流分配不均、下臂偏置点偏移，间接恶化 PM；且 iter0 中 XM9 gm_id=16.0、PM=58.54°，而 iter6 中同样 XM9 参数但 PM=60.06°，说明尾管非主因。综上，PM 最敏感且尚未探索的自由度是：XM7/XM8 的 L 已达顶（1.8），但约束 L_max=1.8，不可超；然而——注意 iter0 中 XM7/XM8 L=1.8、gm_id=5.0，但 PM=58.54°；而 iter6 中相同参数却得 PM=60.06°，说明存在仿真波动或其它隐含耦合。既然 L 和 gm_id 均已达边界，唯一可行的强效方案是：**微降 XM5/XM6 gm_id 进一步（从 8.9→8.7），因历史显示其持续下降仍能稳定提升 PM（iter5→iter6：9.1→9.1？不，iter5=9.1→iter6=9.1？查：iter5 gm_id=9.1, iter6=9.1? 错，iter5=9.1, iter6=9.1? No: iter5 action has XM5 gm_id=9.1; iter6 action has XM5 gm_id=9.1 — wait, iter5: 'XM5': {'gm_id': 9.1}, iter6: same — but iter7: 8.85, iter8: 9.1, iter9: 9.1, iter10: 8.9. So current is 8.9, min is 5, so can go to 8.7. And Δgm_id=0.2 gave +0.2883 PM (iter9→10), so 0.2 more → +0.2883 ≈ +0.29, bringing PM from 58.8391 to ~59.13, still short. But we need +1.16. At rate 0.29 per 0.2, need Δgm_id ≈ 0.2 × (1.16/0.2883) ≈ 0.2×4.02 ≈ 0.8. So target gm_id = 8.9 − 0.8 = 8.1. Check constraint: gm_id_min=5, so 8.1 is valid. Also, GBW impact: iter9→10 Δgm_id=−0.2 → GBW↓0.5522; so Δgm_id=−0.8 → GBW↓≈2.2, current GBW=65.3574 > 20+45.3574=65.3574, margin huge (45.3574), safe. Gain impact: iter9→10 Δgm_id=−0.2 → Gain↓0.341; so −0.8 → ↓1.364, current Gain=63.6938 → 62.33 > 60, still safe. SR and IDC unchanged (no change to tail or input). Thus, strongest single-parameter action is reduce XM5/XM6 gm_id from 8.9 to 8.1. Also, since |gap.PM|=1.1609 > 0.3, normal step size applies — 0.8 is justified. No other device needs change: XM7/XM8 already at gm_id_min & L_max; XM1/XM2 L=0.33 is stable (iter4–iter10 oscillates near there with small PM swings); XM3/XM4 L=1.25 caused PM crash last time, so freeze; XM9 unchanged. Therefore, the single most impactful parameter is XM5/XM6 gm_id.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.71
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM4": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 8.1,
+    "ids": 60.0,
+    "idW": 1.606961,
+    "W": 37.34
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 8.1,
+    "ids": 60.0,
+    "idW": 1.606961,
+    "W": 37.34
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 63.3191, 'GBW': 65.1551, 'PM': 59.1792, 'i(vmeas)': 108.7041, 'SR': 372.5}
+  gap: {'Gain': 3.3191, 'GBW': 45.1551, 'PM': -0.8208, 'IDC': -391.2959, 'SR': 312.5}
+
+--- 迭代 13/15 ---
+  think: 1) Quantitative analysis: From history, PM is most sensitive to XM5/XM6 (cascode upper arm) and XM7/XM8 (cascode lower arm). Iter0→iter1 reduced XM5/XM6 gm_id from 11.5→9.5 → PM improved by +1.26°; iter1→iter2 increased XM1/XM2 L (0.325→0.375) → PM dropped by −1.71°; iter9 increased XM3/XM4 L (1.125→1.25) → PM dropped sharply by −1.51°, confirming load L harms PM. iter11 further reduced XM5/XM6 gm_id (8.9→8.1) → PM improved +0.34°, but insufficient (gap.PM = −0.8208). Current unmet metric is only PM (gap = −0.8208), all others are well above specs (Gain gap=3.32, GBW gap=45.16, SR gap=312.5, IDC gap=−391.3). Per topology knowledge, cascode lower arm (XM7/XM8) has *highest sensitivity to PM*: lowering their gm_id increases PM more effectively than upper arm or input pair. In iter0, XM7/XM8 were at gm_id=5.0 (minimum allowed), so cannot lower further — but L is at max (1.8), and increasing L of lower cascode improves ro and isolation, pushing secondary pole rightward → improves PM. Historical data shows no prior change to XM7/XM8 L, so this is an untapped degree of freedom with high PM leverage and zero risk to GBW/Gain (unlike reducing XM5/XM6 gm_id which hurts GBW). Also, |gap.PM|=0.8208 > 0.3, so normal step size applies. Constraint allows XM7/XM8 L up to 1.8 — already at max — so cannot increase L. Wait: iter0–iter11 all have XM7/XM8 L=1.8, i.e., already at L_max. So L cannot be increased. Then next best is to reduce XM5/XM6 gm_id further — they are currently at 8.1 (iter11), and constraint allows down to gm_id_min=5. So still headroom. iter11 showed −0.8 gm_id drop (8.9→8.1) gave +0.34° PM; linear extrapolation suggests ~−1.0 gm_id drop needed for +0.82° → target gm_id ≈ 7.1. But must respect constraint: XM5/XM6 gm_id_min = 5, so 7.1 is safe. Also, note that reducing XM5/XM6 gm_id slightly reduces GBW (iter11: GBW −0.20) and Gain (−0.37), but both remain far above specs (GBW gap=45.16, Gain gap=3.32), so acceptable. No need to adjust other devices — PM is the sole bottleneck, and XM5/XM6 gm_id is the most effective and safe knob. 2) Reasoning: Only PM is unmet (gap=−0.8208). XM5/XM6 gm_id is the most impactful parameter for PM improvement per history and topology (upper cascode affects pole-splitting and feedforward path). They are at 8.1, min allowed is 5, so reduce to 7.1 — a −1.0 step, appropriate for |gap|>0.3. All other devices unchanged: XM1/XM2 L=0.33/gm_id=17.5 (stable, GBW/Gain fine); XM3/XM4 L=1.25/gm_id=16.5 (already raised, but PM hurt — do NOT increase further); XM7/XM8 L=1.8 (maxed), gm_id=5.0 (mined — cannot reduce); XM9 unchanged (IDC fine). This is minimal, targeted, and historically validated.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.66
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM4": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 7.1,
+    "ids": 60.0,
+    "idW": 2.349394,
+    "W": 25.54
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 7.1,
+    "ids": 60.0,
+    "idW": 2.349394,
+    "W": 25.54
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 62.4073, 'GBW': 64.8521, 'PM': 59.6022, 'i(vmeas)': 108.7041, 'SR': 371.8}
+  gap: {'Gain': 2.4073, 'GBW': 44.8521, 'PM': -0.3978, 'IDC': -391.2959, 'SR': 311.8}
+
+--- 迭代 14/15 ---
+  think: 1) Quantitative analysis: From history, PM is the only unmet metric (gap.PM = -0.3978 at iter 12), and it's critically close to spec (|gap| < 0.4). Looking at param_change → result_delta correlations: (a) In iter 1–5 & 7–12, reducing XM5/XM6 gm_id consistently improves PM (e.g., iter1: gm_id 11.5→9.5 → PM +1.26; iter5→6: 9.2→9.1 → PM +0.13; iter6→7: 9.1→8.85 → PM +0.04; iter9→10: 9.1→8.9 → PM +0.29; iter10→11: 8.9→8.1 → PM +0.34; iter11→12: 8.1→7.1 → PM +0.42). So XM5/XM6 gm_id has strong, monotonic positive impact on PM — lower gm_id → higher PM. (b) However, in iter9, increasing XM3/XM4 L from 1.125→1.25 caused PM to drop sharply (−1.51), confirming topology knowledge: load L ↑ → ro ↑ → gain ↑ but secondary pole degrades → PM ↓. (c) XM7/XM8 have been fixed at L=1.8/gm_id=5.0 throughout all iterations — no variation yet, though theory says they are *most sensitive* to PM. Their gm_id is at minimum (5.0), so cannot reduce further; but L is at max (1.8), and increasing L further is not allowed (L_max=1.8), so we cannot tune them. Thus, among *tunable* devices, XM5/XM6 gm_id is the most effective lever for PM improvement — and current trend shows diminishing returns but still positive. (d) Also note: at iter12, Gain gap=2.4073 (>0 but shrinking), GBW gap=44.85 (>0), SR gap=311.8 (>0), IDC gap=−391.3 (<0, fine), so only PM needs fixing. Since |gap.PM|=0.3978 < 0.4, micro-adjustment is appropriate. Prioritize small gm_id reduction on XM5/XM6 (e.g., −0.15 to 6.95), as prior steps of −0.1–−1.0 gave ~0.04–0.42 PM gain. A −0.15 step is expected to yield ~0.06–0.07 PM gain → brings PM to ~59.66–59.67, still short; but combined with known sensitivity and safety margin, we choose −0.2 to reach ~59.8, and verify next round. All other devices remain unchanged: XM1/XM2 L=0.33/gm_id=17.5 (stable, GBW/Gain sufficient); XM3/XM4 L=1.25/gm_id=16.5 (increasing L hurt PM, so hold); XM7/XM8 at bounds (no room); XM9 unchanged (IDC fine, no need to touch). 2) Reasoning: Only PM is unmet, |gap|≈0.4 → micro-tuning. XM5/XM6 gm_id is empirically strongest PM lever in history and within range (gm_id_min=5, current=7.1 → can go to 6.9). Reduce XM5/XM6 gm_id by 0.2 → 6.9, keeping L=1.0. No other changes — minimal intervention, preserves all other metrics (Gain/GBW/SR/IDC are comfortably met or trending safely).
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.65
+  params (9 管): {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM4": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 6.9,
+    "ids": 60.0,
+    "idW": 2.519191,
+    "W": 23.82
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 6.9,
+    "ids": 60.0,
+    "idW": 2.519191,
+    "W": 23.82
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 62.181, 'GBW': 64.7952, 'PM': 59.6725, 'i(vmeas)': 108.7041, 'SR': 371.6}
+  gap: {'Gain': 2.181, 'GBW': 44.7952, 'PM': -0.3275, 'IDC': -391.2959, 'SR': 311.6}
+
+--- 迭代 15/15 ---
+  think: 1) Quantitative analysis: Current unmet metric is PM (gap = -0.3275°, i.e., actual PM = 59.6725°, just 0.3275° below 60°). All other metrics are satisfied: Gain gap=2.181 (>0), GBW gap=44.795 (>0), SR gap=311.6 (>0), IDC gap=-391.3 (<0 → well within power budget). So only PM needs improvement — and it's a *micro-deficit* (|gap| < 0.33 < 0.3? Actually 0.3275 < 0.3 is false; but it's *very close*, and history shows PM is highly sensitive to XM7/XM8 gm_id. From iter1→iter6: reducing XM5/XM6 gm_id improved PM (e.g., iter1→iter2: XM5/XM6 gm_id ↓ from 11.5→9.5 → PM ↑ +1.26°; iter5→iter6: ↓9.2→9.1 → PM ↑ +0.13°; iter6→iter7: ↓9.1→8.85 → PM ↑ +0.04°). But crucially, in iter9–iter13, we increased load L (XM3/XM4 from 1.125→1.25), which *hurt PM* (iter9: PM dropped to 58.55°, gap=-1.45°), confirming topology knowledge: load L ↑ → ro ↑ → gain ↑ but secondary pole degrades → PM ↓. Meanwhile, XM7/XM8 have remained fixed at L=1.8, gm_id=5.0 throughout all iterations — and their gm_id is at the *minimum allowed* (gm_id_min=5.0). Per role knowledge: XM7/XM8 (cascode lower arm) are *most sensitive to PM*: lowering gm_id improves PM (by reducing transconductance-driven phase lag near unity-gain frequency); but they’re already at gm_id_min=5.0, so cannot go lower. Therefore, the *only remaining PM-boosting degree of freedom* is to *increase L of XM7/XM8*, which increases their output resistance and improves cascode isolation → pushes secondary pole higher → improves PM. Constraint allows L up to 1.8 (currently at 1.8), so L cannot increase further either. Wait — current L=1.8 is *already at L_max*. So XM7/XM8 are saturated. Then what’s left? Re-examining history: iter2 (L_XM1↑0.05) caused PM↓−1.71°; iter3 (L_XM1↓0.05) caused PM↑+1.71° — strong inverse correlation between input pair L and PM. Also, iter4 (tiny L_XM1↑0.005) gave PM↑+0.0787° — consistent: *smaller L for input pair → higher gm → faster response but risk of PM loss; larger L → lower gm, higher ro, better PM margin*. In iter2, L_XM1 increased from 0.325→0.375 (+0.05) → PM dropped −1.71°; in iter3, reverted → PM recovered +1.71°. So to *improve PM*, we should *slightly increase L of input pair* (XM1/XM2), but carefully: current L=0.33, L_max=0.5, so room exists. Since |gap|=0.3275 is small, apply *fine-tuning*: increase L by ~0.02 → 0.35. This avoids destabilizing GBW/Gain (which are comfortably met: GBW gap=44.8, Gain gap=2.18), and aligns with historical sensitivity. Also note: XM5/XM6 gm_id has been aggressively lowered (from 9.1→6.9) with diminishing PM returns (iter12→13: gm_id ↓0.2 → PM ↑0.07°), and further reduction risks violating gm_id_min=5 or harming GBW/Gain excessively (Gain already dropped from 63.99→62.18). So best lever is XM1/XM2 L. 2) Reasoning: Only PM is unmet, deficit is small (0.3275°). Per role knowledge and historical impact, XM1/XM2 L has strong, reversible, and safe influence on PM. Increasing L slightly (0.33→0.35) will reduce gm, increase ro, improve pole separation, and lift PM — without jeopardizing other specs (GBW still >64 MHz vs 20 min; Gain >62 dB vs 60 min). No change needed elsewhere: XM3/XM4 L=1.25 already caused PM drop before, so keep constant; XM5/XM6 gm_id=6.9 is near practical limit and gives minimal marginal PM gain; XM7/XM8 are at bounds; XM9 is fine. Thus, action: increase XM1/XM2 L to 0.35, keep all else unchanged.
+  偏置 VBN1=0.66 VBN2=1.2 VBP=0.65
+  params (9 管): {
+  "XM1": {
+    "L": 0.35,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.35,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM4": {
+    "L": 1.25,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 0.985571,
+    "W": 60.88
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 6.9,
+    "ids": 60.0,
+    "idW": 2.519191,
+    "W": 23.82
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 6.9,
+    "ids": 60.0,
+    "idW": 2.519191,
+    "W": 23.82
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+  results: {'Gain': 62.2047, 'GBW': 64.0298, 'PM': 59.9618, 'i(vmeas)': 108.7285, 'SR': 400.9}
+  gap: {'Gain': 2.2047, 'GBW': 44.0298, 'PM': -0.0382, 'IDC': -391.2715, 'SR': 340.9}
+
+完成。History 长度: 15
+
+最佳 FOM = 534.641097（迭代 6）
+最佳参数: {
+  "XM1": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM2": {
+    "L": 0.33,
+    "gm_id": 17.5,
+    "ids": 60.0,
+    "idW": 3.50893,
+    "W": 17.1
+  },
+  "XM3": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM4": {
+    "L": 1.125,
+    "gm_id": 16.5,
+    "ids": 60.0,
+    "idW": 1.0406,
+    "W": 57.66
+  },
+  "XM5": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM6": {
+    "L": 1.0,
+    "gm_id": 9.1,
+    "ids": 60.0,
+    "idW": 1.085269,
+    "W": 55.29
+  },
+  "XM7": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM8": {
+    "L": 1.8,
+    "gm_id": 5.0,
+    "ids": 60.0,
+    "idW": 2.895645,
+    "W": 20.72
+  },
+  "XM9": {
+    "L": 1.25,
+    "gm_id": 16.0,
+    "ids": 120.0,
+    "idW": 1.2036,
+    "W": 99.7
+  }
+}
+最佳结果: {'Gain': 63.9878, 'GBW': 66.0974, 'PM': 60.0635, 'i(vmeas)': 108.7025, 'SR': 359.3}
+
+[Log file closed at 2026-02-10T11:49:13.712922]

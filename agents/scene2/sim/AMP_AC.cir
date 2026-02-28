@@ -1,0 +1,27 @@
+* Five-transistor OTA AC; run from scene2/sim
+.include 'sky130_compact.lib'
+.include 'AMP.cir'
+.TEMP 25.0
+
+V1 VSS 0 dc=0
+V0 VDD 0 dc=1.8
+VIN Vinn 0 dc=0.9 ac=0.5
+VIP Vinp 0 dc=0.9 ac=-0.5
+
+XI1 Vinp Vinn VDD VSS Vout AMP
+C1 Vout 0 2e-12
+
+.ac dec 100 1 1000Meg
+.print ac vdb(Vout) vp(Vout)
+
+.CONTROL
+set units=degrees
+run
+meas ac gain_max find vdb(Vout) at=1
+meas ac gbw when vdb(Vout)=0
+meas ac phase_margin find vp(Vout) when vdb(Vout)=0
+echo "Gain= $&gain_max" > AC_results_1.txt
+echo "GBW= $&gbw" >> AC_results_1.txt
+echo "PM= $&phase_margin" >> AC_results_1.txt
+.ENDC
+.END
